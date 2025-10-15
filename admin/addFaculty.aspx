@@ -32,91 +32,90 @@
             </nav>
             <main class="content flex-fill p-4">
 
-               <div class="content-wrapper p-4">
-    <div class="form-section-container">
-        <div class="form-page">
-            <h2 class="text-primary mb-4">Add Faculties</h2>
-            <form>
-                <div class="mb-3">
-                    <asp:Label ID="Label1" runat="server" Text="Professor Name" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="txtpnm" runat="server" CssClass="form-control" placeholder="e.g., Dr. Amit Patel"></asp:TextBox>
-                </div>
-                <div class="mb-3">
-                    <asp:Label ID="Label2" runat="server" Text="Description" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="txtdes" runat="server" CssClass="form-control" placeholder="e.g., Expert in Database Management Systems"></asp:TextBox>
-                </div>
-                <div class="mb-3">
-                    <asp:Label ID="Label3" runat="server" Text="Subject Name" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="txtsnm" runat="server" CssClass="form-control" placeholder="e.g., DBMS"></asp:TextBox>
-                </div>
-                <div class="mb-4">
-                    <asp:Label ID="Label4" runat="server" Text="Subject Expert" CssClass="form-label"></asp:Label>
-                    <asp:TextBox ID="txtsex" runat="server" CssClass="form-control" placeholder="e.g., Networking"></asp:TextBox>
-                </div>
-                <div class="mb-4">
-                    <asp:Label ID="Label10" runat="server" Text="Professor Image" CssClass="form-label"></asp:Label>
-                    <asp:FileUpload ID="fldimg" runat="server" CssClass="form-control" />
+                <div class="content-wrapper p-4">
+                    <div class="form-section-container">
+                        <div class="form-page">
+                            <h2 class="text-primary mb-4">Add Faculties</h2>
+                            <form>
+                                <div class="mb-3">
+                                    <asp:Label ID="Label1" runat="server" Text="Professor Name" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtpnm" runat="server" CssClass="form-control" placeholder="e.g., Dr. Amit Patel"></asp:TextBox>
+                                </div>
+                                <div class="mb-3">
+                                    <asp:Label ID="Label2" runat="server" Text="Description" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtdes" runat="server" CssClass="form-control" placeholder="e.g., Expert in Database Management Systems"></asp:TextBox>
+                                </div>
+                                <div class="mb-3">
+                                    <asp:Label ID="Label3" runat="server" Text="Subject Name" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtsnm" runat="server" CssClass="form-control" placeholder="e.g., DBMS"></asp:TextBox>
+                                </div>
+                                <div class="mb-4">
+                                    <asp:Label ID="Label4" runat="server" Text="Subject Expert" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtsex" runat="server" CssClass="form-control" placeholder="e.g., Networking"></asp:TextBox>
+                                </div>
+                                <div class="mb-4">
+                                    <asp:Label ID="Label10" runat="server" Text="Professor Image" CssClass="form-label"></asp:Label>
+                                    <asp:FileUpload ID="fldimg" runat="server" CssClass="form-control" />
+                                </div>
+
+                                <asp:Button ID="btnPro" runat="server" Text="Add Faculties" CssClass="btn btn-primary btn-lg w-100" />
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
-                <asp:Button ID="btnPro" runat="server" Text="Add Faculties" CssClass="btn btn-primary btn-lg w-100" />
-            </form>
+
+                <div class="table-responsive mt-5">
+                    <h2 class="text-secondary mb-3">Existing Exams</h2>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" CssClass="table table-striped table-hover table-bordered shadow-sm">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Id">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("ExamId") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="SubId">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("SubId") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="ExamName">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("ExamName") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Duration">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Duration") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="TotalMarks">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("TotalMarks") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Edit">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary">Edit</asp:LinkButton>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Delete">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Exam?');">Delete</asp:LinkButton>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                        </Columns>
+                        <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
+                        <RowStyle BackColor="#f8f9fa" />
+                        <AlternatingRowStyle BackColor="White" />
+                    </asp:GridView>
+                </div>
         </div>
-    </div>
-</div>
-
-
-                   <%-- <div class="table-responsive mt-5">
-                        <h2 class="text-secondary mb-3">Existing Exams</h2>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" OnRowCommand="GridView1_RowCommand" CssClass="table table-striped table-hover table-bordered shadow-sm">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Id">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("ExamId") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="SubId">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("SubId") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="ExamName">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("ExamName") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Duration">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label8" runat="server" Text='<%# Eval("Duration") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TotalMarks">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label9" runat="server" Text='<%# Eval("TotalMarks") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Edit">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary">Edit</asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Delete">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Exam?');">Delete</asp:LinkButton>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:TemplateField>
-                            </Columns>
-                            <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
-                            <RowStyle BackColor="#f8f9fa" />
-                            <AlternatingRowStyle BackColor="White" />
-                        </asp:GridView>
-                    </div>--%>
-                </div>
-
-            </main>
+    </main>
 
         </div>
 </asp:Content>
