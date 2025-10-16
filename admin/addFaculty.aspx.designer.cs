@@ -96,13 +96,13 @@ namespace WebUni_Project.admin
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// fldimg control.
+        /// fldproimg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fldimg;
+        protected global::System.Web.UI.WebControls.FileUpload fldproimg;
 
         /// <summary>
         /// btnPro control.
@@ -114,12 +114,12 @@ namespace WebUni_Project.admin
         protected global::System.Web.UI.WebControls.Button btnPro;
 
         /// <summary>
-        /// GridView1 control.
+        /// gvFact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvFact;
     }
 }

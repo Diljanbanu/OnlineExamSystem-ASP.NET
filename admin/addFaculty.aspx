@@ -55,10 +55,10 @@
                                 </div>
                                 <div class="mb-4">
                                     <asp:Label ID="Label10" runat="server" Text="Professor Image" CssClass="form-label"></asp:Label>
-                                    <asp:FileUpload ID="fldimg" runat="server" CssClass="form-control" />
+                                    <asp:FileUpload ID="fldproimg" runat="server" CssClass="form-control" />
                                 </div>
 
-                                <asp:Button ID="btnPro" runat="server" Text="Add Faculties" CssClass="btn btn-primary btn-lg w-100" />
+                                <asp:Button ID="btnPro" runat="server" Text="Add Faculties" CssClass="btn btn-primary btn-lg w-100" OnClick="btnPro_Click" />
                             </form>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
 
                 <div class="table-responsive mt-5">
                     <h2 class="text-secondary mb-3">Faculties List</h2>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm">
+                    <asp:GridView ID="gvFact" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm">
                         <Columns>
                             <asp:TemplateField HeaderText="Id">
                                 <ItemTemplate>
