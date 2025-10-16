@@ -66,7 +66,7 @@
 
 
                 <div class="table-responsive mt-5">
-                    <h2 class="text-secondary mb-3">Faculties</h2>
+                    <h2 class="text-secondary mb-3">Faculties List</h2>
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm">
                         <Columns>
                             <asp:TemplateField HeaderText="Id">
