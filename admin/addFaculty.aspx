@@ -67,44 +67,49 @@
 
                 <div class="table-responsive mt-5">
                     <h2 class="text-secondary mb-3">Faculties</h2>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" CssClass="table table-striped table-hover table-bordered shadow-sm">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm">
                         <Columns>
                             <asp:TemplateField HeaderText="Id">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("ExamId") %>'></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="SubId">
+                            <asp:TemplateField HeaderText="Professor Name">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("SubId") %>'></asp:Label>
+                                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("Pro_Name") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ExamName">
+                            <asp:TemplateField HeaderText="Decription">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("ExamName") %>'></asp:Label>
+                                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Duration">
+                            <asp:TemplateField HeaderText="Subject Name">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Duration") %>'></asp:Label>
+                                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Subject_Name") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="TotalMarks">
+                            <asp:TemplateField HeaderText="Subject Expert">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("TotalMarks") %>'></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("Subject_Expert") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Image">
+                                <ItemTemplate>
+                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                                </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Edit">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary">Edit</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary">Edit</asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Delete">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ExamId") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Exam?');">Delete</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Exam?');">Delete</asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
