@@ -101,9 +101,16 @@ namespace WebUni_Project.admin
             da = new SqlDataAdapter("SELECT * FROM add_Faculty_tbl",con);
             ds = new DataSet();
             da.Fill(ds);
-            //string xml = @" C:/Users/Aysha/source/repos/2_T_Temp/2_T_Temp/data.xml";
             string xml= @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.xml";
             ds.WriteXmlSchema(xml);
+
+            Crypath = @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.rpt";
+            cr.Load(Crypath);
+            cr.SetDataSource(ds);
+            cr.Database.Tables[0].SetDataSource(ds);
+            cr.Refresh();
+            crystalReportViewer1.ReportSource = cr;
+
 
         }
     }
