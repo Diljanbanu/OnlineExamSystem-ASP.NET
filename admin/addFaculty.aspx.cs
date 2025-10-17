@@ -9,6 +9,9 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 namespace WebUni_Project.admin
 {
 	public partial class addFaculty : System.Web.UI.Page
@@ -19,6 +22,10 @@ namespace WebUni_Project.admin
         SqlCommand cmd;//inser , update,delete
         DataSet ds;// run time container
         string fnm;
+
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+
+        static string Crypath = "";
 
         void getcon()
         {
@@ -87,6 +94,17 @@ namespace WebUni_Project.admin
                 fillgrid();
                 btnPro.Text = "Save";
             }
+        }
+
+        protected void btnRepo_Click(object sender, EventArgs e)
+        {
+            da = new SqlDataAdapter("SELECT * FROM add_Faculty_tbl",con);
+            ds = new DataSet();
+            da.Fill(ds);
+            //string xml = @" C:/Users/Aysha/source/repos/2_T_Temp/2_T_Temp/data.xml";
+            string xml= @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.xml";
+            ds.WriteXmlSchema(xml);
+
         }
     }
 }
