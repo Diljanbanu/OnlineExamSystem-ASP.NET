@@ -23,7 +23,7 @@ namespace WebUni_Project.admin
         DataSet ds;// run time container
         string fnm;
 
-        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        //private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
 
         static string Crypath = "";
 
@@ -96,22 +96,22 @@ namespace WebUni_Project.admin
             }
         }
 
-        protected void btnRepo_Click(object sender, EventArgs e)
-        {
-            da = new SqlDataAdapter("SELECT * FROM add_Faculty_tbl",con);
-            ds = new DataSet();
-            da.Fill(ds);
-            string xml= @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.xml";
-            ds.WriteXmlSchema(xml);
+        //protected void btnRepo_Click(object sender, EventArgs e)
+        //{
+        //    da = new SqlDataAdapter("SELECT * FROM add_Faculty_tbl",con);
+        //    ds = new DataSet();
+        //    da.Fill(ds);
+        //    string xml= @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.xml";
+        //    ds.WriteXmlSchema(xml);
 
-            Crypath = @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.rpt";
-            cr.Load(Crypath);
-            cr.SetDataSource(ds);
-            cr.Database.Tables[0].SetDataSource(ds);
-            cr.Refresh();
-           // crystalReportViewer1.ReportSource = cr;
+        //    Crypath = @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.rpt";
+        //    cr.Load(Crypath);
+        //    cr.SetDataSource(ds);
+        //    cr.Database.Tables[0].SetDataSource(ds);
+        //    cr.Refresh();
+        //   // crystalReportViewer1.ReportSource = cr;
 
 
-        }
+        //}
     }
 }
