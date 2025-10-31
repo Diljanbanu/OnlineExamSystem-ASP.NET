@@ -387,7 +387,7 @@
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
-    min-height: 380px; /* Subject Card સાથે સુસંગત લંબાઈ */
+    min-height: 380px; 
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -403,21 +403,18 @@
 
 .exam-card-actions {
     display: flex;
-    flex-direction: column; /* બટનોને એકબીજાની નીચે રાખવા માટે */
+    flex-direction: column; 
     gap: 15px; 
-    margin-top: auto; /* બટનોને નીચે ધકેલવા */
+    margin-top: auto; 
 }
 
-/* Responsive Design માં Exam Card ના સુધારા */
 @media (max-width: 991px) {
-    /* Tablets અને તેથી મોટી સ્ક્રીન પર 2 per row */
     #<%= dlexam.ClientID %> > span {
         width: 50%;
     }
 }
 
 @media (max-width: 767px) {
-    /* Small mobile પર 1 per row */
     #<%= dlexam.ClientID %> > span {
         width: 100%;
     }

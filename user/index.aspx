@@ -90,7 +90,7 @@
         <!-- Hero section end -->
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-    <section class="spad">
+   <%-- <section class="spad">
         <div class="container">
             <div class="section-title">
                 <h2>Faculties</h2>
@@ -105,7 +105,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='asp_net.aspx?subject=computer-networks'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #6a11cb, #2575fc);">
-                                <img src="img/pb.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/pb.jpg" alt="Networking" style="width: 150%; height: 300px; ">
 
                                 <span></span>
                             </div>
@@ -116,7 +116,6 @@
                                     <p>
                                         Test your knowledge on OSI model, TCP/IP protocols, subnetting, and network security concepts.
                                     </p>
-                                    <%--                                <span class="students">15 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #6a11cb, #2575fc);">
@@ -132,7 +131,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='bca-exam-list.html?subject=dbms'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #f5af19, #f12711);">
-                                <img src="img/jf.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/jf.jpg" alt="Networking" style="width: 150%; height: 300px;">
 
                                 <span></span>
                             </div>
@@ -142,7 +141,6 @@
                                     <p>
                                         Covering SQL, normalization, ER diagrams, and transaction management as per the university curriculum.
                                     </p>
-                                    <%--                                <span class="students">18 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #f5af19, #f12711);">
@@ -158,7 +156,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='bca-exam-list.html?subject=web-technologies'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #8E2DE2, #4A00E0);">
-                                <img src="img/hd.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/hd.jpg" alt="Networking" style="width: 150%; height: 300px;">
 
                                 <span></span>
                             </div>
@@ -168,7 +166,6 @@
                                     <p>
                                         Exams on HTML, CSS, JavaScript, and other essential technologies for modern web development.
                                     </p>
-                                    <%--                                <span class="students">22 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #8E2DE2, #4A00E0);">
@@ -184,7 +181,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='bca-exam-list.html?subject=data-structures'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #00c9ff, #92fe9d);">
-                                <img src="img/am.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/am.jpg" alt="Networking" style="width: 150%; height: 300px; ">
 
                                 <span></span>
                             </div>
@@ -194,7 +191,6 @@
                                     <p>
                                         Exams on arrays, linked lists, stacks, queues, trees, and graphs, with a focus on algorithm complexity.
                                     </p>
-                                    <%--                                <span class="students">25 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #00c9ff, #92fe9d);">
@@ -211,7 +207,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='bca-exam-list.html?subject=software-engineering'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #ff4e50, #f9d423);">
-                                <img src="img/ak.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/ak.jpg" alt="Networking" style="width: 150%; height: 300px; ">
 
                                 <span></span>
                             </div>
@@ -221,7 +217,6 @@
                                     <p>
                                         Covering SDLC models like Waterfall and Agile, requirement analysis, and software testing methodologies.
                                     </p>
-                                    <%--                                <span class="students">12 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #ff4e50, #f9d423);">
@@ -238,7 +233,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="course-item" onclick="window.location.href='bca-exam-list.html?subject=c-programming'">
                             <div class="course-thumb" style="background: linear-gradient(45deg, #0052D4, #4364F7, #6FB1FC);">
-                                <img src="img/pk.jpg" alt="Networking" style="width: 150%; height: 300px; <%--object-fit: cover; border-radius: 10px; "--%>">
+                                <img src="img/pk.jpg" alt="Networking" style="width: 150%; height: 300px; ">
 
                                 <span></span>
                             </div>
@@ -248,7 +243,6 @@
                                     <p>
                                         Fundamental concepts of C programming including logic, syntax, pointers, and file handling for semester exams.
                                     </p>
-                                    <%--                                <span class="students">20 Mock Papers</span>--%>
                                 </div>
                                 <div class="course-author">
                                     <div class="ca-pic set-bg" style="background: linear-gradient(45deg, #0052D4, #6FB1FC);">
@@ -294,7 +288,39 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--%>
+
+
+
+   <section>
+       <center>
+           <asp:DataList ID="dlfact" runat="server">
+               <ItemTemplate>
+                   <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                   <br />
+                   <asp:Label ID="Label1" runat="server" Text='<%# Eval("Pro_Name") %>'></asp:Label>
+                   <br />
+                   <asp:Label ID="Label2" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                   <br />
+                   <asp:Label ID="Label3" runat="server" Text='<%# Eval("Subject_Name") %>'></asp:Label>
+                   <br />
+                   <asp:Label ID="Label4" runat="server" Text='<%# Eval("Subject_Expert") %>'></asp:Label>
+               </ItemTemplate>
+
+           </asp:DataList>
+       </center>
+   </section>
+
+
+
+
+
+
+
+
+
+
+
 </asp:Content>
 <asp:Content ID="Content4" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
 

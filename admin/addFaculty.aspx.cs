@@ -109,7 +109,7 @@ namespace WebUni_Project.admin
             cr.SetDataSource(ds);
             cr.Database.Tables[0].SetDataSource(ds);
             cr.Refresh();
-            crystalReportViewer1.ReportSource = cr;
+           // crystalReportViewer1.ReportSource = cr;
 
 
         }
