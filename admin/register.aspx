@@ -25,6 +25,7 @@
                     <li class="nav-item"><a href="addSubject.aspx" class="nav-link">Add Subject</a></li>
                     <li class="nav-item"><a href="addExam.aspx" class="nav-link">Add Exam</a></li>
                     <li class="nav-item"><a href="addQuestion.aspx" class="nav-link">Add Question</a></li>
+                    <li class="nav-item"><a href="addFaculty.aspx" class="nav-link">Add Faculties</a></li>
                     <li class="nav-item"><a href="student.aspx" class="nav-link">Students</a></li>
                     <li class="nav-item"><a href="contact.aspx" class="nav-link">Contacts</a></li>
                     <li class="nav-item"><a href="index.aspx" class="nav-link">Logout</a></li>

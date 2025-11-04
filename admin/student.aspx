@@ -25,59 +25,60 @@
                     <li class="nav-item"><a href="addSubject.aspx" class="nav-link">Add Subject</a></li>
                     <li class="nav-item"><a href="addExam.aspx" class="nav-link">Add Exam</a></li>
                     <li class="nav-item"><a href="addQuestion.aspx" class="nav-link">Add Question</a></li>
+                    <li class="nav-item"><a href="addFaculty.aspx" class="nav-link">Add Faculties</a></li>
                     <li class="nav-item"><a href="student.aspx" class="nav-link">Students</a></li>
                     <li class="nav-item"><a href="contact.aspx" class="nav-link">Contacts</a></li>
                     <li class="nav-item"><a href="index.aspx" class="nav-link">Logout</a></li>
                 </ul>
             </nav>
             <main class="content flex-fill p-4">
-                 <div class="content-wrapper p-4">
-        
-        <h2 class="text-primary mb-4">Registered Students</h2>
+                <div class="content-wrapper p-4">
 
-        <div class="table-responsive mt-3">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" CssClass="table table-striped table-hover table-bordered shadow-sm">
-                <Columns>
-                    <asp:TemplateField HeaderText="Id">
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="FullName">
-                        <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Email">
-                        <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="MobileNo">
-                        <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("MobileNo") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Gender">
-                        <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Created Date">
-                        <ItemTemplate>
-                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("CreatedDate") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <%-- Custom Header/Row styles added (compatible with your main CSS) --%>
-                <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
-                <RowStyle BackColor="#f8f9fa" />
-                <AlternatingRowStyle BackColor="White" />
-            </asp:GridView>
-        </div>
-        
-    </div>
-             
+                    <h2 class="text-primary mb-4">Registered Students</h2>
+
+                    <div class="table-responsive mt-3">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" CssClass="table table-striped table-hover table-bordered shadow-sm">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Id">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="FullName">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Email">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="MobileNo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("MobileNo") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Gender">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Created Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("CreatedDate") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <%-- Custom Header/Row styles added (compatible with your main CSS) --%>
+                            <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
+                            <RowStyle BackColor="#f8f9fa" />
+                            <AlternatingRowStyle BackColor="White" />
+                        </asp:GridView>
+                    </div>
+
+                </div>
+
             </main>
         </div>
 </asp:Content>

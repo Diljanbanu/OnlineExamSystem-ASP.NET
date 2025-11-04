@@ -38,6 +38,7 @@
                     <li class="nav-item"><a href="addSubject.aspx" class="nav-link">Add Subject</a></li>
                     <li class="nav-item"><a href="addExam.aspx" class="nav-link">Add Exam</a></li>
                     <li class="nav-item"><a href="addQuestion.aspx" class="nav-link">Add Question</a></li>
+                    <li class="nav-item"><a href="addFaculty.aspx" class="nav-link">Add Faculties</a></li>
                     <li class="nav-item"><a href="student.aspx" class="nav-link">Students</a></li>
                     <li class="nav-item"><a href="contact.aspx" class="nav-link">Contacts</a></li>
                     <li class="nav-item"><a href="index.aspx" class="nav-link">Logout</a></li>
@@ -47,81 +48,83 @@
 
                 <!--Subjects-->
                 <div class="content-wrapper p-4">
-        <div class="form-section-container">
-            <div class="form-page">
-                <h2 class="text-primary mb-4">Add Subject</h2>
-                <div class="alert alert-info d-none" role="alert" id="successMessage" runat="server">
-                    Subject Added Successfully!
-                </div>
-                
-                <%-- Using ASP.NET Panel instead of <form> tag to prevent nested forms issue --%>
-                <asp:Panel ID="pnlAddSubject" runat="server">
-                    <div class="mb-3">
-                        <asp:Label ID="Label1" runat="server" Text="Subject Name" CssClass="form-label"></asp:Label>
-                        <asp:TextBox ID="txtsnm" runat="server" CssClass="form-control" placeholder="e.g., ASP.NET (C#)"></asp:TextBox>
-                    </div>
-                    <div class="mb-3">
-                        <asp:Label ID="Label2" runat="server" Text="Description" CssClass="form-label"></asp:Label>
-                        <asp:TextBox ID="txtdesc" runat="server" CssClass="form-control" placeholder="Brief description of the subject"></asp:TextBox>
-                    </div>
-                    <div class="mb-4">
-                        <asp:Label ID="Label3" runat="server" Text="Image" CssClass="form-label"></asp:Label>
-                        <%-- FileUpload control automatically uses its own styles unless explicitly styled --%>
-                        <asp:FileUpload ID="fldsubimg" runat="server" CssClass="form-control" />
-                    </div>
-                    <asp:Button ID="btnsub" class="btn btn-primary btn-lg w-100" runat="server" Text="Add Subject" OnClick="btnsub_Click" />
-                </asp:Panel>
-            </div>
-        </div>
+                    <div class="form-section-container">
+                        <div class="form-page">
+                            <h2 class="text-primary mb-4">Add Subject</h2>
+                            <div class="alert alert-info d-none" role="alert" id="successMessage" runat="server">
+                                Subject Added Successfully!
+               
+                            </div>
 
-        <div class="table-responsive mt-5">
-            <h2 class="text-secondary mb-3">Existing Subjects</h2>
-            <asp:GridView ID="gvSub" runat="server" CssClass="table table-striped table-hover table-bordered shadow-sm" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" AutoGenerateColumns="False" DataKeyNames="Id"> <%-- Assuming 'Id' is the DataKeyName --%>
-                <Columns>
-                    <asp:TemplateField HeaderText="Id">
-                        <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-                        </ItemTemplate>
-                        <HeaderStyle Width="50px" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="SubjectName">
-                        <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("SubjectName") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Description">
-                        <ItemTemplate>
-                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
-                        </ItemTemplate>
-                        <HeaderStyle Width="40%" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Image">
-                        <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" Height="80" Width="80" ImageUrl='<%# Eval("Image") %>' CssClass="img-thumbnail" />
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" />
-                        <HeaderStyle Width="100px" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Edit">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary" Text="Edit"></asp:LinkButton>
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Delete">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Subject?');">Delete</asp:LinkButton>
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:TemplateField>
-                </Columns>
-                <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
-                <RowStyle BackColor="#f8f9fa" />
-                <AlternatingRowStyle BackColor="White" />
-            </asp:GridView>
-        </div>
-    </div>
-    </main>
+                            <%-- Using ASP.NET Panel instead of <form> tag to prevent nested forms issue --%>
+                            <asp:Panel ID="pnlAddSubject" runat="server">
+                                <div class="mb-3">
+                                    <asp:Label ID="Label1" runat="server" Text="Subject Name" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtsnm" runat="server" CssClass="form-control" placeholder="e.g., ASP.NET (C#)"></asp:TextBox>
+                                </div>
+                                <div class="mb-3">
+                                    <asp:Label ID="Label2" runat="server" Text="Description" CssClass="form-label"></asp:Label>
+                                    <asp:TextBox ID="txtdesc" runat="server" CssClass="form-control" placeholder="Brief description of the subject"></asp:TextBox>
+                                </div>
+                                <div class="mb-4">
+                                    <asp:Label ID="Label3" runat="server" Text="Image" CssClass="form-label"></asp:Label>
+                                    <%-- FileUpload control automatically uses its own styles unless explicitly styled --%>
+                                    <asp:FileUpload ID="fldsubimg" runat="server" CssClass="form-control" />
+                                </div>
+                                <asp:Button ID="btnsub" class="btn btn-primary btn-lg w-100" runat="server" Text="Add Subject" OnClick="btnsub_Click" />
+                            </asp:Panel>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive mt-5">
+                        <h2 class="text-secondary mb-3">Existing Subjects</h2>
+                        <asp:GridView ID="gvSub" runat="server" CssClass="table table-striped table-hover table-bordered shadow-sm" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CellSpacing="0" AutoGenerateColumns="False" DataKeyNames="Id">
+                            <%-- Assuming 'Id' is the DataKeyName --%>
+                            <Columns>
+                                <asp:TemplateField HeaderText="Id">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle Width="50px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="SubjectName">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("SubjectName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Description">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <HeaderStyle Width="40%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Image">
+                                    <ItemTemplate>
+                                        <asp:Image ID="Image1" runat="server" Height="80" Width="80" ImageUrl='<%# Eval("Image") %>' CssClass="img-thumbnail" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    <HeaderStyle Width="100px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Edit">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_edt" CssClass="btn btn-sm btn-outline-primary" Text="Edit"></asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Delete">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt" CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Are you sure you want to delete this Subject?');">Delete</asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                            </Columns>
+                            <HeaderStyle BackColor="#0d6efd" ForeColor="White" Font-Bold="True" />
+                            <RowStyle BackColor="#f8f9fa" />
+                            <AlternatingRowStyle BackColor="White" />
+                        </asp:GridView>
+                    </div>
+                </div>
+            </main>
         </div>
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
