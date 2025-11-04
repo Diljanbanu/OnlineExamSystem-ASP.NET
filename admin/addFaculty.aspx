@@ -119,7 +119,7 @@
                         <RowStyle BackColor="#f8f9fa" />
                         <AlternatingRowStyle BackColor="White" />
                     </asp:GridView>
-                    <asp:Button ID="btnRepo" runat="server" Text="Report" OnClick="btnRepo_Click" />
+<%--                    <asp:Button ID="btnRepo" runat="server" Text="Report" OnClick="btnRepo_Click" />--%>
 
                 </div>
         </div>

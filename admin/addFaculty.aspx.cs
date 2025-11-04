@@ -30,6 +30,13 @@ namespace WebUni_Project.admin
             con = new SqlConnection(s);
             con.Open();
         }
+        void clear()
+        {
+            txtpnm.Text = "";
+            txtdes.Text = "";
+            txtsnm.Text = "";
+            txtsex.Text = "";
+        }
 
         void imgupload()
         {
@@ -73,6 +80,7 @@ namespace WebUni_Project.admin
             getcon();
             fillgrid();
             imgupload();
+            clear();
         }
 
         protected void btnPro_Click(object sender, EventArgs e)
@@ -82,8 +90,9 @@ namespace WebUni_Project.admin
                 getcon();
                 imgupload();
 
-                cmd = new SqlCommand("INSERT INTO add_Faculty_tbl(Pro_Name,Description,Subject_Name,Subject_Expert,Image)VALUES('"+txtpnm.Text+"','"+txtdes.Text+"','"+txtsnm.Text+"','" + txtsex.Text + ",'" + fnm + "')", con);
+                cmd = new SqlCommand("INSERT INTO add_Faculty_tbl(Pro_Name,Description,Subject_Name,Subject_Expert,Image)VALUES('"+txtpnm.Text+"','"+txtdes.Text+"','"+txtsnm.Text+"','" + txtsex.Text + "','" + fnm + "')", con);
                 cmd.ExecuteNonQuery();
+                clear();
             }
             else
             {
