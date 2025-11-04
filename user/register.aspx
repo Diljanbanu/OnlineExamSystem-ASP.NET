@@ -236,72 +236,77 @@
     <section class="search-section ss-other-page">
         <div class="container">
             <div class="search-warp">
-                 <div class="section-title text-white">
-                <section class="registration-section">
-                    <div class="registration-warp">
-                        <div class="registration-form">
-                            <div class="form-title">
-                                <h2>Create Account</h2>
-                                <h3>Join WebUni and start your learning journey today</h3>
-                            </div>
+                <div class="section-title text-white">
+                    <section class="registration-section">
+                        <div class="registration-warp">
+                            <div class="registration-form">
+                                <div class="form-title">
+                                    <h2>Create Account</h2>
+                                    <h3>Join WebUni and start your learning journey today</h3>
+                                </div>
 
-                            <div class="form-group">
-                                <asp:TextBox ID="txtfnm" placeholder="Full Name" runat="server"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="txtfnm" placeholder="Full Name" runat="server"></asp:TextBox>
 
 
-                                <%--                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtfnm" Display="None" runat="server" ErrorMessage="Please Enter Full Name..."></asp:RequiredFieldValidator>--%>
-                            </div>
+                                    <%--                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtfnm" Display="None" runat="server" ErrorMessage="Please Enter Full Name..."></asp:RequiredFieldValidator>--%>
+                                </div>
 
-                            <div class="form-group">
-                                <asp:TextBox ID="txteml" placeholder="Email Address" runat="server"></asp:TextBox>
-                                <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txteml" Display="None" runat="server" ErrorMessage="Please Enter Email Proper Format..." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
-                            </div>
+                                <div class="form-group">
+                                    <asp:TextBox ID="txteml" placeholder="Email Address" runat="server"></asp:TextBox>
+                                    <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txteml" Display="None" runat="server" ErrorMessage="Please Enter Email Proper Format..." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
+                                </div>
 
-                            <div class="form-group">
-                                <asp:TextBox ID="txtmbl" placeholder="Mobile Number" runat="server"></asp:TextBox>
-                                <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtmbl" Display="None" runat="server" ErrorMessage="Please Enter Only 10 Digits..." ValidationExpression="(0( \d|\d ))?\d\d \d\d(\d \d| \d\d )\d\d"></asp:RegularExpressionValidator>--%>
-                            </div>
+                                <div class="form-group">
+                                    <asp:TextBox ID="txtmbl" placeholder="Mobile Number" runat="server"></asp:TextBox>
+                                    <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtmbl" Display="None" runat="server" ErrorMessage="Please Enter Only 10 Digits..." ValidationExpression="(0( \d|\d ))?\d\d \d\d(\d \d| \d\d )\d\d"></asp:RegularExpressionValidator>--%>
+                                </div>
 
-                            <div class="form-group">
-                                <asp:DropDownList ID="drpgen" runat="server">
+                                <div class="form-group">
+                                    <asp:DropDownList ID="drpgen" runat="server">
+                                        <asp:ListItem Text="-- Select Gender --" Value=""></asp:ListItem>
+                                        <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+                                        <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <%--<asp:DropDownList ID="drpgen" runat="server">
                                     <asp:ListItem>Male</asp:ListItem>
                                     <asp:ListItem>Female</asp:ListItem>
-                                </asp:DropDownList>
-                                <%--<asp:RadioButtonList ID="rdbgen" runat="server" RepeatDirection="Horizontal">
+                                </asp:DropDownList>--%>
+                                    <%--<asp:RadioButtonList ID="rdbgen" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem>Male</asp:ListItem>
                                     <asp:ListItem>Female</asp:ListItem>
                                 </asp:RadioButtonList>--%>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtpsw" placeholder="Password" runat="server"></asp:TextBox>
-                                    <%--                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Only 6 Characters Numbers and Specific Simbols ..."></asp:RequiredFieldValidator>--%>
                                 </div>
 
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" runat="server"></asp:TextBox>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <asp:TextBox ID="txtpsw" placeholder="Password" runat="server"></asp:TextBox>
+                                        <%--                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Only 6 Characters Numbers and Specific Simbols ..."></asp:RequiredFieldValidator>--%>
+                                    </div>
 
-                                    <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" runat="server"></asp:TextBox>
 
+                                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
+
+                                    </div>
                                 </div>
+
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                                <asp:Button ID="btnreg" runat="server" Text="Registrations" OnClick="btnreg_Click" />
+                                <%--                                <p >If You Have Register.<a href="login.aspx">Login</a></p>--%>
+                                <p style="color: black; padding: 10px; border-radius: 5px;">
+                                    If You Have Register. 
+                                    <a href="login.aspx" style="color: orangered; text-decoration: none; font-weight: bold;">Login</a>
+                                </p>
+
+
                             </div>
-
-                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                            <asp:Button ID="btnreg" runat="server" Text="Registrations" OnClick="btnreg_Click" />
-                            <%--                                <p >If You Have Register.<a href="login.aspx">Login</a></p>--%>
-                            <p style="color:black; padding: 10px; border-radius: 5px;">
-                                If You Have Register. 
-<a href="login.aspx" style="color: orangered; text-decoration: none; font-weight: bold;">Login</a>
-                            </p>
-
-
                         </div>
-                    </div>
-                    <%--                        <asp:Button ID="Button1" runat="server" Text="Registrations"  />--%>
-            </div>
-</section>
-</div>
+                        <%--                        <asp:Button ID="Button1" runat="server" Text="Registrations"  />--%>
+                </div>
+    </section>
+    </div>
         </div>
         </div>
     </section>

@@ -43,7 +43,10 @@ namespace WebUni_Project.admin
         protected void Page_Load(object sender, EventArgs e)
 		{
             getcon();
-            fillgrid();
+            if (!IsPostBack)
+            { 
+                fillgrid();
+            }
         }
 	}
 }

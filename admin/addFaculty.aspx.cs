@@ -9,8 +9,6 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
 
 namespace WebUni_Project.admin
 {
