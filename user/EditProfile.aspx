@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="WebUni_Project.user.Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="WebUni_Project.user.EditProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -49,18 +49,70 @@
                                         <i class="fa fa-bars"></i>
                                     </div>
                                 </div>
-                                <div class="col-lg-9 col-md-9">
+                                <<%--div class="col-lg-9 col-md-9">
                                     <a href="User/register.aspx" class="site-btn header-btn">Register</a>
+                                    <nav class="main-menu">--%><div class="col-lg-9 col-md-9">
+                                    <asp:PlaceHolder ID="phAnonymous" runat="server" Visible="true"><a href="register.aspx" class="site-btn header-btn">Register</a></asp:PlaceHolder>
+                                    <asp:PlaceHolder ID="phAuthenticated" runat="server" Visible="false">
+                                        <div class="user-profile-dropdown" style="display: inline-block; position: relative;">
+                                            <asp:LinkButton ID="lnkUserInitial" runat="server" CssClass="site-btn header-btn" 
+                            OnClientClick="toggleDropdown(event)" 
+                            Style="border-radius: 50%; width: 40px; height: 40px; padding: 0; line-height: 40px; text-align: center; font-size: 18px; text-transform: uppercase;">
+                <asp:Label ID="lblUserInitial" runat="server" Text="U"></asp:Label>
+            </asp:LinkButton>
+                                            <div id="userDropdownContent" style="position: absolute; right: 0; background-color: white; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; display: none; text-align: left;">
+                                                <div style="padding: 10px; border-bottom: 1px solid #eee; color: #333; font-size: 14px;">
+                                                    Welcome,
+                                                    <asp:Label ID="lblUsernameDisplay" runat="server" Font-Bold="true"></asp:Label>
+                                                </div>
+                                                <asp:HyperLink ID="lnkProfile" runat="server" NavigateUrl="~/user/Profile.aspx" CssClass="dropdown-item" Style="display: block; padding: 10px; text-decoration: none; color: #333;">
+                    <i class="fa fa-user"></i> My Profile
+                </asp:HyperLink>
+                                                <asp:HyperLink ID="lnkEdit" runat="server" NavigateUrl="~/user/EditProfile.aspx" CssClass="dropdown-item" Style="display: block; padding: 10px; text-decoration: none; color: #333;">
+                    <i class="fa fa-pencil"></i> Edit Profile
+                </asp:HyperLink>
+                                                <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" 
+                                CssClass="dropdown-item" Style="display: block; padding: 10px; text-decoration: none; color: #d9534f;">
+                    <i class="fa fa-sign-out"></i> Logout
+                </asp:LinkButton>
+                                            </div>
+                                        </div>
+                                    </asp:PlaceHolder>
                                     <nav class="main-menu">
+                                        <ul>
+                                            <li><a href="index.aspx">Home</a></li>
+                                            <li><a href="about-us.aspx">About us</a></li>
+                                            <li><a href="courses.aspx">Courses</a></li>
+                                            <li><a href="contact.aspx">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+<script type="text/javascript">
+    function toggleDropdown(event) {
+        event.preventDefault(); // Default action (like navigating) ને અટકાવે છે
+        var dropdown = document.getElementById("userDropdownContent");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.site-btn.header-btn') && !event.target.matches('.site-btn.header-btn *')) {
+            var dropdown = document.getElementById("userDropdownContent");
+            if (dropdown && dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            }
+        }
+    }
+</script>
                                         <ul>
                                             <li><a href="User/index.aspx">Home</a></li>
                                             <li><a href="User/about-us.aspx">About us</a></li>
                                             <li><a href="User/courses.aspx">Courses</a></li>
                                             <li><a href="User/contact.aspx">Contact</a></li>
-                                        </ul>
-                                    </nav>
+                                </ul>
+                                   <%-- </nav>--%>
                                 </div>
-                            </div>
+                        </div>
                         </div>
                     </header>
                     <!-- Header section end -->
@@ -84,123 +136,46 @@
                     <!-- Hero section end -->
             </asp:Content>
 <asp:Content ID="Content6" runat="server" contentplaceholderid="ContentPlaceHolder2">
-<%-- <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+
+       <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">My Profile Details</h4>
-                    </div>
-                    <div class="card-body">
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Full Name:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblFullName" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Email ID:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblEmail" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Member Since:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblRegistrationDate" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-
-                        <div class="text-right">
-                            <asp:HyperLink ID="linkEditProfile" runat="server" NavigateUrl="~/user/EditProfile.aspx" CssClass="site-btn">Edit Profile</asp:HyperLink>
-                        </div>
-                        
-                    </div>
-                </div>
-
+            <div class="col-lg-6">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-info text-white">
-                        <h4 class="mb-0">My Exam History</h4>
-                    </div>
-                    <div class="card-body">
-                        <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="False" 
-                            CssClass="table table-bordered table-striped" EmptyDataText="No exam attempts found yet.">
-                            <Columns>
-                                <asp:BoundField DataField="SubjectName" HeaderText="Subject" />
-                                <asp:BoundField DataField="Score" HeaderText="Score" />
-                                <asp:BoundField DataField="TotalQuestions" HeaderText="Total Qs" />
-                                <asp:BoundField DataField="CorrectAnswers" HeaderText="Correct" />
-                                <asp:BoundField DataField="AttemptDate" HeaderText="Date" DataFormatString="{0:dd-MMM-yyyy}" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>--%>
-
-
-    <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                
-                <div class="card shadow-sm mb-4">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">My Profile Details</h4>
+                        <h4 class="mb-0">Update Your Details</h4>
                     </div>
                     <div class="card-body">
                         
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Full Name:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblFullName" runat="server" Text="..."></asp:Label>
-                            </div>
+                        <div class="form-group">
+                            <label for="<%= txtFullName.ClientID %>">Full Name:</label>
+                            <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email ID:</label>
+                            <asp:Label ID="lblCurrentEmail" runat="server" CssClass="form-control-plaintext"></asp:Label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="<%= txtNewPassword.ClientID %>">New Password (Optional):</label>
+                            <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                         </div>
                         
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Email ID:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblEmail" runat="server" Text="..."></asp:Label>
-                            </div>
+                        <div class="form-group">
+                            <label for="<%= txtConfirmPassword.ClientID %>">Confirm Password:</label>
+                            <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="Passwords do not match." ForeColor="Red"></asp:CompareValidator>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Member Since:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblRegistrationDate" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-
+                        <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
+                        
                         <div class="text-right">
-                            <asp:HyperLink ID="linkEditProfile" runat="server" NavigateUrl="~/user/EditProfile.aspx" CssClass="site-btn">Edit Profile</asp:HyperLink>
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update Profile" CssClass="site-btn" OnClick="btnUpdate_Click" />
+                            <asp:HyperLink ID="lnkCancel" runat="server" NavigateUrl="~/user/Profile.aspx" CssClass="site-btn" Style="background-color: #6c757d;">Cancel</asp:HyperLink>
                         </div>
-                        
+
                     </div>
                 </div>
-
-                <div class="card shadow-sm">
-                    <div class="card-header bg-info text-white">
-                        <h4 class="mb-0">My Exam History</h4>
-                    </div>
-                    <div class="card-body">
-                        <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="False" 
-                            CssClass="table table-bordered table-striped" EmptyDataText="No exam attempts found yet.">
-                            <Columns>
-                                <asp:BoundField DataField="SubjectName" HeaderText="Subject" />
-                                <asp:BoundField DataField="Score" HeaderText="Score" />
-                                <asp:BoundField DataField="TotalQuestions" HeaderText="Total Qs" />
-                                <asp:BoundField DataField="CorrectAnswers" HeaderText="Correct" />
-                                <asp:BoundField DataField="AttemptDate" HeaderText="Date" DataFormatString="{0:dd-MMM-yyyy}" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
