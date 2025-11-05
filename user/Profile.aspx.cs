@@ -26,66 +26,95 @@ namespace WebUni_Project.user
             con.Open();
         }
 
-        private void LoadUserProfileDetails()
+        private void LoadUserProfileData(int userId)
         {
-            // FormsAuthentication નો ઉપયોગ કરીને યુઝરનેમ મેળવો.
-            // આ યુઝરનેમ સામાન્ય રીતે યુઝરનો ઈમેઈલ આઈડી અથવા યુનિક આઈડી હોય છે.
-            string userIdentityName = User.Identity.Name;
+            string query = "SELECT Username, Email, LastLoginDate FROM Users WHERE UserID = @UserID";
 
-            // ***** DB માંથી ડેટા લોડ કરવાની લોજિક *****
-            // તમારે અહીં SQL Connection, SqlCommand નો ઉપયોગ કરીને DB માંથી યુઝરની વિગતો લાવવી પડશે.
+                    // SQL Injection થી બચવા માટે Parameter નો ઉપયોગ કરો
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
 
-            // ડમી ડેટા (DUMMY DATA) - તમારે આને DB ડેટાથી બદલવું પડશે
-            if (!string.IsNullOrEmpty(userIdentityName))
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                // DB માંથી મળેલા ડેટાને Label માં દર્શાવો
-                lblFullName.Text = "Rohan Patel"; // DB માંથી FullName
-                lblEmail.Text = userIdentityName; // DB માંથી Email/Username
-                lblRegistrationDate.Text = "15-May-2024"; // DB માંથી MemberSince
-            }
-            else
-            {
-                // જો યુઝરનેમ ન મળે તો લોગઆઉટ કરીને Login પેજ પર મોકલો
-                FormsAuthentication.SignOut();
-                Response.Redirect("~/user/login.aspx");
+                if (reader.Read())
+                {
+                    // Database માંથી ડેટા Labels પર Bind કરો
+                    lblUsername.Text = reader["Username"].ToString();
+                    lblEmail.Text = reader["Email"].ToString();
+
+                    // જો LastLoginDate null ન હોય તો જ Format કરો
+                    if (reader["LastLoginDate"] != DBNull.Value)
+                    {
+                        DateTime lastLogin = Convert.ToDateTime(reader["LastLoginDate"]);
+                        lblLastLogin.Text = lastLogin.ToString("dd-MM-yyyy hh:mm tt");
+                    }
+                    else
+                    {
+                        lblLastLogin.Text = "N/A";
+                    }
+                }
+                else
+                {
+                    lblMessage.Text = "User data not found.";
+                    // જો ડેટા ન મળે તો લોગઆઉટ કરી શકાય
+                    // Session.Clear(); 
+                    // Response.Redirect("Login.aspx");
+                }
             }
         }
-
-        private void LoadExamHistory()
+        private void LoadExamHistory(int userId)
         {
-            // ***** DB માંથી એક્ઝામ હિસ્ટરી લોડ કરવાની લોજિક *****
-            // તમારે અહીં DB માંથી યુઝરની પરીક્ષાનો ઇતિહાસ fetch કરવો પડશે.
+            // SQL માંથી જોઈન કરીને ડેટા લાવવા માટે આ Query નો ઉપયોગ કરો
+            // (Exam_Attempts અને Exams નામના બે Table હોવાનું માનવામાં આવે છે)
+            string query = @"
+            SELECT E.ExamName, A.Score, A.AttemptDate 
+            FROM Exam_Attempts A
+            INNER JOIN Exams E ON A.ExamID = E.ExamID
+            WHERE A.UserID = @UserID
+            ORDER BY A.AttemptDate DESC";
 
-            // ડમી ડેટા (DUMMY DATA)
-            DataTable dtHistory = new DataTable();
-            dtHistory.Columns.Add("SubjectName");
-            dtHistory.Columns.Add("Score", typeof(int));
-            dtHistory.Columns.Add("TotalQuestions", typeof(int));
-            dtHistory.Columns.Add("CorrectAnswers", typeof(int));
-            dtHistory.Columns.Add("AttemptDate", typeof(DateTime));
+            
+                    cmd.Parameters.AddWithValue("@UserID", userId);
 
-            // ડમી રોઝ
-            dtHistory.Rows.Add("Web Programming", 15, 20, 15, DateTime.Now.AddDays(-7));
-            dtHistory.Rows.Add("Database Management", 18, 20, 18, DateTime.Now.AddDays(-2));
+                    // SqlDataAdapter નો ઉપયોગ કરીને ડેટાને સીધો DataTable માં ભરો
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
 
-            // GridView ને ડેટા સાથે બાંધો
-            gvExamHistory.DataSource = dtHistory;
-            gvExamHistory.DataBind();
+                        // DataTable ને GridView સાથે જોડો
+                        gvExamHistory.DataSource = dt;
+                        gvExamHistory.DataBind();
+                    }
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
-            if (!User.Identity.IsAuthenticated)
-            {
-                // જો લોગિન ન હોય તો Login પેજ પર રીડાયરેક્ટ કરવું
-                Response.Redirect("~/user/login.aspx");
-            }
-
             if (!IsPostBack)
             {
-                // ***** 2. પ્રોફાઇલ ડિટેલ્સ અને એક્ઝામ હિસ્ટરી લોડ કરવી *****
-                LoadUserProfileDetails();
-                LoadExamHistory();
+                // સેશન ચેક કરો. જો UserID ન હોય, તો લોગિન પેજ પર રિડાયરેક્ટ કરો.
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("Login.aspx"); // Login.aspx પર જાઓ
+                }
+                else
+                {
+                    int userId = Convert.ToInt32(Session["UserID"]);
+                    LoadUserProfileData(userId);
+                    LoadExamHistory(userId);
+                }
             }
         }
-	}
+
+        protected void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditProfile.aspx");
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
+    }
 }

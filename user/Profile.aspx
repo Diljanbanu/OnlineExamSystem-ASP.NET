@@ -145,65 +145,45 @@
     </div>--%>
 
 
-    <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">My Profile Details</h4>
-                    </div>
-                    <div class="card-body">
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Full Name:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblFullName" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Email ID:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblEmail" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 font-weight-bold">Member Since:</div>
-                            <div class="col-sm-8">
-                                <asp:Label ID="lblRegistrationDate" runat="server" Text="..."></asp:Label>
-                            </div>
-                        </div>
-
-                        <div class="text-right">
-                            <asp:HyperLink ID="linkEditProfile" runat="server" NavigateUrl="~/user/EditProfile.aspx" CssClass="site-btn">Edit Profile</asp:HyperLink>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="card shadow-sm">
-                    <div class="card-header bg-info text-white">
-                        <h4 class="mb-0">My Exam History</h4>
-                    </div>
-                    <div class="card-body">
-                        <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="False" 
-                            CssClass="table table-bordered table-striped" EmptyDataText="No exam attempts found yet.">
-                            <Columns>
-                                <asp:BoundField DataField="SubjectName" HeaderText="Subject" />
-                                <asp:BoundField DataField="Score" HeaderText="Score" />
-                                <asp:BoundField DataField="TotalQuestions" HeaderText="Total Qs" />
-                                <asp:BoundField DataField="CorrectAnswers" HeaderText="Correct" />
-                                <asp:BoundField DataField="AttemptDate" HeaderText="Date" DataFormatString="{0:dd-MMM-yyyy}" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-
-            </div>
+  <form id="form1" runat="server">
+        <div>
+            <h1>User Profile Details</h1>
+            
+            <fieldset>
+                <legend>Login and Account Info</legend>
+                <p>
+                    <asp:Label ID="lblUsernameTitle" runat="server" Text="Username: " Font-Bold="true"></asp:Label>
+                    <asp:Label ID="lblUsername" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="lblEmailTitle" runat="server" Text="Email: " Font-Bold="true"></asp:Label>
+                    <asp:Label ID="lblEmail" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="lblLastLoginTitle" runat="server" Text="Last Login: " Font-Bold="true"></asp:Label>
+                    <asp:Label ID="lblLastLogin" runat="server"></asp:Label>
+                </p>
+            </fieldset>
+            
+            <p style="margin-top: 20px;">
+                <asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" OnClick="btnEditProfile_Click" />
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+            </p>
+            
+            <fieldset style="margin-top: 30px;">
+                <legend>Exam History and Scores</legend>
+                <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="false" EmptyDataText="No exam attempts found.">
+                    <Columns>
+                        <asp:BoundField DataField="ExamName" HeaderText="Exam Name" />
+                        <asp:BoundField DataField="Score" HeaderText="Your Score" />
+                        <asp:BoundField DataField="AttemptDate" HeaderText="Date Attempted" DataFormatString="{0:d}" />
+                    </Columns>
+                </asp:GridView>
+            </fieldset>
+            
+            <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
         </div>
-    </div>
+    </form>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" contentplaceholderid="ContentPlaceHolder3">
 
