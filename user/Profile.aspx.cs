@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Security;
+using System.Drawing;
 
 namespace WebUni_Project.user
 {
@@ -25,96 +26,194 @@ namespace WebUni_Project.user
             con = new SqlConnection(s);
             con.Open();
         }
-
-        private void LoadUserProfileData(int userId)
+        private void ShowPanel(string panelName)
         {
-            string query = "SELECT Username, Email, LastLoginDate FROM Users WHERE UserID = @UserID";
+            // બધા પેનલને છુપાવો
+            pnlProfileDetails.Visible = false;
+            pnlEditProfile.Visible = false;
+            pnlChangePassword.Visible = false;
 
-                    // SQL Injection થી બચવા માટે Parameter નો ઉપયોગ કરો
-                    cmd.Parameters.AddWithValue("@UserID", userId);
-                    con.Open();
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            // જરૂરી પેનલ બતાવો
+            switch (panelName)
             {
-                if (reader.Read())
-                {
-                    // Database માંથી ડેટા Labels પર Bind કરો
-                    lblUsername.Text = reader["Username"].ToString();
-                    lblEmail.Text = reader["Email"].ToString();
-
-                    // જો LastLoginDate null ન હોય તો જ Format કરો
-                    if (reader["LastLoginDate"] != DBNull.Value)
-                    {
-                        DateTime lastLogin = Convert.ToDateTime(reader["LastLoginDate"]);
-                        lblLastLogin.Text = lastLogin.ToString("dd-MM-yyyy hh:mm tt");
-                    }
-                    else
-                    {
-                        lblLastLogin.Text = "N/A";
-                    }
-                }
-                else
-                {
-                    lblMessage.Text = "User data not found.";
-                    // જો ડેટા ન મળે તો લોગઆઉટ કરી શકાય
-                    // Session.Clear(); 
-                    // Response.Redirect("Login.aspx");
-                }
+                case "Profile":
+                    pnlProfileDetails.Visible = true;
+                    break;
+                case "Edit":
+                    pnlEditProfile.Visible = true;
+                    lblProfileMessage.Text = "";
+                    break;
+                case "ChangePass":
+                    pnlChangePassword.Visible = true;
+                    lblPasswordMessage.Text = "";
+                    // Clear textboxes when showing the panel
+                    txtOldPassword.Text = "";
+                    txtNewPassword.Text = "";
+                    txtConfirmPassword.Text = "";
+                    break;
             }
         }
-        private void LoadExamHistory(int userId)
+
+        private void LoadUserProfileDetails()
         {
-            // SQL માંથી જોઈન કરીને ડેટા લાવવા માટે આ Query નો ઉપયોગ કરો
-            // (Exam_Attempts અને Exams નામના બે Table હોવાનું માનવામાં આવે છે)
-            string query = @"
-            SELECT E.ExamName, A.Score, A.AttemptDate 
-            FROM Exam_Attempts A
-            INNER JOIN Exams E ON A.ExamID = E.ExamID
-            WHERE A.UserID = @UserID
-            ORDER BY A.AttemptDate DESC";
+            if (Session["UserID"] == null) return;
+            string userId = Session["UserID"].ToString();
 
-            
-                    cmd.Parameters.AddWithValue("@UserID", userId);
+            getcon(); // Connection Open
 
-                    // SqlDataAdapter નો ઉપયોગ કરીને ડેટાને સીધો DataTable માં ભરો
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
+            string query = "SELECT FullName, Username, Email FROM Users WHERE UserID = @UserID";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@UserID", userId);
 
-                        // DataTable ને GridView સાથે જોડો
-                        gvExamHistory.DataSource = dt;
-                        gvExamHistory.DataBind();
-                    }
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Set Profile details to Labels
+                lblFullName.Text = reader["FullName"].ToString();
+                lblUsername.Text = reader["Username"].ToString();
+                lblEmail.Text = reader["Email"].ToString();
+
+                // Set current data to Edit TextBoxes
+                txtEditFullName.Text = reader["FullName"].ToString();
+                txtEditEmail.Text = reader["Email"].ToString();
+            }
+            reader.Close();
+            con.Close(); // Connection Close
+        }
+
+        private void LoadExamHistory()
+        {
+            if (Session["UserID"] == null) return;
+            string userId = Session["UserID"].ToString();
+
+            getcon(); // Connection Open
+
+            // Sample query to fetch exam results - adjust table/column names as needed
+            string query = "SELECT ExamName, Score, DateTaken FROM ExamResults WHERE UserID = @UserID ORDER BY DateTaken DESC";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+
+            da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            // Bind the data to the GridView
+            gvExamHistory.DataSource = dt;
+            gvExamHistory.DataBind();
+
+            con.Close(); // Connection Close
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
             if (!IsPostBack)
             {
-                // સેશન ચેક કરો. જો UserID ન હોય, તો લોગિન પેજ પર રિડાયરેક્ટ કરો.
-                if (Session["UserID"] == null)
-                {
-                    Response.Redirect("Login.aspx"); // Login.aspx પર જાઓ
-                }
-                else
-                {
-                    int userId = Convert.ToInt32(Session["UserID"]);
-                    LoadUserProfileData(userId);
-                    LoadExamHistory(userId);
-                }
+                // પ્રથમ વખત પેજ લોડ થાય ત્યારે પ્રોફાઇલ અને એક્ઝામ હિસ્ટરી લોડ કરો
+                LoadUserProfileDetails();
+                LoadExamHistory();
+                ShowPanel("Profile"); // Default Panel
             }
         }
 
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EditProfile.aspx");
+            ShowPanel("Edit");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.Abandon();
-            Response.Redirect("Login.aspx");
+            ShowPanel("ChangePass");
+        }
+
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            ShowPanel("Profile");
+        }
+
+        protected void btnSaveProfile_Click(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null) return;
+            string userId = Session["UserID"].ToString();
+            string newFullName = txtEditFullName.Text.Trim();
+            string newEmail = txtEditEmail.Text.Trim();
+
+            getcon(); // Connection Open
+
+            // Simple UPDATE query
+            string query = "UPDATE Users SET FullName = @FullName, Email = @Email WHERE UserID = @UserID";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@FullName", newFullName);
+            cmd.Parameters.AddWithValue("@Email", newEmail);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            con.Close(); // Connection Close
+
+            if (rowsAffected > 0)
+            {
+                lblProfileMessage.Text = "Profile updated successfully! ✅";
+                lblProfileMessage.ForeColor = Color.Green;
+                LoadUserProfileDetails(); // Reload details to refresh the main panel
+            }
+            else
+            {
+                lblProfileMessage.Text = "Error updating profile. ❌";
+                lblProfileMessage.ForeColor = Color.Red;
+            }
+        }
+
+        protected void btnUpdatePassword_Click(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null) return;
+            string userId = Session["UserID"].ToString();
+            string oldPassword = txtOldPassword.Text;
+            string newPassword = txtNewPassword.Text;
+            string confirmPassword = txtConfirmPassword.Text;
+
+            if (newPassword != confirmPassword)
+            {
+                lblPasswordMessage.Text = "New Password and Confirm Password do not match! 🛑";
+                lblPasswordMessage.ForeColor = Color.Red;
+                return;
+            }
+
+            // --- SECURITY NOTE: This is NOT secure in a real application. ---
+
+            getcon(); // Connection Open
+
+            // This query attempts to change the password only if the OldPassword matches (for basic security)
+            string query = "UPDATE Users SET Password = @NewPassword WHERE UserID = @UserID AND Password = @OldPassword";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@NewPassword", newPassword);
+            cmd.Parameters.AddWithValue("@OldPassword", oldPassword);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            con.Close(); // Connection Close
+
+            if (rowsAffected > 0)
+            {
+                lblPasswordMessage.Text = "Password updated successfully! ✅";
+                lblPasswordMessage.ForeColor = Color.Green;
+                // Clear fields after successful update
+                txtOldPassword.Text = "";
+                txtNewPassword.Text = "";
+                txtConfirmPassword.Text = "";
+            }
+            else
+            {
+                lblPasswordMessage.Text = "Invalid Old Password or an error occurred. ❌";
+                lblPasswordMessage.ForeColor = Color.Red;
+            }
+
+            // Logout logic અહીં ઉમેરો
+            // FormsAuthentication.SignOut();
+            // Session.Clear();
+            // Response.Redirect("~/login.aspx");
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
         }
     }
 }

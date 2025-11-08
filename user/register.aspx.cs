@@ -36,7 +36,7 @@ namespace WebUni_Project.user
             con = new SqlConnection(s);
             con.Open();
         }
-
+        
         void fillgrid()
         {
             getcon();

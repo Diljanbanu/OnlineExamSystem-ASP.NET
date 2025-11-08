@@ -59,6 +59,7 @@
                                 <li><a href="Subject.aspx">Subjects</a></li>
                                 <li><a href="MyExam.aspx">MyExam</a></li>
                                 <li><a href="contact.aspx">Contact</a></li>
+                                <li><a href="Profile.aspx">Profile</a></li>
 
 
                             </ul>
@@ -90,7 +91,7 @@
         <!-- Hero section end -->
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-   <%-- <section class="spad">
+    <%-- <section class="spad">
         <div class="container">
             <div class="section-title">
                 <h2>Faculties</h2>
@@ -292,24 +293,24 @@
 
 
 
-   <section>
-       <center>
-           <asp:DataList ID="dlfact" runat="server">
-               <ItemTemplate>
-                   <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
-                   <br />
-                   <asp:Label ID="Label1" runat="server" Text='<%# Eval("Pro_Name") %>'></asp:Label>
-                   <br />
-                   <asp:Label ID="Label2" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
-                   <br />
-                   <asp:Label ID="Label3" runat="server" Text='<%# Eval("Subject_Name") %>'></asp:Label>
-                   <br />
-                   <asp:Label ID="Label4" runat="server" Text='<%# Eval("Subject_Expert") %>'></asp:Label>
-               </ItemTemplate>
+    <section>
+        <center>
+            <asp:DataList ID="dlfact" runat="server">
+                <ItemTemplate>
+                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Pro_Name") %>'></asp:Label>
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                    <br />
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Subject_Name") %>'></asp:Label>
+                    <br />
+                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Subject_Expert") %>'></asp:Label>
+                </ItemTemplate>
 
-           </asp:DataList>
-       </center>
-   </section>
+            </asp:DataList>
+        </center>
+    </section>
 
 
 
