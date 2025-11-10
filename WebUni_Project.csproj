@@ -74,6 +74,7 @@
     <Content Include="admin\addSubject.aspx" />
     <Content Include="admin\assest\css\style.css" />
     <Content Include="admin\assest\js\script.js" />
+    <Content Include="admin\attemptExams.aspx" />
     <Content Include="admin\contact.aspx" />
     <Content Include="admin\dashboard.aspx" />
     <Content Include="admin\index.aspx" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="admin\admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\attemptExams.aspx.cs">
+      <DependentUpon>attemptExams.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\attemptExams.aspx.designer.cs">
+      <DependentUpon>attemptExams.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>

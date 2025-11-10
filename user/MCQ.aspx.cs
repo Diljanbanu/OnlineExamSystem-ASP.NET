@@ -45,6 +45,15 @@ namespace WebUni_Project.user
 
         }
 
+        void fillgrid()
+        {
+            getcon();
+            da = new SqlDataAdapter("SELECT * FROM ExamAttempt_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -59,6 +68,8 @@ namespace WebUni_Project.user
                     lblResult.Text = "Invalid Exam!";
                     btnSubmit.Visible = false;
                 }
+                fillgrid();
+
             }
         }
 
@@ -107,12 +118,20 @@ namespace WebUni_Project.user
             }
 
             int total = correct + wrong;
-
             int score = correct * 1;
+
+
+            string userId = Session["ID"].ToString();
+            string examId = Request.QueryString["examId"];
+            string subId = ViewState["SubId"].ToString(); // LoadMCQs માંથી મેળવેલ SubId
+            string correctAnswers = correct.ToString();
+
+            cmd = new SqlCommand("Insert Into ExamAttemp_tbl(UserId,SubId,ExamId,CorrectAnswer)Value('" + userId + "','" + examId + "','" + subId + "','" + correctAnswers + "')", con);
+            cmd.ExecuteNonQuery();
 
             lblResult.Text = $"Correct: {correct}, Wrong: {wrong}, Score: {score}/{total}";
 
-
+            
         }
     }
 }

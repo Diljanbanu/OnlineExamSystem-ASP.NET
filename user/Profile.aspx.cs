@@ -28,16 +28,18 @@ namespace WebUni_Project.user
         }
         private void ShowPanel(string panelName)
         {
-            // બધા પેનલને છુપાવો
-            pnlProfileDetails.Visible = false;
+            // બધા પેનલને છુપાવો
+            pnlProfileDetails.Visible = false;
             pnlEditProfile.Visible = false;
             pnlChangePassword.Visible = false;
 
-            // જરૂરી પેનલ બતાવો
-            switch (panelName)
+            // જરૂરી પેનલ બતાવો
+            switch (panelName)
             {
                 case "Profile":
                     pnlProfileDetails.Visible = true;
+                    // Cancel/Back આવ્યા પછી પ્રોફાઇલ રિફ્રેશ કરો
+                    LoadUserProfileDetails();
                     break;
                 case "Edit":
                     pnlEditProfile.Visible = true;
@@ -46,8 +48,8 @@ namespace WebUni_Project.user
                 case "ChangePass":
                     pnlChangePassword.Visible = true;
                     lblPasswordMessage.Text = "";
-                    // Clear textboxes when showing the panel
-                    txtOldPassword.Text = "";
+                    // Clear textboxes when showing the panel
+                    txtOldPassword.Text = "";
                     txtNewPassword.Text = "";
                     txtConfirmPassword.Text = "";
                     break;
@@ -56,30 +58,45 @@ namespace WebUni_Project.user
 
         private void LoadUserProfileDetails()
         {
-            if (Session["UserID"] == null) return;
+            // યુઝર ID સેશનમાં છે કે નહીં તે તપાસો
+            if (Session["UserID"] == null) return;
             string userId = Session["UserID"].ToString();
 
             getcon(); // Connection Open
 
-            string query = "SELECT FullName, Username, Email FROM Users WHERE UserID = @UserID";
+            // ક્વેરી: ID દ્વારા FullName, Email, અને MobileNo ખેંચો
+            string query = "SELECT FullName, Email, MobileNo FROM User_tbl WHERE ID = @UserID";
+
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@UserID", userId);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            da = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds);
 
-            if (reader.Read())
-            {
-                // Set Profile details to Labels
-                lblFullName.Text = reader["FullName"].ToString();
-                lblUsername.Text = reader["Username"].ToString();
-                lblEmail.Text = reader["Email"].ToString();
-
-                // Set current data to Edit TextBoxes
-                txtEditFullName.Text = reader["FullName"].ToString();
-                txtEditEmail.Text = reader["Email"].ToString();
-            }
-            reader.Close();
             con.Close(); // Connection Close
+
+            // ડેટા મળ્યો છે કે નહીં તે તપાસો
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                // 1. Profile Details Labels માં ડેટા સેટ કરો
+                lblFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
+
+                // MobileNo Labels માં સેટ કરો
+                lblMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
+
+                // lblUsername માટે, Email નો ઉપયોગ
+                lblUsername.Text = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                lblEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                // 2. Edit TextBoxes માં વર્તમાન ડેટા સેટ કરો
+                txtEditFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
+                txtEditEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                // MobileNo એડિટ ટેક્સ્ટબોક્સમાં સેટ કરો
+                txtEditMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
+            }
         }
 
         private void LoadExamHistory()
@@ -89,8 +106,8 @@ namespace WebUni_Project.user
 
             getcon(); // Connection Open
 
-            // Sample query to fetch exam results - adjust table/column names as needed
-            string query = "SELECT ExamName, Score, DateTaken FROM ExamResults WHERE UserID = @UserID ORDER BY DateTaken DESC";
+            // ExamResults માટેનો Simple Query
+            string query = "SELECT ExamName, Score, DateTaken FROM ExamAttemp_tbl WHERE UserID = @UserID ORDER BY DateTaken DESC";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@UserID", userId);
 
@@ -98,21 +115,21 @@ namespace WebUni_Project.user
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            // Bind the data to the GridView
-            gvExamHistory.DataSource = dt;
+            // Bind the data to the GridView
+            gvExamHistory.DataSource = dt;
             gvExamHistory.DataBind();
 
             con.Close(); // Connection Close
-        }
+        }
+       
         protected void Page_Load(object sender, EventArgs e)
 		{
             if (!IsPostBack)
             {
-                // પ્રથમ વખત પેજ લોડ થાય ત્યારે પ્રોફાઇલ અને એક્ઝામ હિસ્ટરી લોડ કરો
                 LoadUserProfileDetails();
                 LoadExamHistory();
                 ShowPanel("Profile"); // Default Panel
-            }
+            }
         }
 
         protected void btnEditProfile_Click(object sender, EventArgs e)
@@ -122,12 +139,14 @@ namespace WebUni_Project.user
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            ShowPanel("ChangePass");
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("~/user/login.aspx");
         }
 
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
-            ShowPanel("Profile");
+            ShowPanel("ChangePass");
         }
 
         protected void btnSaveProfile_Click(object sender, EventArgs e)
@@ -136,25 +155,28 @@ namespace WebUni_Project.user
             string userId = Session["UserID"].ToString();
             string newFullName = txtEditFullName.Text.Trim();
             string newEmail = txtEditEmail.Text.Trim();
+            string newMobileNo = txtEditMobileNo.Text.Trim(); // Mobile No મેળવો
 
-            getcon(); // Connection Open
+            getcon(); // Connection Open
 
-            // Simple UPDATE query
-            string query = "UPDATE Users SET FullName = @FullName, Email = @Email WHERE UserID = @UserID";
+            // Simple UPDATE query: FullName, Email, અને MobileNo અપડેટ કરો.
+            // યુઝર ટેબલનું નામ 'User_tbl' વાપર્યું છે.
+            string query = "UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@FullName", newFullName);
             cmd.Parameters.AddWithValue("@Email", newEmail);
-            cmd.Parameters.AddWithValue("@UserID", userId);
+            cmd.Parameters.AddWithValue("@MobileNo", newMobileNo); // Mobile No Parameter
+            cmd.Parameters.AddWithValue("@UserID", userId);
 
             int rowsAffected = cmd.ExecuteNonQuery();
             con.Close(); // Connection Close
 
-            if (rowsAffected > 0)
+            if (rowsAffected > 0)
             {
                 lblProfileMessage.Text = "Profile updated successfully! ✅";
                 lblProfileMessage.ForeColor = Color.Green;
                 LoadUserProfileDetails(); // Reload details to refresh the main panel
-            }
+            }
             else
             {
                 lblProfileMessage.Text = "Error updating profile. ❌";
@@ -177,12 +199,13 @@ namespace WebUni_Project.user
                 return;
             }
 
-            // --- SECURITY NOTE: This is NOT secure in a real application. ---
+            // --- SECURITY NOTE: This is NOT secure in a real application. ---
 
-            getcon(); // Connection Open
+            getcon(); // Connection Open
 
-            // This query attempts to change the password only if the OldPassword matches (for basic security)
-            string query = "UPDATE Users SET Password = @NewPassword WHERE UserID = @UserID AND Password = @OldPassword";
+            // This query attempts to change the password only if the OldPassword matches (for basic security)
+            // યુઝર ટેબલનું નામ 'User_tbl' વાપર્યું છે.
+            string query = "UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@NewPassword", newPassword);
             cmd.Parameters.AddWithValue("@OldPassword", oldPassword);
@@ -191,12 +214,12 @@ namespace WebUni_Project.user
             int rowsAffected = cmd.ExecuteNonQuery();
             con.Close(); // Connection Close
 
-            if (rowsAffected > 0)
+            if (rowsAffected > 0)
             {
                 lblPasswordMessage.Text = "Password updated successfully! ✅";
                 lblPasswordMessage.ForeColor = Color.Green;
-                // Clear fields after successful update
-                txtOldPassword.Text = "";
+                // Clear fields after successful update
+                txtOldPassword.Text = "";
                 txtNewPassword.Text = "";
                 txtConfirmPassword.Text = "";
             }
@@ -214,6 +237,7 @@ namespace WebUni_Project.user
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            ShowPanel("Profile");
         }
     }
 }

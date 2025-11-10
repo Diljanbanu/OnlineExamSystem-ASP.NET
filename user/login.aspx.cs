@@ -57,32 +57,76 @@ namespace WebUni_Project.user
         protected void btnlog_Click(object sender, EventArgs e)
         {
 
+            //if (txtunm.Text != null && txtpass.Text != null)
+            //{
+            //    getcon();
+            //    cmd = new SqlCommand("select count(*) from User_tbl where Email='" + txtunm.Text + "' and Password='" + txtpass.Text + "'", con);
+
+            //    i = Convert.ToInt32(cmd.ExecuteScalar());
+            //    //clear();
+
+            //    if (i > 0) 
+            //    {
+            //        Session["user"] = txtunm.Text;
+            //        Response.Redirect("index.aspx");
+
+            //    }
+            //    //else if (txtunm.Text == "diljaanumretiya@gmail.com" && txtpass.Text == "diljan123")
+            //    //{
+            //    //    Session["user"] = txtunm.Text;
+            //    //    Response.Redirect("admin/index.aspx");
+
+            //    //}
+            //}
+            //else
+            //{
+            //    Response.Write("<script>alert('Invalid Email or Password')</script>");
+            //}
+
+
             if (txtunm.Text != null && txtpass.Text != null)
             {
                 getcon();
-                cmd = new SqlCommand("select count(*) from User_tbl where Email='" + txtunm.Text + "' and Password='" + txtpass.Text + "'", con);
 
-                i = Convert.ToInt32(cmd.ExecuteScalar());
-                //clear();
-               
-                if (i > 0) 
+                // 🛑 અહીં મુખ્ય ફેરફાર છે: હવે આપણે ડેટા ખેંચી રહ્યા છીએ 🛑
+                // ક્વેરી: UserID અને FullName સાથે યુઝરનો આખો રેકોર્ડ ખેંચો
+                string query = "SELECT ID, FullName FROM User_tbl WHERE Email=@Email AND Password=@Password";
+
+                // SqlDataAdapter નો ઉપયોગ કરીને ડેટા ખેંચો
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Email", txtunm.Text);
+                cmd.Parameters.AddWithValue("@Password", txtpass.Text);
+
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                con.Close(); // કનેક્શન બંધ કરો
+
+                // i = Convert.ToInt32(cmd.ExecuteScalar()); વાપરવાને બદલે, ડેટા મળ્યો કે નહીં તે તપાસો:
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
+                    // 1. Master Page માટે જરૂરી સેશન સેટ કરો
+                    // ડેટા DataSet માંથી લેવામાં આવ્યો છે
+                    Session["UserID"] = ds.Tables[0].Rows[0]["ID"].ToString();       // Master Page ને Login/Logout સ્ટેટ જણાવશે
+                    Session["FullName"] = ds.Tables[0].Rows[0]["FullName"].ToString();   // Master Page ને નામનો પહેલો અક્ષર આપશે
+
+                    // જો તમને જુની Session["user"] ની જરૂર હોય તો:
                     Session["user"] = txtunm.Text;
-                    Response.Redirect("index.aspx");
 
+                    clear();
+                    Response.Redirect("index.aspx"); // સફળતાપૂર્વક લૉગિન પછી Home Page પર જાઓ
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Email or Password')</script>");
                 }
-                //else if (txtunm.Text == "diljaanumretiya@gmail.com" && txtpass.Text == "diljan123")
-                //{
-                //    Session["user"] = txtunm.Text;
-                //    Response.Redirect("admin/index.aspx");
-
-                //}
             }
             else
             {
-                Response.Write("<script>alert('Invalid Email or Password')</script>");
+                Response.Write("<script>alert('Please enter Email and Password')</script>");
             }
-
 
         }
     }

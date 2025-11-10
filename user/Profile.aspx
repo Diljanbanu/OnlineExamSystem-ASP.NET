@@ -86,46 +86,48 @@
 <asp:Content ID="Content6" runat="server" contentplaceholderid="ContentPlaceHolder2">
 
 
-<form id="form1">
-        <div>
-            <h2>User Profile 🧑</h2>
-            
-            <asp:Panel ID="pnlProfileDetails" runat="server">
-                <p>Full Name: <asp:Label ID="lblFullName" runat="server"></asp:Label></p>
-                <p>Username: <asp:Label ID="lblUsername" runat="server"></asp:Label></p>
-                <p>Email: <asp:Label ID="lblEmail" runat="server"></asp:Label></p>
-                <asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" OnClick="btnEditProfile_Click" />
-                <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
-            </asp:Panel>
+<div>
+            <h2>User Profile 🧑</h2>
+            
+            <asp:Panel ID="pnlProfileDetails" runat="server">
+                <p>Full Name: <asp:Label ID="lblFullName" runat="server"></asp:Label></p>
+                <p>Email: <asp:Label ID="lblEmail" runat="server"></asp:Label></p>
+                                <p>Mobile No: <asp:Label ID="lblMobileNo" runat="server"></asp:Label></p>
+                <p>Login ID: <asp:Label ID="lblUsername" runat="server"></asp:Label></p>
 
-            <asp:Panel ID="pnlEditProfile" runat="server" Visible="false">
-                <h3>Edit Profile ✏️</h3>
-                <p>New Full Name: <asp:TextBox ID="txtEditFullName" runat="server"></asp:TextBox></p>
-                <p>New Email: <asp:TextBox ID="txtEditEmail" runat="server"></asp:TextBox></p>
-                
-                <asp:Button ID="btnSaveProfile" runat="server" Text="Save" OnClick="btnSaveProfile_Click" />
-                <asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-                <asp:Label ID="lblProfileMessage" runat="server" ForeColor="Green"></asp:Label>
-            </asp:Panel>
+                <asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" OnClick="btnEditProfile_Click" />
+                <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
+            </asp:Panel>
 
-            <asp:Panel ID="pnlChangePassword" runat="server" Visible="false">
-                <h3>Change Password 🔑</h3>
-                <p>Old Password: <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password"></asp:TextBox></p>
-                <p>New Password: <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password"></asp:TextBox></p>
-                <p>Confirm Password: <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></p>
-                
-                <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" OnClick="btnUpdatePassword_Click" />
-                <asp:Button ID="btnCancelChangePass" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-                <asp:Label ID="lblPasswordMessage" runat="server" ForeColor="Green"></asp:Label>
-            </asp:Panel>
-            
-            <hr />
+            <asp:Panel ID="pnlEditProfile" runat="server" Visible="false">
+                <h3>Edit Profile ✏️</h3>
+                <p>New Full Name: <asp:TextBox ID="txtEditFullName" runat="server"></asp:TextBox></p>
+                <p>New Email: <asp:TextBox ID="txtEditEmail" runat="server"></asp:TextBox></p>
+                <p>New Mobile No: <asp:TextBox ID="txtEditMobileNo" runat="server"></asp:TextBox></p>
+                
+                <asp:Button ID="btnSaveProfile" runat="server" Text="Save" OnClick="btnSaveProfile_Click" />
+                <asp:Button ID="btnCancelEdit" runat="server" Text="Back" OnClick="btnCancel_Click" />
+                <asp:Label ID="lblProfileMessage" runat="server" ForeColor="Green"></asp:Label>
+            </asp:Panel>
 
-            <h3>Exam History 📜</h3>
-            <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="true" EmptyDataText="You have not attempted any exams yet.">
-            </asp:GridView>
-        </div>
-    </form>
+            <asp:Panel ID="pnlChangePassword" runat="server" Visible="false">
+                <h3>Change Password 🔑</h3>
+                <p>Old Password: <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password"></asp:TextBox></p>
+                <p>New Password: <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password"></asp:TextBox></p>
+                <p>Confirm Password: <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></p>
+                
+                <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" OnClick="btnUpdatePassword_Click" />
+                <asp:Button ID="btnCancelChangePass" runat="server" Text="Back" OnClick="btnCancel_Click" />
+                <asp:Label ID="lblPasswordMessage" runat="server" ForeColor="Green"></asp:Label>
+            </asp:Panel>
+            
+            <hr />
+
+            <h3>Exam History 📜</h3>
+            <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="true" EmptyDataText="You have not attempted any exams yet.">
+            </asp:GridView>
+        </div>
+
 </asp:Content>
 <asp:Content ID="Content7" runat="server" contentplaceholderid="ContentPlaceHolder3">
 
