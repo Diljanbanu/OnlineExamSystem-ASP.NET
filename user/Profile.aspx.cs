@@ -62,39 +62,26 @@ namespace WebUni_Project.user
             if (Session["UserID"] == null) return;
             string userId = Session["UserID"].ToString();
 
-            getcon(); // Connection Open
+            getcon(); 
 
-            // ક્વેરી: ID દ્વારા FullName, Email, અને MobileNo ખેંચો
-            string query = "SELECT FullName, Email, MobileNo FROM User_tbl WHERE ID = @UserID";
-
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@UserID", userId);
-
-            da = new SqlDataAdapter(cmd);
+            da = new SqlDataAdapter("SELECT FullName, Email, MobileNo FROM User_tbl WHERE ID = '" +userId+ "'",con);
             ds = new DataSet();
             da.Fill(ds);
 
-            con.Close(); // Connection Close
 
-            // ડેટા મળ્યો છે કે નહીં તે તપાસો
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                // 1. Profile Details Labels માં ડેટા સેટ કરો
                 lblFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
 
-                // MobileNo Labels માં સેટ કરો
                 lblMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
 
-                // lblUsername માટે, Email નો ઉપયોગ
                 lblUsername.Text = ds.Tables[0].Rows[0]["Email"].ToString();
 
                 lblEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
 
-                // 2. Edit TextBoxes માં વર્તમાન ડેટા સેટ કરો
                 txtEditFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
                 txtEditEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
 
-                // MobileNo એડિટ ટેક્સ્ટબોક્સમાં સેટ કરો
                 txtEditMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
             }
         }
@@ -104,22 +91,16 @@ namespace WebUni_Project.user
             if (Session["UserID"] == null) return;
             string userId = Session["UserID"].ToString();
 
-            getcon(); // Connection Open
+            getcon();
 
-            // ExamResults માટેનો Simple Query
-            string query = "SELECT ExamName, Score, DateTaken FROM ExamAttemp_tbl WHERE UserID = @UserID ORDER BY DateTaken DESC";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@UserID", userId);
-
-            da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            da = new SqlDataAdapter("SELECT ExamName, Score, DateTaken FROM ExamAttemp_tbl WHERE UserID = userID ORDER BY DateTaken DESC",con);
+            ds = new DataSet();
+        da.Fill(ds);
 
             // Bind the data to the GridView
-            gvExamHistory.DataSource = dt;
+            gvExamHistory.DataSource = ds;
             gvExamHistory.DataBind();
 
-            con.Close(); // Connection Close
         }
        
         protected void Page_Load(object sender, EventArgs e)
@@ -128,7 +109,8 @@ namespace WebUni_Project.user
             {
                 LoadUserProfileDetails();
                 LoadExamHistory();
-                ShowPanel("Profile"); // Default Panel
+                ShowPanel("Profile"); 
+
             }
         }
 
@@ -155,21 +137,15 @@ namespace WebUni_Project.user
             string userId = Session["UserID"].ToString();
             string newFullName = txtEditFullName.Text.Trim();
             string newEmail = txtEditEmail.Text.Trim();
-            string newMobileNo = txtEditMobileNo.Text.Trim(); // Mobile No મેળવો
+            string newMobileNo = txtEditMobileNo.Text.Trim(); 
 
-            getcon(); // Connection Open
+            getcon(); 
 
-            // Simple UPDATE query: FullName, Email, અને MobileNo અપડેટ કરો.
-            // યુઝર ટેબલનું નામ 'User_tbl' વાપર્યું છે.
-            string query = "UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@FullName", newFullName);
-            cmd.Parameters.AddWithValue("@Email", newEmail);
-            cmd.Parameters.AddWithValue("@MobileNo", newMobileNo); // Mobile No Parameter
-            cmd.Parameters.AddWithValue("@UserID", userId);
+            da = new SqlDataAdapter("UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID", con);
+            ds=new DataSet();
+            da.Fill(ds);
 
             int rowsAffected = cmd.ExecuteNonQuery();
-            con.Close(); // Connection Close
 
             if (rowsAffected > 0)
             {
@@ -199,26 +175,17 @@ namespace WebUni_Project.user
                 return;
             }
 
-            // --- SECURITY NOTE: This is NOT secure in a real application. ---
 
-            getcon(); // Connection Open
-
-            // This query attempts to change the password only if the OldPassword matches (for basic security)
-            // યુઝર ટેબલનું નામ 'User_tbl' વાપર્યું છે.
-            string query = "UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@NewPassword", newPassword);
-            cmd.Parameters.AddWithValue("@OldPassword", oldPassword);
-            cmd.Parameters.AddWithValue("@UserID", userId);
-
+            getcon();
+            da = new SqlDataAdapter("UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword",con);
+            ds = new DataSet();
+            da.Fill(ds);
             int rowsAffected = cmd.ExecuteNonQuery();
-            con.Close(); // Connection Close
 
             if (rowsAffected > 0)
             {
                 lblPasswordMessage.Text = "Password updated successfully! ✅";
                 lblPasswordMessage.ForeColor = Color.Green;
-                // Clear fields after successful update
                 txtOldPassword.Text = "";
                 txtNewPassword.Text = "";
                 txtConfirmPassword.Text = "";
@@ -229,10 +196,7 @@ namespace WebUni_Project.user
                 lblPasswordMessage.ForeColor = Color.Red;
             }
 
-            // Logout logic અહીં ઉમેરો
-            // FormsAuthentication.SignOut();
-            // Session.Clear();
-            // Response.Redirect("~/login.aspx");
+          
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
