@@ -93,11 +93,10 @@ namespace WebUni_Project.user
 
             getcon();
 
-            da = new SqlDataAdapter("SELECT ExamName, Score, DateTaken FROM ExamAttemp_tbl WHERE UserID = userID ORDER BY DateTaken DESC",con);
+            da = new SqlDataAdapter("SELECT UserId,SubID,ExamId, CorrectAnswer, AttemptDate FROM ExamAttempt_tbl WHERE UserID = userID ORDER BY AttemptDate DESC",con);
             ds = new DataSet();
         da.Fill(ds);
 
-            // Bind the data to the GridView
             gvExamHistory.DataSource = ds;
             gvExamHistory.DataBind();
 

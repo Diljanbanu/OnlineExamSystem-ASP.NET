@@ -46,7 +46,7 @@
                                     <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />
 
                                     <asp:LinkButton ID="lnkUser" runat="server" OnClick="lnkUser_Click" CssClass="profile-initial-link"  Visible="false">
-                                        <asp:Label ID="lblUserInitial" runat="server" Text="U"></asp:Label>
+                                        <asp:Label ID="lblUser" runat="server" Text="U"></asp:Label>
                                     </asp:LinkButton>
 
                                     <nav class="main-menu">

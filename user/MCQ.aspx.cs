@@ -121,7 +121,7 @@ namespace WebUni_Project.user
             int score = correct * 1;
 
 
-            string userId = Session["ID"].ToString();
+            string userId = Session["UserId"].ToString();
             string examId = Request.QueryString["examId"];
             string subId = ViewState["SubId"].ToString(); // LoadMCQs માંથી મેળવેલ SubId
             string correctAnswers = correct.ToString();

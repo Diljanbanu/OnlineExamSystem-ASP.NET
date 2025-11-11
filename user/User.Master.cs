@@ -30,11 +30,11 @@ namespace WebUni_Project.user
             // 1. Get controls using FindControl()
             // Since this is a Master Page, use FindControl directly
             LinkButton lnkRegister = (LinkButton)FindControl("lnkRegister");
-            LinkButton lnkUserInitial = (LinkButton)FindControl("lnkUserInitial");
-            Label lblUserInitial = (Label)FindControl("lblUserInitial");
+            LinkButton lnkUser = (LinkButton)FindControl("lnkUserInitial");
+            Label lblUser = (Label)FindControl("lblUserInitial");
 
             // If FindControl cannot locate any of the controls, stop execution
-            if (lnkRegister == null || lnkUserInitial == null || lblUserInitial == null)
+            if (lnkRegister == null || lnkUser == null || lblUser == null)
             {
                 // If controls are not found, exit without performing any action
                 return;
@@ -46,17 +46,17 @@ namespace WebUni_Project.user
                 // --- User Logged In ---
 
                 lnkRegister.Visible = false;     // Hide Register button
-                lnkUserInitial.Visible = true;   // Show Profile icon
+                lnkUser.Visible = true;   // Show Profile icon
 
                 string fullName = Session["FullName"].ToString();
                 if (fullName.Length > 0)
                 {
                     // Set the first letter of the user's name
-                    lblUserInitial.Text = fullName.Substring(0, 1).ToUpper();
+                    lblUser.Text = fullName.Substring(0, 1).ToUpper();
                 }
                 else
                 {
-                    lblUserInitial.Text = "U"; // Default initial
+                    lblUser.Text = "U"; // Default initial
                 }
             }
             else
@@ -64,7 +64,7 @@ namespace WebUni_Project.user
                 // --- User Not Logged In ---
 
                 lnkRegister.Visible = true;      // Show Register button
-                lnkUserInitial.Visible = false;  // Hide Profile icon
+                lnkUser.Visible = false;  // Hide Profile icon
             }
         }
 

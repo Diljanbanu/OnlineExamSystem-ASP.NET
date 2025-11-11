@@ -60,13 +60,13 @@ namespace WebUni_Project.user
         protected global::System.Web.UI.WebControls.LinkButton lnkUser;
 
         /// <summary>
-        /// lblUserInitial control.
+        /// lblUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserInitial;
+        protected global::System.Web.UI.WebControls.Label lblUser;
 
         /// <summary>
         /// lblId control.
