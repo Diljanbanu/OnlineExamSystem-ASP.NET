@@ -44,16 +44,14 @@
                     <li class="nav-item"><a href="index.aspx" class="nav-link">Logout</a></li>
                 </ul>
             </nav>
-            <main class="content flex-fill p-4">
+           <main class="content flex-fill p-4">
 
-                <!--Subjects-->
                 <div class="content-wrapper p-4">
                     <div class="form-section-container">
                         <div class="form-page">
                             <h2 class="text-primary mb-4">Add Subject</h2>
                             <div class="alert alert-info d-none" role="alert" id="successMessage" runat="server">
                                 Subject Added Successfully!
-               
                             </div>
 
                             <%-- Using ASP.NET Panel instead of <form> tag to prevent nested forms issue --%>
@@ -122,6 +120,14 @@
                             <RowStyle BackColor="#f8f9fa" />
                             <AlternatingRowStyle BackColor="White" />
                         </asp:GridView>
+
+                        <%-- ✨ REPORT BUTTON ADDITION START ✨ --%>
+                        <div class="mt-3 text-center">
+                            <asp:Button ID="btnSubjectReport" runat="server" Text="Generate Subject Report 📊" CssClass="btn btn-success btn-lg" OnClick="btnSubjectReport_Click" />
+                            <%-- Note: You will need to implement the btnSubjectReport_Click event handler in your CodeBehind file (addSubject.aspx.cs) --%>
+                        </div>
+                        <%-- ✨ REPORT BUTTON ADDITION END ✨ --%>
+
                     </div>
                 </div>
             </main>

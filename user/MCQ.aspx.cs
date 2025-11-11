@@ -133,7 +133,7 @@ namespace WebUni_Project.user
             string subId = ViewState["SubId"] != null ? ViewState["SubId"].ToString() : string.Empty;
             string correctAnswers = correct.ToString();
 
-            cmd = new SqlCommand("Insert Into ExamAttemp_tbl(UserId,SubId,ExamId,CorrectAnswer)Value('" + userId + "','" + examId + "','" + subId + "','" + correctAnswers + "')", con);
+            cmd = new SqlCommand("Insert Into ExamAttempt_tbl(UserId,SubId,ExamId,CorrectAnswer)Values('" + userId + "','" + examId + "','" + subId + "','" + correctAnswers + "')", con);
             cmd.ExecuteNonQuery();
 
             lblResult.Text = $"Correct: {correct}, Wrong: {wrong}, Score: {score}/{total}";

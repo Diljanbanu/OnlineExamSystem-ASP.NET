@@ -42,27 +42,27 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("attempt_Id") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Name">
+                    <asp:TemplateField HeaderText="UserId">
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Email">
+                    <asp:TemplateField HeaderText="SubId">
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("SubId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Subject">
+                    <asp:TemplateField HeaderText="ExamId">
                         <ItemTemplate>
                             <asp:Label ID="Label4" runat="server" Text='<%# Eval("ExamId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Message">
+                    <asp:TemplateField HeaderText="CorrectAnswer">
                         <ItemTemplate>
                             <asp:Label ID="Label5" runat="server" Text='<%# Eval("CorrectAnswer") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="SubmissionDate">
+                    <asp:TemplateField HeaderText="AttemptDate">
                         <ItemTemplate>
                             <asp:Label ID="Label6" runat="server" Text='<%# Eval("AttemptDate") %>'></asp:Label>
                         </ItemTemplate>

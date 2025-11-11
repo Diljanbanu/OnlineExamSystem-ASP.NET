@@ -9,6 +9,11 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using CrystalDecisions.CrystalReports.Engine;
+
+using CrystalDecisions.Shared;
+
+
 namespace WebUni_Project.admin
 {
 	public partial class addSubject1 : System.Web.UI.Page
@@ -20,6 +25,10 @@ namespace WebUni_Project.admin
         SqlCommand cmd;//inser , update,delete
         DataSet ds;// run time container
         string fnm;
+
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+
+        static string Crypath = "";
 
         void getcon()
         {
@@ -72,7 +81,12 @@ namespace WebUni_Project.admin
             getcon();
             fillgrid();
             imgupload();
-		}
+
+           
+
+        }
+
+
 
         //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         //{
@@ -125,6 +139,17 @@ namespace WebUni_Project.admin
 
         protected void drpexam_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btnSubjectReport_Click(object sender, EventArgs e)
+        {
+            da = new SqlDataAdapter("select * from add_Subject_tbl",con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string xml = @"~/SubjectReport.xml";
+            ds.WriteXmlSchema(xml);
+
 
         }
     }
