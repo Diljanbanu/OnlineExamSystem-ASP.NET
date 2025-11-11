@@ -3,7 +3,77 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
- 
+ <!DOCTYPE html>
+    <html>
+    <head>
+        <title>WebUni - Exam Template</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="WebUni Education Template">
+        <meta name="keywords" content="webuni, education, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="shortcut icon" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/owl.carousel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link href="\css\style.css" rel="stylesheet" />
+        <%--        <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\owl.carousel.css" rel="stylesheet" />
+       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\font-awesome.min.css" rel="stylesheet" />
+       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\admin.css" rel="stylesheet" />
+       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\bootstrap.min.css" rel="stylesheet" />--%>
+        <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body>
+        <!-- Header section -->
+        <header class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="site-logo">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="nav-switch">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <a href="register.aspx" class="site-btn header-btn">Register</a>
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="index.aspx">Home</a></li>
+                                <li><a href="about.aspx">About us</a></li>
+                                <li><a href="Subject.aspx">Subjects</a></li>
+                                <li><a href="MyExam.aspx">MyExam</a></li>
+                                <li><a href="contact.aspx">Contact</a></li>
+                                <li><a href="Profile.aspx">Profile</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="hero-section set-bg" data-setbg="img/page-bg/1.jpg">
+            <div class="container">
+                <div class="hero-text text-white">
+                    <h2>Get The Best Free Online Exams</h2>
+                    <asp:Label ID="lblId" runat="server" Text=""></asp:Label>
+                    <p>
+                        The primary aim of this system is to digitize the traditional exam process, making it faster, more efficient, and accessible from anywhere. It eliminates the need for physical exam centers, paper usage, and manual correction.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                    </div>
+                </div>
+            </div>
+        </section>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
     <section>

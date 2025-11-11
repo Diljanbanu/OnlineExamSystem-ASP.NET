@@ -62,6 +62,12 @@ namespace WebUni_Project.user
                 {
                     string examId = Request.QueryString["examId"];
                     LoadMCQs(examId);
+                    // *** ADD THIS BLOCK ***
+                    if (Request.QueryString["subId"] != null)
+                    {
+                        ViewState["SubId"] = Request.QueryString["subId"];
+                    }
+                    // *********************
                 }
                 else
                 {
@@ -123,7 +129,8 @@ namespace WebUni_Project.user
 
             string userId = Session["UserId"].ToString();
             string examId = Request.QueryString["examId"];
-            string subId = ViewState["SubId"].ToString(); // LoadMCQs માંથી મેળવેલ SubId
+            // string subId = ViewState["SubId"].ToString(); // LoadMCQs માંથી મેળવેલ SubId
+            string subId = ViewState["SubId"] != null ? ViewState["SubId"].ToString() : string.Empty;
             string correctAnswers = correct.ToString();
 
             cmd = new SqlCommand("Insert Into ExamAttemp_tbl(UserId,SubId,ExamId,CorrectAnswer)Value('" + userId + "','" + examId + "','" + subId + "','" + correctAnswers + "')", con);

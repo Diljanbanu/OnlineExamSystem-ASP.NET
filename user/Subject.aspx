@@ -439,7 +439,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9">
-                    <a href="User/register.aspx" class="site-btn header-btn">Register</a>
+                    <a href="register.aspx" class="site-btn header-btn">Register</a>
                     <nav class="main-menu">
                         <ul>
                             <li><a href="index.aspx">Home</a></li>
