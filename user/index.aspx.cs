@@ -9,10 +9,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
-
 namespace WebUni_Project.user
 {
-	public partial class index : System.Web.UI.Page
+	public partial class Index : System.Web.UI.Page
 	{
         string s = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlDataAdapter da;//container
@@ -41,6 +40,7 @@ namespace WebUni_Project.user
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
+
             if (!IsPostBack)
             {
                 Faculty();

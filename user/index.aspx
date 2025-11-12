@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebUni_Project.user.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="WebUni_Project.user.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
- <!DOCTYPE html>
+
+    <!DOCTYPE html>
     <html>
     <head>
         <title>WebUni - Exam Template</title>
@@ -11,27 +12,16 @@
         <meta name="description" content="WebUni Education Template">
         <meta name="keywords" content="webuni, education, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Favicon -->
         <link href="img/favicon.ico" rel="shortcut icon" />
-        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/owl.carousel.css" />
         <link rel="stylesheet" href="css/style.css" />
         <link href="\css\style.css" rel="stylesheet" />
-        <%--        <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\owl.carousel.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\font-awesome.min.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\admin.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\bootstrap.min.css" rel="stylesheet" />--%>
-        <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+        <%-- [Optional Links Removed for Clarity] --%>
     </head>
     <body>
-        <!-- Header section -->
         <header class="header-section">
             <div class="container">
                 <div class="row">
@@ -44,15 +34,17 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
-                        <a href="register.aspx" class="site-btn header-btn">Register</a>
+                        <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="register.aspx" CssClass="site-btn header-btn" Visible="true" />
+                        <asp:LinkButton ID="lnkUser" runat="server" OnClick="lnkUser_Click" CssClass="profile-initial-link" Visible="false">
+                            <asp:Label ID="lblUser" runat="server" Text="U"></asp:Label>
+                        </asp:LinkButton>
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="index.aspx">Home</a></li>
-                                <li><a href="about.aspx">About us</a></li>
+                                <li><a href="Index.aspx">Home</a></li>
+                                <li><a href="About-Us.aspx">About us</a></li>
                                 <li><a href="Subject.aspx">Subjects</a></li>
                                 <li><a href="MyExam.aspx">MyExam</a></li>
-                                <li><a href="contact.aspx">Contact</a></li>
-                                <li><a href="Profile.aspx">Profile</a></li>
+                                <li><a href="Contact.aspx">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -76,6 +68,7 @@
         </section>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+
     <section>
         <center>
             <asp:DataList ID="dlfact" runat="server">
@@ -94,6 +87,8 @@
             </asp:DataList>
         </center>
     </section>
+
+
 </asp:Content>
 <asp:Content ID="Content4" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
 
@@ -142,18 +137,18 @@
                             <li><a href="">System Engeneering</a></li>
                         </ul>
                     </div>
-                    <div class="widget-item">
-                        <h4>Newsletter</h4>
-                        <form class="footer-newslatter">
-                            <input type="email" placeholder="E-mail">
-                            <button class="site-btn">
-                                Subscribe
-                            </button>
-                            <p>
-                                *We don’t spam
-                            </p>
-                        </form>
-                    </div>
+                    <%--<div class="widget-item">
+                                    <h4>Newsletter</h4>
+                                    <form class="footer-newslatter">
+                                        <input type="email" placeholder="E-mail">
+                                        <button class="site-btn">
+                                            Subscribe
+                                        </button>
+                                        <p>
+                                            *We don’t spam
+                                        </p>
+                                    </form>
+                                </div>--%>
                 </div>
             </div>
         </div>

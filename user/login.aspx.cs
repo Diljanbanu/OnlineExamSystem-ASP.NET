@@ -106,20 +106,27 @@ namespace WebUni_Project.user
                 // i = Convert.ToInt32(cmd.ExecuteScalar()); વાપરવાને બદલે, ડેટા મળ્યો કે નહીં તે તપાસો:
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    // 1. Master Page માટે જરૂરી સેશન સેટ કરો
-                    // ડેટા DataSet માંથી લેવામાં આવ્યો છે
-                    Session["UserID"] = ds.Tables[0].Rows[0]["ID"].ToString();       // Master Page ને Login/Logout સ્ટેટ જણાવશે
-                    Session["FullName"] = ds.Tables[0].Rows[0]["FullName"].ToString();   // Master Page ને નામનો પહેલો અક્ષર આપશે
+                    // 🛑 Master Page માટે જરૂરી સેશન સેટ કરો (SET SESSION FOR MASTER PAGE) 🛑
+
+                    // Master Page needs 'UserName' to display the initial (Master Page ને પ્રારંભિક અક્ષર માટે 'UserName' ની જરૂર છે)
+                    string fullName = ds.Tables[0].Rows[0]["FullName"].ToString();
+
+                    // Master Page માટે જરૂરી સેશન વેરિયેબલ સેટ કરો: FullName ના બદલે UserName વાપરો
+                    Session["UserName"] = fullName;
+
+                    // યુઝર ID પણ સેટ કરો (Set the User ID)
+                    Session["UserID"] = ds.Tables[0].Rows[0]["ID"].ToString();
 
                     // જો તમને જુની Session["user"] ની જરૂર હોય તો:
                     Session["user"] = txtunm.Text;
 
                     clear();
-                    Response.Redirect("index.aspx"); // સફળતાપૂર્વક લૉગિન પછી Home Page પર જાઓ
-
-                }
+                    Response.Redirect("~/index.aspx"); // Successful login → Redirect to the Home Page
+                }
                 else
                 {
+                    // Invalid credentials (ખોટું ઇમેઇલ અથવા પાસવર્ડ)
+                    // Note: Use a better method than Response.Write for error messages in a production app.
                     Response.Write("<script>alert('Invalid Email or Password')</script>");
                 }
             }

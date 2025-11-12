@@ -33,7 +33,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-        <style>
+       <%-- <style>
             .registration-form .form-title h2 {
                 color: #474747;
                 font-size: 36px;
@@ -180,6 +180,148 @@
                 cursor: pointer;
                 margin-right: 15px; /* Space between the 'Male' and 'Female' options */
             }
+        </style>--%>
+        <style>
+            /* New Styles for the Registration Form to Match the Image */
+
+            /* 1. Background and Centering (To bring the registration form to the middle) */
+            .registration-section {
+                /* Teal color shown in the image */
+                background: #209f8c; 
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center; /* Vertical Center */
+                justify-content: center; /* Horizontal Center */
+                padding: 60px 0;
+            }
+
+            .registration-warp {
+                max-width: 380px; /* Reduced width as per the image */
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+
+            .registration-form {
+                background: #fff;
+                padding: 40px 30px; 
+                border-radius: 20px; /* Rounded corners */
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Box shadow */
+                text-align: center; 
+            }
+
+            /* 2. Title Style */
+            .registration-form .form-title {
+                margin-bottom: 30px;
+            }
+
+            .registration-form .form-title h2 {
+                color: #209f8c; /* Teal color */
+                font-size: 26px; 
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            
+            /* 3. Social Icon Style */
+            .social-icons {
+                margin-bottom: 25px;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            .social-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                color: #888;
+                font-size: 16px;
+                transition: all 0.3s;
+            }
+
+            /* 4. Input Field and Icon Style */
+            .form-group {
+                margin-bottom: 15px;
+                position: relative; /* Essential for icon positioning */
+            }
+            
+            .input-icon {
+                position: absolute;
+                left: 15px; 
+                top: 50%;
+                transform: translateY(-50%);
+                color: #878787; 
+                font-size: 16px;
+            }
+
+            .registration-form input[type=text],
+            .registration-form input[type=email],
+            .registration-form input[type=password],
+            .registration-form input[type=tel],
+            .registration-form select {
+                height: 45px; 
+                width: 100%;
+                /* Added left padding for the icon */
+                padding: 0 15px 0 40px; 
+                border: none;
+                font-size: 14px;
+                font-weight: 500;
+                background: #f1f1f1; 
+                color: #474747;
+                border-radius: 8px; 
+                transition: all 0.3s;
+            }
+
+            .registration-form input[type=text]:focus,
+            .registration-form input[type=email]:focus,
+            .registration-form input[type=password]:focus,
+            .registration-form input[type=tel]:focus,
+            .registration-form select:focus {
+                box-shadow: 0 0 0 2px #209f8c; 
+                background: #fff;
+            }
+            
+            /* DropDownList (Gender) style adjustment (no icon needed) */
+             .registration-form select {
+                padding-left: 15px; 
+                background-image: none;
+            }
+            
+            /* 5. Register Button Style */
+            #<%=btnreg.ClientID %> {
+                background-color: #209f8c; /* Teal button color */
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 20px; /* Rounded button */
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                width: 100%; 
+                margin-top: 20px;
+                transition: background-color 0.3s;
+                height: 45px;
+            }
+
+            #<%=btnreg.ClientID %>:hover {
+                background-color: #177d6c; 
+            }
+
+            /* Login Link Styling */
+            .login-link {
+                 margin-top: 15px; 
+                 padding-top: 15px;
+                 border-top: none; 
+            }
+
+            .login-link a {
+                color: #209f8c; /* Teal link color */
+            }
+
         </style>
     </head>
     <body>
@@ -233,84 +375,69 @@
         <!-- Hero section end -->
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-    <section class="search-section ss-other-page">
-        <div class="container">
-            <div class="search-warp">
-                <div class="section-title text-white">
-                    <section class="registration-section">
-                        <div class="registration-warp">
-                            <div class="registration-form">
-                                <div class="form-title">
-                                    <h2>Create Account</h2>
-                                    <h3>Join WebUni and start your learning journey today</h3>
-                                </div>
-
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtfnm" placeholder="Full Name" runat="server"></asp:TextBox>
-
-
-                                    <%--                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtfnm" Display="None" runat="server" ErrorMessage="Please Enter Full Name..."></asp:RequiredFieldValidator>--%>
-                                </div>
-
-                                <div class="form-group">
-                                    <asp:TextBox ID="txteml" placeholder="Email Address" runat="server"></asp:TextBox>
-                                    <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txteml" Display="None" runat="server" ErrorMessage="Please Enter Email Proper Format..." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
-                                </div>
-
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtmbl" placeholder="Mobile Number" runat="server"></asp:TextBox>
-                                    <%--                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtmbl" Display="None" runat="server" ErrorMessage="Please Enter Only 10 Digits..." ValidationExpression="(0( \d|\d ))?\d\d \d\d(\d \d| \d\d )\d\d"></asp:RegularExpressionValidator>--%>
-                                </div>
-
-                                <div class="form-group">
-                                    <asp:DropDownList ID="drpgen" runat="server">
-                                        <asp:ListItem Text="-- Select Gender --" Value=""></asp:ListItem>
-                                        <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
-                                        <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <%--<asp:DropDownList ID="drpgen" runat="server">
-                                    <asp:ListItem>Male</asp:ListItem>
-                                    <asp:ListItem>Female</asp:ListItem>
-                                </asp:DropDownList>--%>
-                                    <%--<asp:RadioButtonList ID="rdbgen" runat="server" RepeatDirection="Horizontal">
-                                    <asp:ListItem>Male</asp:ListItem>
-                                    <asp:ListItem>Female</asp:ListItem>
-                                </asp:RadioButtonList>--%>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <asp:TextBox ID="txtpsw" placeholder="Password" runat="server"></asp:TextBox>
-                                        <%--                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Only 6 Characters Numbers and Specific Simbols ..."></asp:RequiredFieldValidator>--%>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" runat="server"></asp:TextBox>
-
-                                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
-
-                                    </div>
-                                </div>
-
-                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                                <asp:Button ID="btnreg" runat="server" Text="Registrations" OnClick="btnreg_Click" />
-                                <%--                                <p >If You Have Register.<a href="login.aspx">Login</a></p>--%>
-                                <p style="color: black; padding: 10px; border-radius: 5px;">
-                                    If You Have Register. 
-                                    <a href="login.aspx" style="color: orangered; text-decoration: none; font-weight: bold;">Login</a>
-                                </p>
-
-
-                            </div>
-                        </div>
-                        <%--                        <asp:Button ID="Button1" runat="server" Text="Registrations"  />--%>
+   <section class="registration-section">
+        <div class="registration-warp">
+            <div class="registration-form">
+                <div class="form-title">
+                    <h2>Register Here</h2>
                 </div>
-    </section>
-    </div>
-        </div>
-        </div>
-    </section>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fa fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fa fa-google-plus"></i></a>
+                </div>
+                <div class="form-group">
+                    <span class="input-icon"><i class="fa fa-user"></i></span>
+                    <asp:TextBox ID="txtfnm" placeholder="Name" runat="server"></asp:TextBox>
+                </div>
 
+                <div class="form-group">
+                    <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                    <asp:TextBox ID="txteml" placeholder="Email" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group">
+                    <span class="input-icon"><i class="fa fa-phone"></i></span>
+                    <asp:TextBox ID="txtmbl" placeholder="Mobile Number" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group">
+                    <asp:DropDownList ID="drpgen" runat="server">
+                        <asp:ListItem Text="-- Select Gender --" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+                        <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                         <span class="input-icon"><i class="fa fa-lock"></i></span>
+                        <asp:TextBox ID="txtpsw" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="input-icon"><i class="fa fa-lock"></i></span>
+                        <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" TextMode="Password" runat="server"></asp:TextBox>
+
+                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
+                    </div>
+                </div>
+
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                
+                <asp:Button ID="btnreg" runat="server" Text="Register" OnClick="btnreg_Click" />
+                
+                <div class="login-link">
+                    <p style="color: #878787;">
+                        If You Have Register.
+                        <a href="login.aspx" style="color: #209f8c; text-decoration: none; font-weight: bold;">Login</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
 

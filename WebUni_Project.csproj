@@ -126,7 +126,6 @@
     <Content Include="admin\contact.aspx" />
     <Content Include="admin\dashboard.aspx" />
     <Content Include="admin\index.aspx" />
-    <Content Include="admin\register.aspx" />
     <Content Include="admin\student.aspx" />
     <Content Include="App_Data\online_exam_db.mdf" />
     <Content Include="App_Data\online_exam_db_log.ldf">
@@ -184,7 +183,7 @@
     <Content Include="user\img\subjects\data_structure.jpg" />
     <Content Include="user\img\subjects\python.jpg" />
     <Content Include="user\img\subjects\software.jpg" />
-    <Content Include="user\index.aspx" />
+    <Content Include="user\Index.aspx" />
     <Content Include="user\js\bootstrap.min.js" />
     <Content Include="user\js\circle-progress.min.js" />
     <Content Include="user\js\jquery-3.2.1.min.js" />
@@ -265,13 +264,6 @@
     <Compile Include="admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\register.aspx.cs">
-      <DependentUpon>register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\register.aspx.designer.cs">
-      <DependentUpon>register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\student.aspx.cs">
       <DependentUpon>student.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,12 +293,12 @@
     <Compile Include="user\EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="user\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="user\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

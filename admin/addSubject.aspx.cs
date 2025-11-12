@@ -9,9 +9,6 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-using CrystalDecisions.CrystalReports.Engine;
-
-using CrystalDecisions.Shared;
 
 
 namespace WebUni_Project.admin
@@ -26,9 +23,7 @@ namespace WebUni_Project.admin
         DataSet ds;// run time container
         string fnm;
 
-        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-
-        static string Crypath = "";
+      
 
         void getcon()
         {
@@ -144,11 +139,7 @@ namespace WebUni_Project.admin
 
         protected void btnSubjectReport_Click(object sender, EventArgs e)
         {
-            da = new SqlDataAdapter("select * from add_Subject_tbl",con);
-            ds = new DataSet();
-            da.Fill(ds);
-            string xml = @"~/SubjectReport.xml";
-            ds.WriteXmlSchema(xml);
+           
 
 
         }
