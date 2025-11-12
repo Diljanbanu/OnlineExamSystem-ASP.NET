@@ -447,6 +447,8 @@
                             <li class="active"><a href="Subject.aspx">Subjects</a></li>
                             <li><a href="MyExam.aspx">MyExam</a></li>
                             <li><a href="contact.aspx">Contact</a></li>
+                             <li><a href="Profile.aspx">Profile</a></li>
+
                         </ul>
                     </nav>
                 </div>

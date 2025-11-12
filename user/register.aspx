@@ -33,155 +33,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-     <%--   <style>
-            .registration-form .form-title h2 {
-                color: #474747;
-                font-size: 36px;
-                margin-bottom: 10px;
-            }
-
-            .registration-form .form-title p {
-                color: #878787;
-                margin-bottom: 0;
-            }
-
-            .registration-section {
-                background: #d82a4e;
-                position: relative;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 60px 0;
-            }
-
-            .registration-warp {
-                max-width: 600px;
-                width: 100%;
-                margin: 0 auto;
-                padding: 0 30px;
-            }
-
-            .registration-form {
-                background: #fff;
-                padding: 60px;
-                border-radius: 8px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-                .registration-form .form-title {
-                    text-align: center;
-                    margin-bottom: 40px;
-                }
-
-                    .registration-form .form-title h2 {
-                        color: #474747;
-                        font-size: 36px;
-                        margin-bottom: 10px;
-                    }
-
-                    .registration-form .form-title p {
-                        color: #878787;
-                        margin-bottom: 0;
-                    }
-
-            .form-group {
-                margin-bottom: 27px;
-            }
-
-            .form-row {
-                display: flex;
-                gap: 15px;
-            }
-
-                .form-row .form-group {
-                    flex: 1;
-                }
-
-            .registration-form input[type=text],
-            .registration-form input[type=email],
-            .registration-form input[type=tel],
-            .registration-form input[type=password],
-            .registration-form select {
-                height: 57px;
-                width: 100%;
-                padding: 0 30px;
-                border: none;
-                font-size: 14px;
-                font-weight: 500;
-                background: #edf4f6;
-                color: #474747;
-                transition: all 0.3s;
-            }
-
-                .registration-form input[type=text]:focus,
-                .registration-form input[type=email]:focus,
-                .registration-form input[type=tel]:focus,
-                .registration-form input[type=password]:focus,
-                .registration-form select:focus {
-                    border-bottom: 2px solid #d82a4e;
-                    background: #e8f2f4;
-                }
-
-            .registration-form select {
-                cursor: pointer;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%23878787' d='M6 9L1.5 4.5h9L6 9z'/></svg>");
-                background-repeat: no-repeat;
-                background-position: right 20px center;
-            }
-
-            .registration-form .site-btn {
-                width: 100%;
-                padding: 17px 10px;
-                font-size: 16px;
-                margin-top: 20px;
-            }
-
-            .login-link {
-                text-align: center;
-                margin-top: 30px;
-                padding-top: 20px;
-                border-top: 1px solid #edf4f6;
-            }
-
-                .login-link p {
-                    margin-bottom: 0;
-                    color: #878787;
-                }
-
-                .login-link a {
-                    color: #d82a4e;
-                    text-decoration: none;
-                    font-weight: 600;
-                }
-
-                    .login-link a:hover {
-                        color: #c21e42;
-                    }
-
-            /* Radio Button List Container */
-            .registration-form .form-group .aspNetDisabled,
-            .registration-form .form-group table {
-                width: 100%;
-            }
-
-            /* Individual Radio Button and Label */
-            .registration-form .form-group input[type="radio"] {
-                margin-right: 5px; /* Adjust space between radio button and label */
-                vertical-align: middle; /* Align the radio button with the text */
-            }
-
-            .registration-form .form-group label {
-                font-weight: 500;
-                color: #474747;
-                cursor: pointer;
-                margin-right: 15px; /* Space between the 'Male' and 'Female' options */
-            }
-        </style>
-    --%>
+  
 
         <style>
             /* --- Registration Form Container Styles --- */
@@ -414,65 +266,6 @@
         <!-- Hero section end -->
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-  <%-- <section class="registration-section">
-        <div class="registration-warp">
-            <div class="registration-form">
-                <div class="form-title">
-                    <h2>Register Here</h2>
-                </div>
-                
-                
-                <div class="form-group">
-                    <span class="input-icon"><i class="fa fa-user"></i></span>
-                    <asp:TextBox ID="txtfnm" placeholder="Name" runat="server"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
-                    <span class="input-icon"><i class="fa fa-envelope"></i></span>
-                    <asp:TextBox ID="txteml" placeholder="Email" runat="server"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
-                    <span class="input-icon"><i class="fa fa-phone"></i></span>
-                    <asp:TextBox ID="txtmbl" placeholder="Mobile Number" runat="server"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
-                    <asp:DropDownList ID="drpgen" runat="server">
-                        <asp:ListItem Text="-- Select Gender --" Value=""></asp:ListItem>
-                        <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
-                        <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                         <span class="input-icon"><i class="fa fa-lock"></i></span>
-                        <asp:TextBox ID="txtpsw" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="input-icon"><i class="fa fa-lock"></i></span>
-                        <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" TextMode="Password" runat="server"></asp:TextBox>
-
-                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
-                    </div>
-                </div>
-
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                
-                <asp:Button ID="btnreg" runat="server" Text="Register" OnClick="btnreg_Click" />
-                
-                <div class="login-link">
-                    <p style="color: #878787;">
-                        If You Have Register.
-                        <a href="login.aspx" style="color: #209f8c; text-decoration: none; font-weight: bold;">Login</a>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>--%>
 
     <section class="registration-section">
         <div class="registration-warp">
@@ -515,20 +308,20 @@
                         <span class="input-icon"><i class="fa fa-lock"></i></span>
                         <asp:TextBox ID="txtcpsw" placeholder="Confirm Password" TextMode="Password" runat="server"></asp:TextBox>
 
-                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>
+<%--                        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtcpsw" ControlToCompare="txtpsw" Display="None" runat="server" ErrorMessage="Please Enter Same Password..."></asp:CompareValidator>--%>
                     </div>
                 </div>
 
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 
                 <%-- Added CssClass="site-btn" for proper styling and hover effect --%>
-                <asp:Button ID="btnreg" runat="server" Text="Register" OnClick="btnreg_Click" CssClass="site-btn" />
+                <asp:Button ID="btnreg" runat="server" Text="Registrations" OnClick="btnreg_Click" CssClass="site-btn" />
                 
                 <div class="login-link">
                     <p style="color: #878787;">
                         If You Have Register.
                         <%-- Removed inline style to use the CSS style from above --%>
-                        <a href="login.aspx">Login</a>
+                        <a href="Login.aspx">Login</a>
                     </p>
                 </div>
 

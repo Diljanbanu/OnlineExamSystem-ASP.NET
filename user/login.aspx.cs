@@ -44,40 +44,9 @@ namespace WebUni_Project.user
 
         protected void btnlogin_Click(object sender, EventArgs e)
         {
-            //if (txtunm.Text != null && txtpass.Text != null)
-            //{
-            //    getcon();
-            //    cmd = new SqlCommand("select count(*) from User_tbl where Email='" + txtunm.Text + "' and Password='" + txtpass.Text + "'", con);
-
-            //    i = Convert.ToInt32(cmd.ExecuteScalar());
-            //    //clear();
-
-            //    if (i > 0) 
-            //    {
-            //        Session["user"] = txtunm.Text;
-            //        Response.Redirect("index.aspx");
-
-            //    }
-            //    //else if (txtunm.Text == "diljaanumretiya@gmail.com" && txtpass.Text == "diljan123")
-            //    //{
-            //    //    Session["user"] = txtunm.Text;
-            //    //    Response.Redirect("admin/index.aspx");
-
-            //    //}
-            //}
-            //else
-            //{
-            //    Response.Write("<script>alert('Invalid Email or Password')</script>");
-            //}
-            //if (txtunm.Text != null && txtpass.Text != null)
-            //}
-            //else
-            //{
-            //    Response.Write("<script>alert('Please enter Email and Password')</script>");
-            //}
-
+          
             getcon();
-                da = new SqlDataAdapter("SELECT ID, FullName FROM User_tbl WHERE Email='"+txtunm+"' AND Password='"+txtpass.Text+"'",con);
+                da = new SqlDataAdapter("SELECT ID, FullName FROM User_tbl WHERE Email='"+txtunm.Text+"' AND Password='"+txtpass.Text+"'",con);
                 ds = new DataSet();
                 da.Fill(ds);
 
@@ -94,7 +63,7 @@ namespace WebUni_Project.user
                     Session["user"] = txtunm.Text;
 
                     clear();
-                    Response.Redirect("~/Index.aspx"); 
+                    Response.Redirect("Index.aspx"); 
                 }
                 else
                 {

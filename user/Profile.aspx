@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -11,34 +12,31 @@
         <meta name="description" content="WebUni Education Template">
         <meta name="keywords" content="webuni, education, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Favicon -->
         <link href="img/favicon.ico" rel="shortcut icon" />
-
-        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/owl.carousel.css" />
         <link rel="stylesheet" href="css/style.css" />
         <link href="\css\style.css" rel="stylesheet" />
-
-        <%--        <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\owl.carousel.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\font-awesome.min.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\admin.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\bootstrap.min.css" rel="stylesheet" />--%>
-
-        <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
+        <%-- [Optional Links Removed for Clarity] --%>
+         <style>
+        /* Small utility tweaks for profile labels (not overriding theme) */
+        .profile-label { font-weight: 600; color: #474747; display:inline-block; min-width:120px; }
+        .profile-value { color:#878787; font-weight:500; }
+        .profile-header { display:flex; align-items:center; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+        .profile-card { padding:30px; border-radius:8px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+        .profile-actions { margin-top:12px; }
+        .profile-actions .site-btn { margin-right:10px; }
+        /* Make GridView full width inside container */
+        .myGridView { width:100%; border-collapse:collapse; }
+        .profile-initial { font-size:18px; width:56px; height:56px; line-height:56px; border-radius:50%; text-align:center; font-weight:700; }
+        @media (max-width:767px) {
+            .profile-label { display:block; min-width:0; margin-bottom:6px; }
+        }
+    </style>
     </head>
     <body>
-
-
-        <!-- Header section -->
         <header class="header-section">
             <div class="container">
                 <div class="row">
@@ -51,101 +49,126 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
-                        <a href="~/user/register.aspx" class="site-btn header-btn">Register</a>
-                        <nav class="main-menu">
+
+                        <%--<asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />--%>
+                        <%--                                    <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" />
+                                    <asp:LinkButton ID="lnkUser" runat="server" OnClick="lnkUser_Click" CssClass="profile-initial-link" Visible="false">
+                                        <asp:Label ID="Label1" runat="server" Text="U" />
+                                    </asp:LinkButton>--%>
+
+                        <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" />
+                        <asp:LinkButton ID="lnkUser" runat="server" Visible="false" >
+                            <asp:Label ID="Label1" runat="server" Text="U" />
+                        </asp:LinkButton><nav class="main-menu">
                             <ul>
-                                <li><a href="index.aspx">Home</a></li>
-                                <li><a href="about-us.aspx">About us</a></li>
-                                <li><a href="courses.aspx">Courses</a></li>
-                                <li><a href="contact.aspx">Contact</a></li>
+                                <li><a href="Index.aspx">Home</a></li>
+                                <li><a href="About-Us.aspx">About us</a></li>
+                                <li><a href="Subject.aspx">Subjects</a></li>
+                                <li><a href="MyExam.aspx">MyExam</a></li>
+                                <li><a href="Contact.aspx">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Header section end -->
-
-
-        <!-- Hero section -->
-        <%--        <section class="hero-section set-bg" data-setbg="img/bg.jpg ">--%>
         <section class="hero-section set-bg" data-setbg="img/page-bg/1.jpg">
             <div class="container">
                 <div class="hero-text text-white">
                     <h2>Get The Best Free Online Exams</h2>
-                    <p>
-                        The primary aim of this system is to digitize the traditional exam process, making it faster, more efficient, and accessible from anywhere. It eliminates the need for physical exam centers, paper usage, and manual correction.
-                    </p>
+                    <asp:Label ID="lblId" runat="server" Text=""></asp:Label><p>The primary aim of this system is to digitize the traditional exam process, making it faster, more efficient, and accessible from anywhere. It eliminates the need for physical exam centers, paper usage, and manual correction. </p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                    </div>
+                    <div class="col-lg-10 offset-lg-1"></div>
                 </div>
             </div>
         </section>
-        <!-- Hero section end -->
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+  <section class="spad">
+            <div class="container">
+                <div class="section-title">
+                    <h2>User Profile 🧑</h2>
+                </div>
 
+                <!-- Profile card -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div>
+                            <p><span class="profile-label">Full Name:</span>
+                                <asp:Label ID="lblFullName" runat="server" CssClass="profile-value" /></p>
 
-<div>
-        <h2>User Profile 🧑</h2>
+                            <p><span class="profile-label">Email:</span>
+                                <asp:Label ID="lblEmail" runat="server" CssClass="profile-value" /></p>
 
-        <asp:Panel ID="pnlProfileDetails" runat="server">
-            <p>Full Name:
-                <asp:Label ID="lblFullName" runat="server"></asp:Label></p>
-            <p>Email:
-                <asp:Label ID="lblEmail" runat="server"></asp:Label></p>
-            <p>Mobile No:
-                <asp:Label ID="lblMobileNo" runat="server"></asp:Label></p>
-            <p>Login ID:
-                <asp:Label ID="lblUsername" runat="server"></asp:Label></p>
+                            <p><span class="profile-label">Mobile No:</span>
+                                <asp:Label ID="lblMobileNo" runat="server" CssClass="profile-value" /></p>
 
-            <asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" OnClick="btnEditProfile_Click" />
-            <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
-            
-            <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
-            
-        </asp:Panel>
+                            <p><span class="profile-label">Login ID:</span>
+                                <asp:Label ID="lblUsername" runat="server" CssClass="profile-value" /></p>
+                        </div>
 
-        <asp:Panel ID="pnlEditProfile" runat="server" Visible="false">
-            <h3>Edit Profile ✏️</h3>
-            <p>New Full Name:
-                <asp:TextBox ID="txtEditFullName" runat="server"></asp:TextBox></p>
-            <p>New Email:
-                <asp:TextBox ID="txtEditEmail" runat="server"></asp:TextBox></p>
-            <p>New Mobile No:
-                <asp:TextBox ID="txtEditMobileNo" runat="server"></asp:TextBox></p>
+                        <!-- profile initial circle (uses theme .profile-initial-link styles) -->
+                        <div style="text-align:right;">
+                            <a href="#" class="profile-initial-link profile-initial" title="Profile">K</a>
+                            <div style="margin-top:8px;font-size:13px;color:#878787">Member since: <asp:Label ID="lblMemberSince" runat="server" CssClass="profile-value" /></div>
+                        </div>
+                    </div>
 
-            <asp:Button ID="btnSaveProfile" runat="server" Text="Save" OnClick="btnSaveProfile_Click" />
-            <asp:Button ID="btnCancelEdit" runat="server" Text="Back" OnClick="btnCancel_Click" />
-            <asp:Label ID="lblProfileMessage" runat="server" ForeColor="Green"></asp:Label>
-        </asp:Panel>
+                    <!-- action buttons -->
+                    <div class="profile-actions" style="margin-top:18px;">
+                        <asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" CssClass="site-btn" OnClick="btnEditProfile_Click" />
+                        <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" CssClass="site-btn" OnClick="btnChangePassword_Click" />
+                        <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="site-btn btn-dark" OnClick="btnLogout_Click" />
+                    </div>
+                </div>
 
-        <asp:Panel ID="pnlChangePassword" runat="server" Visible="false">
-            <h3>Change Password 🔑</h3>
-            <p>Old Password:
-                <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password"></asp:TextBox></p>
-            <p>New Password:
-                <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password"></asp:TextBox></p>
-            <p>Confirm Password:
-                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></p>
+                <!-- Edit profile panel (hidden by default in server side) -->
+                <asp:Panel ID="pnlEditProfile" runat="server" Visible="false" style="margin-top:25px;">
+                    <div class="signup-form">
+                        <h3>Edit Profile ✏️</h3>
+                        <p>New Full Name:
+                            <asp:TextBox ID="txtEditFullName" runat="server" /></p>
+                        <p>New Email:
+                            <asp:TextBox ID="txtEditEmail" runat="server" /></p>
+                        <p>New Mobile No:
+                            <asp:TextBox ID="txtEditMobileNo" runat="server" /></p>
 
-            <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" OnClick="btnUpdatePassword_Click" />
-            <asp:Button ID="btnCancelChangePass" runat="server" Text="Back" OnClick="btnCancel_Click" />
-            <asp:Label ID="lblPasswordMessage" runat="server" ForeColor="Green"></asp:Label>
-        </asp:Panel>
+                        <asp:Button ID="btnSaveProfile" runat="server" Text="Save" CssClass="site-btn" OnClick="btnSaveProfile_Click" />
+                        <asp:Button ID="btnCancelEdit" runat="server" Text="Back" CssClass="site-btn btn-fade" OnClick="btnCancel_Click" />
+                        <asp:Label ID="lblProfileMessage" runat="server" ForeColor="Green" />
+                    </div>
+                </asp:Panel>
 
-        <hr />
+                <!-- Change password panel -->
+                <asp:Panel ID="pnlChangePassword" runat="server" Visible="false" style="margin-top:25px;">
+                    <div class="signup-form">
+                        <h3>Change Password 🔑</h3>
+                        <p>Old Password:
+                            <asp:TextBox ID="txtOldPassword" runat="server" TextMode="Password" /></p>
+                        <p>New Password:
+                            <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" /></p>
+                        <p>Confirm Password:
+                            <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" /></p>
 
-        <h3>Exam History 📜</h3>
-        <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="true" EmptyDataText="You have not attempted any exams yet.">
-        </asp:GridView>
-    </div>
+                        <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" CssClass="site-btn" OnClick="btnUpdatePassword_Click" />
+                        <asp:Button ID="btnCancelChangePass" runat="server" Text="Back" CssClass="site-btn btn-fade" OnClick="btnCancel_Click" />
+                        <asp:Label ID="lblPasswordMessage" runat="server" ForeColor="Green" />
+                    </div>
+                </asp:Panel>
 
+                <hr style="margin-top:30px;margin-bottom:30px;border-top:2px solid #eee;" />
+
+                <!-- Exam history -->
+                <div>
+                    <h3>Exam History 📜</h3>
+                    <asp:GridView ID="gvExamHistory" runat="server" AutoGenerateColumns="true" EmptyDataText="You have not attempted any exams yet."
+                        CssClass="myGridView" HeaderStyle-CssClass="gvHeader" RowStyle-CssClass="gvRow" />
+                </div>
+            </div> <!-- /.container -->
+        </section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
-
     <!-- footer section -->
     <footer class="footer-section spad pb-0">
         <div class="footer-top">
@@ -155,7 +178,7 @@
                         <h4>Contact Info</h4>
                         <ul class="contact-list">
                             <li>1481 Creekside Lane
-                                            <br>
+                                <br>
                                 Avila Beach, CA 931</li>
                             <li>+53 345 7953 32453</li>
                             <li>onlineexam@gmail.com</li>
@@ -191,18 +214,18 @@
                             <li><a href="">System Engeneering</a></li>
                         </ul>
                     </div>
-                    <div class="widget-item">
-                        <h4>Newsletter</h4>
-                        <form class="footer-newslatter">
-                            <input type="email" placeholder="E-mail">
-                            <button class="site-btn">
-                                Subscribe
-                            </button>
-                            <p>
-                                *We don’t spam
-                            </p>
-                        </form>
-                    </div>
+                    <%--<div class="widget-item">
+                                    <h4>Newsletter</h4>
+                                    <form class="footer-newslatter">
+                                        <input type="email" placeholder="E-mail">
+                                        <button class="site-btn">
+                                            Subscribe
+                                        </button>
+                                        <p>
+                                            *We don’t spam
+                                        </p>
+                                    </form>
+                                </div>--%>
                 </div>
             </div>
         </div>
@@ -223,8 +246,6 @@
         </div>
     </footer>
     <!-- footer section end -->
-
-
     <!--====== Javascripts & Jquery ======-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -234,4 +255,3 @@
     <script src="js/main.js"></script>
     </html>
 </asp:Content>
-

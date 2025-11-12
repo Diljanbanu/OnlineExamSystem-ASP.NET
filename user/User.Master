@@ -43,9 +43,15 @@
                                 </div>
                                 <div class="col-lg-9 col-md-9">
 
-                                    <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />
-
+                                    <%--<asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />--%>
+                                    <%--                                    <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" />
                                     <asp:LinkButton ID="lnkUser" runat="server" OnClick="lnkUser_Click" CssClass="profile-initial-link" Visible="false">
+                                        <asp:Label ID="Label1" runat="server" Text="U" />
+                                    </asp:LinkButton>--%>
+
+                                    <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" />
+
+                                    <asp:LinkButton ID="lnkUser" runat="server" Visible="false" OnClick="lnkUser_Click">
                                         <asp:Label ID="Label1" runat="server" Text="U" />
                                     </asp:LinkButton>
 
@@ -56,6 +62,8 @@
                                             <li><a href="Subject.aspx">Subjects</a></li>
                                             <li><a href="MyExam.aspx">MyExam</a></li>
                                             <li><a href="Contact.aspx">Contact</a></li>
+                                            <li><a href="Profile.aspx">Profile</a></li>
+
                                         </ul>
                                     </nav>
                                 </div>

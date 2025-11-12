@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Configuration;
-using System.Web.Security;
 using System.Drawing;
+
 
 namespace WebUni_Project.user
 {
@@ -26,64 +26,28 @@ namespace WebUni_Project.user
             con = new SqlConnection(s);
             con.Open();
         }
-        private void ShowPanel(string panelName)
-        {
-            // બધા પેનલને છુપાવો
-            pnlProfileDetails.Visible = false;
-            pnlEditProfile.Visible = false;
-            pnlChangePassword.Visible = false;
-
-            // જરૂરી પેનલ બતાવો
-            switch (panelName)
-            {
-                case "Profile":
-                    pnlProfileDetails.Visible = true;
-                    // Cancel/Back આવ્યા પછી પ્રોફાઇલ રિફ્રેશ કરો
-                    LoadUserProfileDetails();
-                    break;
-                case "Edit":
-                    pnlEditProfile.Visible = true;
-                    lblProfileMessage.Text = "";
-                    break;
-                case "ChangePass":
-                    pnlChangePassword.Visible = true;
-                    lblPasswordMessage.Text = "";
-                    // Clear textboxes when showing the panel
-                    txtOldPassword.Text = "";
-                    txtNewPassword.Text = "";
-                    txtConfirmPassword.Text = "";
-                    break;
-            }
-        }
-
         private void LoadUserProfileDetails()
         {
-            // યુઝર ID સેશનમાં છે કે નહીં તે તપાસો
-            if (Session["UserID"] == null) return;
+            if (Session["UserID"] == null) return;
             string userId = Session["UserID"].ToString();
 
-            getcon(); 
-
-            da = new SqlDataAdapter("SELECT FullName, Email, MobileNo FROM User_tbl WHERE ID = '" +userId+ "'",con);
+            getcon();
+            da = new SqlDataAdapter("SELECT FullName, Email, MobileNo FROM User_tbl WHERE ID = '" + userId + "'", con);
             ds = new DataSet();
             da.Fill(ds);
 
-
-            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                lblFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
-
+                lblFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
                 lblMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
-
                 lblUsername.Text = ds.Tables[0].Rows[0]["Email"].ToString();
-
                 lblEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
 
-                txtEditFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
+                txtEditFullName.Text = ds.Tables[0].Rows[0]["FullName"].ToString();
                 txtEditEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
-
                 txtEditMobileNo.Text = ds.Tables[0].Rows[0]["MobileNo"].ToString();
             }
+
         }
 
         private void LoadExamHistory()
@@ -92,76 +56,69 @@ namespace WebUni_Project.user
             string userId = Session["UserID"].ToString();
 
             getcon();
-
-            da = new SqlDataAdapter("SELECT UserId,SubID,ExamId, CorrectAnswer, AttemptDate FROM ExamAttempt_tbl WHERE UserID = userID ORDER BY AttemptDate DESC",con);
+            da = new SqlDataAdapter("SELECT UserId, SubID, ExamId, CorrectAnswer, AttemptDate FROM ExamAttempt_tbl WHERE UserID = '" + userId + "' ORDER BY AttemptDate DESC", con);
             ds = new DataSet();
-        da.Fill(ds);
+            da.Fill(ds);
 
-            gvExamHistory.DataSource = ds;
+            gvExamHistory.DataSource = ds;
             gvExamHistory.DataBind();
 
-        }
-       
+        }
         protected void Page_Load(object sender, EventArgs e)
 		{
+            //if (!IsPostBack)
+            //{
+            //    LoadUserProfileDetails();
+            //    LoadExamHistory();
+            //    ShowPanel("Profile");
+
+            //}
+
             if (!IsPostBack)
             {
                 LoadUserProfileDetails();
                 LoadExamHistory();
-                ShowPanel("Profile"); 
-
-            }
-        }
-
-        protected void btnEditProfile_Click(object sender, EventArgs e)
-        {
-            ShowPanel("Edit");
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Session.Abandon();
-            Response.Redirect("~/user/login.aspx");
-        }
-
-        protected void btnChangePassword_Click(object sender, EventArgs e)
-        {
-            ShowPanel("ChangePass");
-        }
-
-        protected void btnSaveProfile_Click(object sender, EventArgs e)
-        {
-            if (Session["UserID"] == null) return;
-            string userId = Session["UserID"].ToString();
-            string newFullName = txtEditFullName.Text.Trim();
-            string newEmail = txtEditEmail.Text.Trim();
-            string newMobileNo = txtEditMobileNo.Text.Trim(); 
-
-            getcon(); 
-
-            da = new SqlDataAdapter("UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID", con);
-            ds=new DataSet();
-            da.Fill(ds);
-
-            int rowsAffected = cmd.ExecuteNonQuery();
-
-            if (rowsAffected > 0)
-            {
-                lblProfileMessage.Text = "Profile updated successfully! ✅";
-                lblProfileMessage.ForeColor = Color.Green;
-                LoadUserProfileDetails(); // Reload details to refresh the main panel
-            }
-            else
-            {
-                lblProfileMessage.Text = "Error updating profile. ❌";
-                lblProfileMessage.ForeColor = Color.Red;
             }
         }
 
         protected void btnUpdatePassword_Click(object sender, EventArgs e)
         {
+            //if (Session["UserID"] == null) return;
+            //string userId = Session["UserID"].ToString();
+            //string oldPassword = txtOldPassword.Text;
+            //string newPassword = txtNewPassword.Text;
+            //string confirmPassword = txtConfirmPassword.Text;
+
+            //if (newPassword != confirmPassword)
+            //{
+            //    lblPasswordMessage.Text = "New Password and Confirm Password do not match! 🛑";
+            //    lblPasswordMessage.ForeColor = Color.Red;
+            //    return;
+            //}
+
+
+            //getcon();
+            //da = new SqlDataAdapter("UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword", con);
+            //ds = new DataSet();
+            //da.Fill(ds);
+            //int rowsAffected = cmd.ExecuteNonQuery();
+
+            //if (rowsAffected > 0)
+            //{
+            //    lblPasswordMessage.Text = "Password updated successfully! ✅";
+            //    lblPasswordMessage.ForeColor = Color.Green;
+            //    txtOldPassword.Text = "";
+            //    txtNewPassword.Text = "";
+            //    txtConfirmPassword.Text = "";
+            //}
+            //else
+            //{
+            //    lblPasswordMessage.Text = "Invalid Old Password or an error occurred. ❌";
+            //    lblPasswordMessage.ForeColor = Color.Red;
+            //}
+
             if (Session["UserID"] == null) return;
+
             string userId = Session["UserID"].ToString();
             string oldPassword = txtOldPassword.Text;
             string newPassword = txtNewPassword.Text;
@@ -174,33 +131,111 @@ namespace WebUni_Project.user
                 return;
             }
 
+            getcon();
 
-            getcon();
-            da = new SqlDataAdapter("UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword",con);
-            ds = new DataSet();
-            da.Fill(ds);
-            int rowsAffected = cmd.ExecuteNonQuery();
+            // Check old password first
+            SqlCommand check = new SqlCommand("SELECT COUNT(*) FROM User_tbl WHERE ID='" + userId + "' AND Password='" + oldPassword + "'", con);
+            int count = Convert.ToInt32(check.ExecuteScalar());
 
-            if (rowsAffected > 0)
+            if (count == 1)
             {
-                lblPasswordMessage.Text = "Password updated successfully! ✅";
-                lblPasswordMessage.ForeColor = Color.Green;
-                txtOldPassword.Text = "";
-                txtNewPassword.Text = "";
-                txtConfirmPassword.Text = "";
+                cmd = new SqlCommand("UPDATE User_tbl SET Password='" + newPassword + "' WHERE ID='" + userId + "'", con);
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    lblPasswordMessage.Text = "Password updated successfully! ✅";
+                    lblPasswordMessage.ForeColor = Color.Green;
+                    txtOldPassword.Text = "";
+                    txtNewPassword.Text = "";
+                    txtConfirmPassword.Text = "";
+                }
             }
             else
             {
-                lblPasswordMessage.Text = "Invalid Old Password or an error occurred. ❌";
+                lblPasswordMessage.Text = "Invalid Old Password ❌";
                 lblPasswordMessage.ForeColor = Color.Red;
             }
 
-          
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            ShowPanel("Profile");
+            pnlEditProfile.Visible = false;
+            pnlChangePassword.Visible = false;
+        }
+
+        protected void btnSaveProfile_Click(object sender, EventArgs e)
+        {
+            //if (Session["UserID"] == null) return;
+            //string userId = Session["UserID"].ToString();
+            //string newFullName = txtEditFullName.Text.Trim();
+            //string newEmail = txtEditEmail.Text.Trim();
+            //string newMobileNo = txtEditMobileNo.Text.Trim();
+
+            //getcon();
+
+            //da = new SqlDataAdapter("UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID", con);
+            //ds = new DataSet();
+            //da.Fill(ds);
+
+            //int rowsAffected = cmd.ExecuteNonQuery();
+
+            //if (rowsAffected > 0)
+            //{
+            //    lblProfileMessage.Text = "Profile updated successfully! ✅";
+            //    lblProfileMessage.ForeColor = Color.Green;
+            //    LoadUserProfileDetails(); // Reload details to refresh the main panel
+            //}
+            //else
+            //{
+            //    lblProfileMessage.Text = "Error updating profile. ❌";
+            //    lblProfileMessage.ForeColor = Color.Red;
+            //}
+
+            if (Session["UserID"] == null) return;
+            string userId = Session["UserID"].ToString();
+            string newFullName = txtEditFullName.Text.Trim();
+            string newEmail = txtEditEmail.Text.Trim();
+            string newMobileNo = txtEditMobileNo.Text.Trim();
+
+            getcon();
+
+            cmd = new SqlCommand("UPDATE User_tbl SET FullName='" + newFullName + "', Email='" + newEmail + "', MobileNo='" + newMobileNo + "' WHERE ID='" + userId + "'", con);
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                lblProfileMessage.Text = "Profile updated successfully! ✅";
+                lblProfileMessage.ForeColor = Color.Green;
+                LoadUserProfileDetails();
+            }
+            else
+            {
+                lblProfileMessage.Text = "Error updating profile. ❌";
+                lblProfileMessage.ForeColor = Color.Red;
+            }
+
+        }
+
+        protected void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            pnlEditProfile.Visible = true;
+            pnlChangePassword.Visible = false;
+        }
+
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            pnlChangePassword.Visible = true;
+            pnlEditProfile.Visible = false;
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("~/user/login.aspx");
         }
     }
 }

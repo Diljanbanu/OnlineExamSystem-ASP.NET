@@ -34,83 +34,83 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
         <style>
-        /* My Exams Heading Styling */
-        #ContentPlaceHolder2 h2 {
-            font-size: 34px;
-            font-weight: 700;
-            color: #474747; /* Black/Dark Gray from the theme */
-            margin-bottom: 25px;
-            padding-top: 40px; /* થોડું ઉપરથી અંતર આપો */
-        }
+            /* My Exams Heading Styling */
+            #ContentPlaceHolder2 h2 {
+                font-size: 34px;
+                font-weight: 700;
+                color: #474747; /* Black/Dark Gray from the theme */
+                margin-bottom: 25px;
+                padding-top: 40px; /* થોડું ઉપરથી અંતર આપો */
+            }
 
-        /* GridView Styling (DataTable Look) */
-        #<%= GridView1.ClientID %> {
-            width: 80%; /* GridView ની પહોળાઈ સેટ કરો */
-            margin: 0 auto;
-            border-collapse: collapse; /* Borders ભેગા કરો */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* હળવો શેડો */
-        }
+            /* GridView Styling (DataTable Look) */
+            #<%= GridView1.ClientID % > {
+                width: 80%; /* GridView ની પહોળાઈ સેટ કરો */
+                margin: 0 auto;
+                border-collapse: collapse; /* Borders ભેગા કરો */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* હળવો શેડો */
+            }
 
-        /* GridView Header Row */
-        #<%= GridView1.ClientID %> th {
-            background-color: #d82a4e; /* WebUni Theme's Red */
-            color: #fff;
-            font-weight: 600;
-            padding: 15px 10px;
-            text-align: left;
-            font-size: 15px;
-        }
-        
-        /* GridView Data Rows */
-        #<%= GridView1.ClientID %> td {
-            padding: 12px 10px;
-            font-size: 14.1px;
-            color: #474747; /* Dark Gray for text */
-            line-height: 1.6;
-            border-bottom: 1px solid #edf4f6; /* Light Grayish/White border from theme */
-            background-color: #fff;
-        }
+                /* GridView Header Row */
+                #<%= GridView1.ClientID % > th {
+                    background-color: #d82a4e; /* WebUni Theme's Red */
+                    color: #fff;
+                    font-weight: 600;
+                    padding: 15px 10px;
+                    text-align: left;
+                    font-size: 15px;
+                }
 
-        /* Alternate Row Color */
-        #<%= GridView1.ClientID %> tr:nth-child(even) td {
-            background-color: #f7f7f7; /* Very light gray for alternate rows */
-        }
+                /* GridView Data Rows */
+                #<%= GridView1.ClientID % > td {
+                    padding: 12px 10px;
+                    font-size: 14.1px;
+                    color: #474747; /* Dark Gray for text */
+                    line-height: 1.6;
+                    border-bottom: 1px solid #edf4f6; /* Light Grayish/White border from theme */
+                    background-color: #fff;
+                }
 
-        /* Remove/LinkButton Styling */
-        #<%= GridView1.ClientID %> a[commandname="cmd_remove"] {
-            color: #d82a4e; /* WebUni Theme Red */
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+                /* Alternate Row Color */
+                #<%= GridView1.ClientID % > tr:nth-child(even) td {
+                    background-color: #f7f7f7; /* Very light gray for alternate rows */
+                }
 
-        #<%= GridView1.ClientID %> a[commandname="cmd_remove"]:hover {
-            color: #c02447; /* Slightly darker red on hover */
-            text-decoration: underline;
-        }
+                /* Remove/LinkButton Styling */
+                #<%= GridView1.ClientID % > a[commandname="cmd_remove"] {
+                    color: #d82a4e; /* WebUni Theme Red */
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
 
-        /* Update Button Styling */
-        #<%= btnUpdate.ClientID %> {
-            display: inline-block;
-            min-width: 196px;
-            text-align: center;
-            border: none;
-            padding: 15px 30px; /* થોડી વધારે પેડિંગ */
-            font-weight: 600;
-            font-size: 16px;
-            color: #fff;
-            cursor: pointer;
-            background: #d82a4e; /* WebUni Theme's Red */
-            transition: background-color 0.3s;
-            margin-top: 20px; /* GridView થી થોડું અંતર */
-            border-radius: 0; /* Theme પ્રમાણે ખૂણા sharp રાખો */
-        }
+                    #<%= GridView1.ClientID % > a[commandname="cmd_remove"]:hover {
+                        color: #c02447; /* Slightly darker red on hover */
+                        text-decoration: underline;
+                    }
 
-        #<%= btnUpdate.ClientID %>:hover {
-            background: #c02447; /* Hover effect */
-            color: #fff;
-        }
-    </style>
+            /* Update Button Styling */
+            #<%= btnUpdate.ClientID % > {
+                display: inline-block;
+                min-width: 196px;
+                text-align: center;
+                border: none;
+                padding: 15px 30px; /* થોડી વધારે પેડિંગ */
+                font-weight: 600;
+                font-size: 16px;
+                color: #fff;
+                cursor: pointer;
+                background: #d82a4e; /* WebUni Theme's Red */
+                transition: background-color 0.3s;
+                margin-top: 20px; /* GridView થી થોડું અંતર */
+                border-radius: 0; /* Theme પ્રમાણે ખૂણા sharp રાખો */
+            }
+
+                #<%= btnUpdate.ClientID % > :hover {
+                    background: #c02447; /* Hover effect */
+                    color: #fff;
+                }
+        </style>
 
     </head>
     <body>
@@ -137,6 +137,8 @@
                                 <li><a href="Subject.aspx">Subjects</a></li>
                                 <li><a href="MyExam.aspx">MyExam</a></li>
                                 <li><a href="contact.aspx">Contact</a></li>
+                                <li><a href="Profile.aspx">Profile</a></li>
+
                             </ul>
                         </nav>
                     </div>
@@ -176,7 +178,7 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-               <%-- <asp:TemplateField HeaderText="UserId">
+                <%-- <asp:TemplateField HeaderText="UserId">
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
                     </ItemTemplate>

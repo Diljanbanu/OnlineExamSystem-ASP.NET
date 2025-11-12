@@ -154,6 +154,8 @@
                                 <li><a href="Subject.aspx">Subjects</a></li>
                                 <li><a href="MyExam.aspx">MyExam</a></li>
                                 <li><a href="Contact.aspx">Contact</a></li>
+                                <li><a href="Profile.aspx">Profile</a></li>
+
                             </ul>
                         </nav>
                     </div>

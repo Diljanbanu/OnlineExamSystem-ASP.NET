@@ -89,7 +89,6 @@
     <Content Include="user\css\font-awesome.min.css" />
     <Content Include="user\css\owl.carousel.css" />
     <Content Include="user\css\style.css" />
-    <Content Include="user\EditProfile.aspx" />
     <Content Include="user\icon-fonts\fontawesome-webfont.svg" />
     <Content Include="user\img\add.jpg" />
     <Content Include="user\img\authors\1.jpg" />
@@ -237,13 +236,6 @@
     </Compile>
     <Compile Include="user\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="user\EditProfile.aspx.cs">
-      <DependentUpon>EditProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\EditProfile.aspx.designer.cs">
-      <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

@@ -57,7 +57,7 @@ namespace WebUni_Project.user
                 cmd = new SqlCommand("INSERT INTO User_tbl(FullName,Email,MobileNo,Gender,Password)VALUES('"+txtfnm.Text+"','"+txteml.Text+"','"+txtmbl.Text+"','"+drpgen.SelectedValue+"','"+txtpsw.Text+"')", con);
                 cmd.ExecuteNonQuery();
                 clear();
-                Response.Redirect("login.aspx");
+                Response.Redirect("Login.aspx");
             }
             //else
             //{

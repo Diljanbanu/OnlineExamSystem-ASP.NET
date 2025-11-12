@@ -27,47 +27,27 @@ namespace WebUni_Project.user
         }
         protected void lnkUser_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/user/Profile.aspx");
+           // Response.Redirect("~/user/Profile.aspx");
         }
 
         protected void Page_Load(object sender, EventArgs e)
 		{
-            //SetHeaderControls();
+            //if (lnkUser == null || Label1 == null)
+            //    return;
 
-            // Check if the user is authenticated (assuming Session["UserName"] is set upon successful login).
-            if (Session["UserName"] != null)
-            {
-                // **User is LOGGED IN**
+            //if (Session["UserName"] != null)
+            //{
+            //    lnkUser.Visible = true;
 
-                // 1. Hide the Register Link Button.
-                lnkRegister.Visible = false;
-
-                // 2. Show the User Profile Initial Link Button.
-                lnkUser.Visible = true;
-
-                // 3. Set the text of the label to the first letter of the username.
-                string userName = Session["UserName"].ToString();
-                if (!string.IsNullOrEmpty(userName))
-                {
-                    // Get the first character and convert it to uppercase for the profile initial display.
-                    Label1.Text = userName.Trim().Substring(0, 1).ToUpper();
-                }
-                else
-                {
-                    // Fallback to 'U' if the username is empty.
-                    Label1.Text = "U";
-                }
-            }
-            else
-            {
-                // **User is NOT LOGGED IN**
-
-                // 1. Show the Register Link Button.
-               // lnkRegister.Visible = true;
-
-                // 2. Hide the User Profile Initial Link Button.
-                //lnkUser.Visible = false;
-            }
+            //    string userName = Session["UserName"].ToString();
+            //    Label1.Text = !string.IsNullOrWhiteSpace(userName)
+            //        ? userName.Trim().Substring(0, 1).ToUpper()
+            //        : "U";
+            //}
+            //else
+            //{
+            //    lnkUser.Visible = false;
+            //}
         }
         
     }

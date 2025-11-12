@@ -44,6 +44,8 @@
                                 <li><a href="Subject.aspx">Subjects</a></li>
                                 <li><a href="MyExam.aspx">MyExam</a></li>
                                 <li><a href="Contact.aspx">Contact</a></li>
+                                <li><a href="Profile.aspx">Profile</a></li>
+
                             </ul>
                         </nav>
                     </div>
@@ -63,134 +65,142 @@
         </section>
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-   <section class="spad about-us-content">
-    <div class="container">
-        <div class="section-title text-center">
-            <h2>About ExamPlatform: Redefining Assessment for a Digital World</h2>
-            <p>The world of education is evolving, and so should the way we assess knowledge. ExamPlatform was born from a simple yet powerful idea: to make examinations more accessible, efficient, and secure for everyone. We are dedicated to digitizing the traditional exam process, breaking down geographical barriers, and empowering both educators and learners with a seamless, intuitive, and powerful online testing solution.</p>
-        </div>
-        
-        <div class="row align-items-center" style="margin-bottom: 80px;">
-            <div class="col-lg-6">
-                <div class="placeholder-block">
-                    🎯 Our Mission: Accessible Testing
-                </div>
+    <section class="spad about-us-content">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>About ExamPlatform: Redefining Assessment for a Digital World</h2>
+                <p>The world of education is evolving, and so should the way we assess knowledge. ExamPlatform was born from a simple yet powerful idea: to make examinations more accessible, efficient, and secure for everyone. We are dedicated to digitizing the traditional exam process, breaking down geographical barriers, and empowering both educators and learners with a seamless, intuitive, and powerful online testing solution.</p>
             </div>
-            <div class="col-lg-6">
-                <div class="about-text">
-                    <h4>Our Mission: To Empower Through Fair and Accessible Testing</h4>
-                    <p>Our primary mission is to **democratize the assessment process**. We believe that everyone deserves a fair chance to demonstrate their knowledge without the logistical hurdles of traditional exams. By eliminating the need for physical exam centers, paper usage, and manual correction, we save valuable time and resources for institutions while providing a stress-free experience for students. We are committed to upholding the integrity of exams while making them available to anyone, anywhere.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row align-items-center" style="margin-bottom: 80px;">
-            <div class="col-lg-6 order-lg-1 order-2">
-                <div class="about-text">
-                    <h4>From Frustration to Innovation: The Story Behind Our Platform</h4>
-                    <p>Like many great ideas, ExamPlatform started with a problem. Our founders, a team of educators and tech enthusiasts, witnessed firsthand the challenges of the old system: the administrative nightmare of organizing exams, the environmental cost of millions of paper sheets, the slow turnaround time for results, and the geographical limitations that excluded deserving candidates. We knew there had to be a better way. We envisioned a platform that was not only technologically advanced but also simple to use, reliable, and fundamentally fair.</p>
+            <div class="row align-items-center" style="margin-bottom: 80px;">
+                <div class="col-lg-6">
+                    <div class="placeholder-block">
+                        🎯 Our Mission: Accessible Testing
+               
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h4>Our Mission: To Empower Through Fair and Accessible Testing</h4>
+                        <p>Our primary mission is to **democratize the assessment process**. We believe that everyone deserves a fair chance to demonstrate their knowledge without the logistical hurdles of traditional exams. By eliminating the need for physical exam centers, paper usage, and manual correction, we save valuable time and resources for institutions while providing a stress-free experience for students. We are committed to upholding the integrity of exams while making them available to anyone, anywhere.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6 order-lg-2 order-1">
-                <div style="text-align: center;">
-                     <div class="placeholder-block" style="height: 350px;">Innovation in Assessment</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row" style="margin-bottom: 80px;">
-            <div class="col-lg-12">
-                <div class="about-text text-center">
-                    <h4 style="text-align: center;">A Smarter Way to Assess: Our Core Features</h4>
-                    <p style="text-align: center; max-width: 900px; margin: 0 auto 30px auto;">We have built a robust platform designed to meet the diverse needs of modern education. Here’s what makes us different:</p>
-                    
-                    <div class="row text-left">
-                        <div class="col-md-3">
-                            <div class="about-text">
-                                <ul>
-                                    <li><strong>Complete Accessibility:</strong> Create, manage, and take exams from any device with an internet connection, breaking down physical barriers to education.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="about-text">
-                                <ul>
-                                    <li><strong>Automated Efficiency:</strong> Say goodbye to manual grading. Our system provides instant results and in-depth analytics, giving educators more time to focus on teaching.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="about-text">
-                                <ul>
-                                    <li><strong>Uncompromised Security:</strong> With features like timed exams, question shuffling, and secure browser technology, we ensure the integrity of every assessment.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="about-text">
-                                <ul>
-                                    <li><strong>Eco-Friendly Solution:</strong> By going fully digital, we are proud to contribute to a more sustainable future, one exam at a time.</li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="row align-items-center" style="margin-bottom: 80px;">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="about-text">
+                        <h4>From Frustration to Innovation: The Story Behind Our Platform</h4>
+                        <p>Like many great ideas, ExamPlatform started with a problem. Our founders, a team of educators and tech enthusiasts, witnessed firsthand the challenges of the old system: the administrative nightmare of organizing exams, the environmental cost of millions of paper sheets, the slow turnaround time for results, and the geographical limitations that excluded deserving candidates. We knew there had to be a better way. We envisioned a platform that was not only technologically advanced but also simple to use, reliable, and fundamentally fair.</p>
                     </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1">
+                    <div style="text-align: center;">
+                        <div class="placeholder-block" style="height: 350px;">Innovation in Assessment</div>
                     </div>
+                </div>
             </div>
-        </div>
 
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="placeholder-block" style="background-color: #474747; color: white;">
-                    ✨ Vision: Future of Learning
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="about-text">
-                    <h4>Shaping the Future of Learning</h4>
-                    <p>Our journey doesn't end here. We envision a future where online assessment is seamlessly integrated with learning, providing **personalized feedback and adaptive learning paths** for students. We are constantly innovating, exploring AI-driven analytics and advanced proctoring to make our platform the gold standard for online examinations worldwide.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            <div class="row" style="margin-bottom: 80px;">
+                <div class="col-lg-12">
+                    <div class="about-text text-center">
+                        <h4 style="text-align: center;">A Smarter Way to Assess: Our Core Features</h4>
+                        <p style="text-align: center; max-width: 900px; margin: 0 auto 30px auto;">We have built a robust platform designed to meet the diverse needs of modern education. Here’s what makes us different:</p>
 
-<section class="call-to-action-section spad">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="call-to-action-wrap">
-                    <div class="section-title text-left">
-                        <h2 style="font-size: 40px; margin-bottom: 10px;">Exams, Reimagined.</h2>
-                        <p style="font-size: 16px;">We are ExamPlatform. We make online testing simple, secure, and free. In today's fast-paced world, education shouldn't be held back by old methods. We created ExamPlatform to provide a clean, powerful, and intuitive platform for conducting online exams. Whether you're a teacher managing a classroom quiz or an organization conducting a large-scale assessment, our tool is designed to save you time and deliver reliable results.</p>
-                    </div>
-                    <div style="margin-top: 30px;" class="about-text">
-                        <h4 style="margin-top: 0;">What Drives Us</h4>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <ul><li><strong>Simplicity:</strong> A powerful platform doesn’t need to be complicated. Our interface ensures a smooth experience.</li></ul>
+                        <div class="row text-left">
+                            <div class="col-md-3">
+                                <div class="about-text">
+                                    <ul>
+                                        <li><strong>Complete Accessibility:</strong> Create, manage, and take exams from any device with an internet connection, breaking down physical barriers to education.</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <ul><li><strong>Integrity:</strong> We believe in fair testing. Our security features are built to prevent cheating and ensure reliable results.</li></ul>
+                            <div class="col-md-3">
+                                <div class="about-text">
+                                    <ul>
+                                        <li><strong>Automated Efficiency:</strong> Say goodbye to manual grading. Our system provides instant results and in-depth analytics, giving educators more time to focus on teaching.</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <ul><li><strong>Accessibility:</strong> We are committed to breaking down barriers. Our platform is free and works on any device.</li></ul>
+                            <div class="col-md-3">
+                                <div class="about-text">
+                                    <ul>
+                                        <li><strong>Uncompromised Security:</strong> With features like timed exams, question shuffling, and secure browser technology, we ensure the integrity of every assessment.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="about-text">
+                                    <ul>
+                                        <li><strong>Eco-Friendly Solution:</strong> By going fully digital, we are proud to contribute to a more sustainable future, one exam at a time.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 text-center right-col">
-                <div style="padding: 50px 0;">
-                    <div class="section-title">
-                        <h2 style="font-size: 36px; font-weight: 700; color: #474747;">Start Your Digital Journey</h2>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="placeholder-block" style="background-color: #474747; color: white;">
+                        ✨ Vision: Future of Learning
+               
                     </div>
-                    <p style="font-weight: 500; font-size: 1.1rem; margin-bottom: 30px; color: #878787;">Join thousands of users who have streamlined their assessment process. It’s free to begin and easy to grow.</p>
-                    <a href="register.aspx" class="site-btn">Start for Free Today <i class="fa fa-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h4>Shaping the Future of Learning</h4>
+                        <p>Our journey doesn't end here. We envision a future where online assessment is seamlessly integrated with learning, providing **personalized feedback and adaptive learning paths** for students. We are constantly innovating, exploring AI-driven analytics and advanced proctoring to make our platform the gold standard for online examinations worldwide.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="call-to-action-section spad">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="call-to-action-wrap">
+                        <div class="section-title text-left">
+                            <h2 style="font-size: 40px; margin-bottom: 10px;">Exams, Reimagined.</h2>
+                            <p style="font-size: 16px;">We are ExamPlatform. We make online testing simple, secure, and free. In today's fast-paced world, education shouldn't be held back by old methods. We created ExamPlatform to provide a clean, powerful, and intuitive platform for conducting online exams. Whether you're a teacher managing a classroom quiz or an organization conducting a large-scale assessment, our tool is designed to save you time and deliver reliable results.</p>
+                        </div>
+                        <div style="margin-top: 30px;" class="about-text">
+                            <h4 style="margin-top: 0;">What Drives Us</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li><strong>Simplicity:</strong> A powerful platform doesn’t need to be complicated. Our interface ensures a smooth experience.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li><strong>Integrity:</strong> We believe in fair testing. Our security features are built to prevent cheating and ensure reliable results.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li><strong>Accessibility:</strong> We are committed to breaking down barriers. Our platform is free and works on any device.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center right-col">
+                    <div style="padding: 50px 0;">
+                        <div class="section-title">
+                            <h2 style="font-size: 36px; font-weight: 700; color: #474747;">Start Your Digital Journey</h2>
+                        </div>
+                        <p style="font-weight: 500; font-size: 1.1rem; margin-bottom: 30px; color: #878787;">Join thousands of users who have streamlined their assessment process. It’s free to begin and easy to grow.</p>
+                        <a href="register.aspx" class="site-btn">Start for Free Today <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <!-- footer section -->
