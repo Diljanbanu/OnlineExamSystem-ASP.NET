@@ -57,7 +57,7 @@
             /* The main white box for the form content */
             .login-form-container {
                 background: #fff;
-                padding: 80px 60px;
+                padding: 40px 40px;
                 border-radius: 8px; /* Added for a modern look */
                 box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
                 position: relative;
@@ -277,6 +277,7 @@
                 font-family: Arial, sans-serif;
             }
         </style>
+
     </head>
     <body>
 </asp:Content>

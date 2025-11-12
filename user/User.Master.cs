@@ -50,12 +50,12 @@ namespace WebUni_Project.user
                 if (!string.IsNullOrEmpty(userName))
                 {
                     // Get the first character and convert it to uppercase for the profile initial display.
-                    lblUser.Text = userName.Trim().Substring(0, 1).ToUpper();
+                    Label1.Text = userName.Trim().Substring(0, 1).ToUpper();
                 }
                 else
                 {
                     // Fallback to 'U' if the username is empty.
-                    lblUser.Text = "U";
+                    Label1.Text = "U";
                 }
             }
             else
@@ -63,10 +63,10 @@ namespace WebUni_Project.user
                 // **User is NOT LOGGED IN**
 
                 // 1. Show the Register Link Button.
-                lnkRegister.Visible = true;
+               // lnkRegister.Visible = true;
 
                 // 2. Hide the User Profile Initial Link Button.
-                lnkUser.Visible = false;
+                //lnkUser.Visible = false;
             }
         }
         
