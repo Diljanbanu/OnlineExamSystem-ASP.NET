@@ -77,10 +77,13 @@ namespace WebUni_Project.admin
 
         protected void Page_Load(object sender, EventArgs e)
 		{
-            getcon();
-            fillgrid();
-            imgupload();
-            clear();
+            if (!IsPostBack) // ફક્ત પ્રથમ વખત પેજ લોડ થાય ત્યારે
+            {
+                getcon();
+                fillgrid();
+                imgupload();
+                clear();
+            }
         }
 
         protected void btnPro_Click(object sender, EventArgs e)
@@ -94,31 +97,42 @@ namespace WebUni_Project.admin
                 cmd.ExecuteNonQuery();
                 clear();
             }
-            else
-            {
-                cmd = new SqlCommand("UPDATE add_Faculty_tbl SET Pro_Name='"+txtpnm.Text+ "',Description='" + txtdes.Text + "', Subject_Name='" + txtsnm.Text + "',Subject_Expert='"+txtsex.Text+"' WHERE Id='" + ViewState["id"] + "'", con);
-                cmd.ExecuteNonQuery();
-                fillgrid();
-                btnPro.Text = "Save";
-            }
+            //else
+            //{
+            //    cmd = new SqlCommand("UPDATE add_Faculty_tbl SET Pro_Name='" + txtpnm.Text + "',Description='" + txtdes.Text + "', Subject_Name='" + txtsnm.Text + "',Subject_Expert='" + txtsex.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
+            //    cmd.ExecuteNonQuery();
+            //    fillgrid();
+            //   // btnPro.Text = "E";
+            //}
         }
 
-        //protected void btnRepo_Click(object sender, EventArgs e)
-        //{
-        //    da = new SqlDataAdapter("SELECT * FROM add_Faculty_tbl",con);
-        //    ds = new DataSet();
-        //    da.Fill(ds);
-        //    string xml= @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.xml";
-        //    ds.WriteXmlSchema(xml);
+        protected void gvFact_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        //    Crypath = @"C:/Users/DELL/source/repos/ASP.NET/WebUni_Project/Faculty.rpt";
-        //    cr.Load(Crypath);
-        //    cr.SetDataSource(ds);
-        //    cr.Database.Tables[0].SetDataSource(ds);
-        //    cr.Refresh();
-        //   // crystalReportViewer1.ReportSource = cr;
+        }
 
+        protected void gvFact_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "cmd_edt")
+            {
+                int id = Convert.ToInt16(e.CommandArgument);
+                ViewState["id"] = id;
+                cmd = new SqlCommand("UPDATE add_Faculty_tbl SET Pro_Name='" + txtpnm.Text + "',Description='" + txtdes.Text + "', Subject_Name='" + txtsnm.Text + "',Subject_Expert='" + txtsex.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
+                fillgrid();
+                cmd.ExecuteNonQuery();
+             
 
-        //}
+              //  select();
+            }
+            else if (e.CommandName == "cmd_dlt")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                ViewState["id"] = id;
+                getcon();
+                cmd = new SqlCommand("DELETE FROM add_Faculty_tbl WHERE Id='" + ViewState["id"] + "'", con);
+                cmd.ExecuteNonQuery();
+                fillgrid();
+            }
+        }
     }
 }

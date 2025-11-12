@@ -68,7 +68,7 @@
 
                 <div class="table-responsive mt-5">
                     <h2 class="text-secondary mb-3">Faculties List</h2>
-                    <asp:GridView ID="gvFact" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm">
+                    <asp:GridView ID="gvFact" runat="server" AutoGenerateColumns="False" BorderStyle="Solid" BorderWidth="1px" CellPadding="8" CssClass="table table-striped table-hover table-bordered shadow-sm" OnRowCommand="gvFact_RowCommand" OnSelectedIndexChanged="gvFact_SelectedIndexChanged">
                         <Columns>
                             <asp:TemplateField HeaderText="Id">
                                 <ItemTemplate>

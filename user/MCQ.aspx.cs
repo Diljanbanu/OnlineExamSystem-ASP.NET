@@ -137,8 +137,11 @@ namespace WebUni_Project.user
             cmd.ExecuteNonQuery();
 
             lblResult.Text = $"Correct: {correct}, Wrong: {wrong}, Score: {score}/{total}";
+            btnSubmit.Visible = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "stopTimerScript", "clearInterval(timer);", true);
+            // 4. Enable the 'Back to Subjects' button now that the test is complete.
+            btnBackSub.Enabled = true;
 
-            
         }
     }
 }

@@ -56,9 +56,9 @@
                                         <asp:Label ID="Label1" runat="server" Text="U" />
                                     </asp:LinkButton>--%>
 
-                        <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" />
-                        <asp:LinkButton ID="lnkUser" runat="server" Visible="false" >
-                            <asp:Label ID="Label1" runat="server" Text="U" />
+                        <%--<asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" />
+                        <asp:LinkButton ID="lnkUser" runat="server" CssClass="profile-initial-link" Visible="false" >
+                            <asp:Label ID="Label1" runat="server" Text="U" />--%>
                         </asp:LinkButton><nav class="main-menu">
                             <ul>
                                 <li><a href="Index.aspx">Home</a></li>
@@ -108,11 +108,11 @@
                                 <asp:Label ID="lblUsername" runat="server" CssClass="profile-value" /></p>
                         </div>
 
-                        <!-- profile initial circle (uses theme .profile-initial-link styles) -->
+                       <%-- <!-- profile initial circle (uses theme .profile-initial-link styles) -->
                         <div style="text-align:right;">
-                            <a href="#" class="profile-initial-link profile-initial" title="Profile">K</a>
+                            <a href="#" class="profile-initial-link profile-initial" title="Profile"></a>
                             <div style="margin-top:8px;font-size:13px;color:#878787">Member since: <asp:Label ID="lblMemberSince" runat="server" CssClass="profile-value" /></div>
-                        </div>
+                        </div>--%>
                     </div>
 
                     <!-- action buttons -->

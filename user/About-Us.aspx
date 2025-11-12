@@ -158,7 +158,7 @@
         </div>
     </section>
 
-    <section class="call-to-action-section spad">
+<%--    <section class="call-to-action-section spad">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
@@ -200,7 +200,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--%>
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <!-- footer section -->

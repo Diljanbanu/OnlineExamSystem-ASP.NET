@@ -413,6 +413,9 @@ ol {
 
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
+                <div class="alert alert-danger text-center" role="alert" style="font-size: 1.5em; font-weight: bold;">
+            Remaining Time: <span id="timerDisplay">20:00</span>
+        </div>
                 
                 <asp:DataList ID="dlmcq" runat="server" RepeatColumns="1" OnItemDataBound="dlmcq_ItemDataBound" CssClass="course-list">
                     <ItemTemplate>
@@ -440,7 +443,7 @@ ol {
                     <asp:Label ID="lblResult" runat="server" Font-Bold="true" ForeColor="Green"></asp:Label>
                 </div>
                             <div class="back-button-container">
-                <asp:Button ID="btnBackSub" runat="server" Text="Back to Subjects" CssClass="btn-back" OnClick="btnBackSub_Click" />
+                <asp:Button ID="btnBackSub" runat="server" Text="Back to Subjects" Enabled="false" CssClass="btn-back" OnClick="btnBackSub_Click" />
             </div>
 
             </div>
@@ -530,6 +533,37 @@ ol {
 
     <!--====== Javascripts & Jquery ======-->
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+    var totalSeconds = 1200; // 20 minutes * 60 seconds
+    var timer;
+    var submitButtonId = '<%= btnSubmit.ClientID %>'; // Get ASP.NET Client ID
+
+    function startTimer() {
+        timer = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+        var minutes = Math.floor(totalSeconds / 60);
+        var seconds = totalSeconds % 60;
+
+        // Formatting the time to display MM:SS
+        var displayMinutes = String(minutes).padStart(2, '0');
+        var displaySeconds = String(seconds).padStart(2, '0');
+        
+        document.getElementById('timerDisplay').textContent = displayMinutes + ':' + displaySeconds;
+
+        if (totalSeconds <= 0) {
+            clearInterval(timer);
+            // Time's up! Automatically click the submit button.
+            document.getElementById(submitButtonId).click();
+        } else {
+            totalSeconds--;
+        }
+    }
+
+    // Start the timer when the page is fully loaded (i.e., when exam is attempted)
+    window.onload = startTimer;
+</script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/circle-progress.min.js"></script>

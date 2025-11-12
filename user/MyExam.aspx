@@ -44,7 +44,7 @@
             }
 
             /* GridView Styling (DataTable Look) */
-            #<%= GridView1.ClientID % > {
+            #<%= GridView1.ClientID %> {
                 width: 80%; /* GridView ની પહોળાઈ સેટ કરો */
                 margin: 0 auto;
                 border-collapse: collapse; /* Borders ભેગા કરો */
@@ -52,7 +52,7 @@
             }
 
                 /* GridView Header Row */
-                #<%= GridView1.ClientID % > th {
+                #<%= GridView1.ClientID %> th {
                     background-color: #d82a4e; /* WebUni Theme's Red */
                     color: #fff;
                     font-weight: 600;
@@ -62,7 +62,7 @@
                 }
 
                 /* GridView Data Rows */
-                #<%= GridView1.ClientID % > td {
+                #<%= GridView1.ClientID %> td {
                     padding: 12px 10px;
                     font-size: 14.1px;
                     color: #474747; /* Dark Gray for text */
@@ -72,25 +72,25 @@
                 }
 
                 /* Alternate Row Color */
-                #<%= GridView1.ClientID % > tr:nth-child(even) td {
+                #<%= GridView1.ClientID %> tr:nth-child(even) td {
                     background-color: #f7f7f7; /* Very light gray for alternate rows */
                 }
 
                 /* Remove/LinkButton Styling */
-                #<%= GridView1.ClientID % > a[commandname="cmd_remove"] {
+                #<%= GridView1.ClientID %> a[commandname="cmd_remove"] {
                     color: #d82a4e; /* WebUni Theme Red */
                     font-weight: 600;
                     text-decoration: none;
                     transition: color 0.3s;
                 }
 
-                    #<%= GridView1.ClientID % > a[commandname="cmd_remove"]:hover {
+                    #<%= GridView1.ClientID %> a[commandname="cmd_remove"]:hover {
                         color: #c02447; /* Slightly darker red on hover */
                         text-decoration: underline;
                     }
 
             /* Update Button Styling */
-            #<%= btnUpdate.ClientID % > {
+            #<%= btnUpdate.ClientID %> {
                 display: inline-block;
                 min-width: 196px;
                 text-align: center;
@@ -106,7 +106,7 @@
                 border-radius: 0; /* Theme પ્રમાણે ખૂણા sharp રાખો */
             }
 
-                #<%= btnUpdate.ClientID % > :hover {
+                #<%= btnUpdate.ClientID %> :hover {
                     background: #c02447; /* Hover effect */
                     color: #fff;
                 }

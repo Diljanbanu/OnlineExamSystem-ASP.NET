@@ -20,6 +20,74 @@
         <link rel="stylesheet" href="css/style.css" />
         <link href="\css\style.css" rel="stylesheet" />
         <%-- [Optional Links Removed for Clarity] --%>
+        <style>
+        /* Card Container Styling */
+        .faculty-card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Individual Card Styling */
+        .faculty-card {
+            width: 300px; /* Card width */
+            margin: 15px;
+            padding: 20px;
+            text-align: center;
+            
+            /* Light and Simple Styling */
+            background-color: #ffffff; /* White background */
+            border: 1px solid #e0e0e0; /* Light border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image Styling */
+        .faculty-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #ff6347; /* Theme color border (Tomato) */
+        }
+
+        /* Text Styling */
+        .faculty-card .pro-name {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #333; /* Dark text for contrast */
+            margin-bottom: 5px;
+        }
+
+        .faculty-card .description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            min-height: 60px; /* Fixed height for description */
+        }
+
+        .faculty-card .subject-info {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #e0e0e0;
+        }
+
+        .faculty-card .subject-expert {
+             font-weight: 600;
+             color: #ff6347; /* Highlight subject expert name */
+        }
+    </style>
     </head>
     <body>
         <header class="header-section">
@@ -71,9 +139,9 @@
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
 
-    <section>
+<%--    <section>
         <center>
-            <asp:DataList ID="dlfact" runat="server">
+            <asp:DataList ID="dlfact" runat="server" RepeatDirection="Horizontal">
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
                     <br />
@@ -88,6 +156,33 @@
 
             </asp:DataList>
         </center>
+    </section>--%>
+
+   <section>
+        <div class="container faculty-card-container">
+            <asp:DataList ID="dlfact" runat="server" RepeatDirection="Horizontal" RepeatColumns="3" CellSpacing="20">
+                <ItemTemplate>
+                    <div class="faculty-card">
+                        <%-- Image --%>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                        
+                        <%-- Professor Name --%>
+                        <asp:Label ID="Label1" runat="server" CssClass="pro-name" Text='<%# Eval("Pro_Name") %>'></asp:Label>
+                        
+                        <%-- Description (Main Text) --%>
+                        <asp:Label ID="Label2" runat="server" CssClass="description" Text='<%# Eval("Description") %>'></asp:Label>
+                        
+                        <div class="subject-info">
+                            <%-- Subject Name --%>
+                            <p>Subject: <asp:Label ID="Label3" runat="server" Text='<%# Eval("Subject_Name") %>'></asp:Label></p>
+                            
+                            <%-- Subject Expert --%>
+                            <p>Expertise: <asp:Label ID="Label4" runat="server" CssClass="subject-expert" Text='<%# Eval("Subject_Expert") %>'></asp:Label></p>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
     </section>
 
 
