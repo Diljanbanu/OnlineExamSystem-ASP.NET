@@ -84,7 +84,7 @@
       <DependentUpon>online_exam_db.mdf</DependentUpon>
     </Content>
     <Content Include="user\About-Us.aspx" />
-    <Content Include="user\contact.aspx" />
+    <Content Include="user\Contact.aspx" />
     <Content Include="user\css\bootstrap.min.css" />
     <Content Include="user\css\font-awesome.min.css" />
     <Content Include="user\css\owl.carousel.css" />
@@ -144,7 +144,7 @@
     <Content Include="user\js\mixitup.min.js" />
     <Content Include="user\js\owl.carousel.min.js" />
     <Content Include="user\js\timer.js" />
-    <Content Include="user\login.aspx" />
+    <Content Include="user\Login.aspx" />
     <Content Include="user\MCQ.aspx" />
     <Content Include="user\MyExam.aspx" />
     <Content Include="user\Profile.aspx" />
@@ -231,12 +231,12 @@
     <Compile Include="user\About-Us.aspx.designer.cs">
       <DependentUpon>About-Us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\contact.aspx.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="user\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\contact.aspx.designer.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="user\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
@@ -252,12 +252,12 @@
     <Compile Include="user\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="user\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="user\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\MCQ.aspx.cs">
       <DependentUpon>MCQ.aspx</DependentUpon>

@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace WebUni_Project.user
 {
-	public partial class contact : System.Web.UI.Page
+	public partial class Contact : System.Web.UI.Page
 	{
         string s = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlConnection con;
@@ -55,13 +55,12 @@ namespace WebUni_Project.user
             ds = new DataSet();
             da.Fill(ds);
         }
-
         protected void Page_Load(object sender, EventArgs e)
 		{
             getcon();
             fillgrid();
 
-		}
+        }
 
         protected void btncon_Click(object sender, EventArgs e)
         {
@@ -72,15 +71,16 @@ namespace WebUni_Project.user
                 cmd.ExecuteNonQuery();
                 clear();
             }
-              //else
-              //  {
-              //      cmd = new SqlCommand("UPDATE stu_tbl SET Name='" + txtnm.Text + "',Gender='" + rdbgen.Text + "',Email='" + txteml.Text + "',City='" + drpct.SelectedValue + "',Password='" + txtpass.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
-              //      cmd.ExecuteNonQuery();
-              //      fillgrid();
-              //      clear();
-              //      Button1.Text = "Save";
-              //  }
-            
+            //else
+            //  {
+            //      cmd = new SqlCommand("UPDATE stu_tbl SET Name='" + txtnm.Text + "',Gender='" + rdbgen.Text + "',Email='" + txteml.Text + "',City='" + drpct.SelectedValue + "',Password='" + txtpass.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
+            //      cmd.ExecuteNonQuery();
+            //      fillgrid();
+            //      clear();
+            //      Button1.Text = "Save";
+            //  }
+
         }
+
     }
 }

@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-lg-9 col-md-9">
                         <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />
-                        <asp:LinkButton ID="lnkUser" runat="server" OnClick="lnkUser_Click" CssClass="profile-initial-link" Visible="false">
+                        <asp:LinkButton ID="lnkUser" runat="server" CssClass="profile-initial-link" Visible="false">
                             <asp:Label ID="Label1" runat="server" Text="U" />
                         </asp:LinkButton><nav class="main-menu">
                             <ul>

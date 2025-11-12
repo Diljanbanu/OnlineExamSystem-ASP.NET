@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="WebUni_Project.user.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/User.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebUni_Project.user.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -11,28 +12,14 @@
         <meta name="description" content="WebUni Education Template">
         <meta name="keywords" content="webuni, education, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Favicon -->
         <link href="img/favicon.ico" rel="shortcut icon" />
-
-        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/owl.carousel.css" />
         <link rel="stylesheet" href="css/style.css" />
         <link href="\css\style.css" rel="stylesheet" />
-
-        <%--        <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\owl.carousel.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\font-awesome.min.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\admin.css" rel="stylesheet" />
-       <link href="file:///c:\users\dell\source\repos\asp.net\onlineexamsystem\css\bootstrap.min.css" rel="stylesheet" />--%>
-
-        <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+        <%-- [Optional Links Removed for Clarity] --%>
         <style>
             /* General Body and Page Setup */
             body, html {
@@ -278,50 +265,79 @@
             }
         </style>
 
+
     </head>
-    <body>
+   <%-- <body>
+        <header class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="site-logo">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="nav-switch">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="~/user/register.aspx" CssClass="site-btn header-btn" Visible="true" />
+                        <asp:LinkButton ID="lnkUser" runat="server" CssClass="profile-initial-link" Visible="false">
+                            <asp:Label ID="Label1" runat="server" Text="U" />
+                        </asp:LinkButton><nav class="main-menu">
+                            <ul>
+                                <li><a href="Index.aspx">Home</a></li>
+                                <li><a href="About-Us.aspx">About us</a></li>
+                                <li><a href="Subject.aspx">Subjects</a></li>
+                                <li><a href="MyExam.aspx">MyExam</a></li>
+                                <li><a href="Contact.aspx">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="hero-section set-bg" data-setbg="img/page-bg/1.jpg">
+            <div class="container">
+                <div class="hero-text text-white">
+                    <h2>Get The Best Free Online Exams</h2>
+                    <asp:Label ID="lblId" runat="server" Text=""></asp:Label><p>The primary aim of this system is to digitize the traditional exam process, making it faster, more efficient, and accessible from anywhere. It eliminates the need for physical exam centers, paper usage, and manual correction. </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1"></div>
+                </div>
+            </div>
+        </section>--%>
 </asp:Content>
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-
     <section class="login-section">
 
         <div class="login-form-container">
 
             <h2 class="login-title">Login</h2>
-
             <div class="form-group">
-                <asp:Label ID="lblunm" runat="server" Text="USERNAME:" CssClass="form-label"></asp:Label>
-                <asp:TextBox ID="txtunm" runat="server" CssClass="form-control" placeholder="Enter your username"></asp:TextBox>
+                <asp:Label ID="lblunm" runat="server" Text="USERNAME:" CssClass="form-label"></asp:Label><asp:TextBox ID="txtunm" runat="server" CssClass="form-control" placeholder="Enter your username"></asp:TextBox>
             </div>
-
             <div class="form-group">
-                <asp:Label ID="lblpass" runat="server" Text="PASSWORD:" CssClass="form-label"></asp:Label>
-                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" CssClass="form-control" placeholder="Enter your password"></asp:TextBox>
+                <asp:Label ID="lblpass" runat="server" Text="PASSWORD:" CssClass="form-label"></asp:Label><asp:TextBox ID="txtpass" runat="server" TextMode="Password" CssClass="form-control" placeholder="Enter your password"></asp:TextBox>
             </div>
-
             <div class="form-group">
-                <%--<asp:Button ID="btnlogin" runat="server" Text="Login" CssClass="btn-login" />--%>
-                <asp:Button ID="btnlog" runat="server" CssClass="btn-login" Text="Login" OnClick="btnlog_Click" />
+                <asp:Button ID="btnlogin" runat="server" Text="Login" CssClass="btn-login" OnClick="btnlogin_Click" />
+                <%--                <asp:Button ID="btnlog" runat="server" CssClass="btn-login" Text="Login" />--%>
             </div>
 
             <div style="text-align: center;">
                 <asp:Label ID="statusMessage" runat="server" CssClass="status-message"></asp:Label>
             </div>
-
             <div class="login-footer">
                 <p>
                     <a href="register.aspx">Registration</a>
                 </p>
             </div>
-
         </div>
-
     </section>
-
 </asp:Content>
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
-
-    <%--<!-- footer section -->
+    <%--    <!-- footer section -->
     <footer class="footer-section spad pb-0">
         <div class="footer-top">
             <div class="footer-warp">
@@ -330,7 +346,7 @@
                         <h4>Contact Info</h4>
                         <ul class="contact-list">
                             <li>1481 Creekside Lane
-                                            <br>
+                                <br>
                                 Avila Beach, CA 931</li>
                             <li>+53 345 7953 32453</li>
                             <li>onlineexam@gmail.com</li>
@@ -366,18 +382,7 @@
                             <li><a href="">System Engeneering</a></li>
                         </ul>
                     </div>
-                    <div class="widget-item">
-                        <h4>Newsletter</h4>
-                        <form class="footer-newslatter">
-                            <input type="email" placeholder="E-mail">
-                            <button class="site-btn">
-                                Subscribe
-                            </button>
-                            <p>
-                                *We don’t spam
-                            </p>
-                        </form>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -397,9 +402,7 @@
             </div>
         </div>
     </footer>
-    <!-- footer section end -->--%>
-
-
+    <!-- footer section end -->
     <!--====== Javascripts & Jquery ======-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -407,6 +410,5 @@
     <script src="js/circle-progress.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    </html>
+    </html>--%>
 </asp:Content>
-
