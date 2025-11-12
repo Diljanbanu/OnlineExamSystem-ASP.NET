@@ -66,13 +66,7 @@ namespace WebUni_Project.user
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
-            //if (!IsPostBack)
-            //{
-            //    LoadUserProfileDetails();
-            //    LoadExamHistory();
-            //    ShowPanel("Profile");
-
-            //}
+           
 
             if (!IsPostBack)
             {
