@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebUni_Project.user
 {
-	public partial class about : System.Web.UI.Page
+	public partial class About_Us1 : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

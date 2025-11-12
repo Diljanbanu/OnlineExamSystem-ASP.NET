@@ -1231,6 +1231,134 @@ ol {
 	/* ... ?????? responsive ??????? ... */
 }
 
+
+
+/* =================================
+------------------------------------
+  CUSTOM CSS FOR ABOUT-US PAGE CONTENT 
+------------------------------------
+====================================*/
+
+/* --- General Spacing and Alignment --- */
+/* The .spad class already provides padding, but let's define the call-to-action-section style */
+.call-to-action-section {
+	background: #edf4f6; /* Light gray background for this section, similar to course-item background */
+}
+
+/* Ensure consistent vertical alignment in the rows */
+.about-us-content .row.align-items-center {
+	align-items: center;
+}
+
+/* --- Placeholder Block Styling --- */
+/* This is used for sections where images or illustrative blocks would normally go */
+.placeholder-block {
+	height: 300px; /* Consistent height for visual balance */
+	background-color: #e4edef; /* Light fade color from the template */
+	color: #474747;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 20px;
+	border-radius: 8px; /* Optional: adds soft corners */
+	padding: 20px;
+}
+
+	/* Styling for the dark placeholder block (Vision) */
+	.placeholder-block[style*="background-color: #474747"] {
+		background-color: #474747 !important;
+		color: white !important;
+	}
+
+/* --- About Text Styling --- */
+.about-text h4 {
+	margin-bottom: 20px;
+	font-size: 24px; /* Using h4 size */
+	color: #474747;
+}
+
+.about-text p {
+	margin-bottom: 25px;
+}
+
+/* --- Feature List Styling --- */
+.about-text ul {
+	list-style: none; /* Remove default bullet points */
+	padding-left: 0;
+}
+
+	.about-text ul li {
+		position: relative;
+		padding-left: 25px; /* Space for custom bullet */
+		margin-bottom: 10px;
+		font-size: 14.1px; /* Consistent with template p */
+		color: #878787;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+		/* Custom Red Bullet Point */
+		.about-text ul li::before {
+			content: "•";
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 20px;
+			line-height: 1.2;
+			color: #d82a4e; /* Primary theme color */
+			font-weight: 700;
+		}
+
+		/* Highlight strong text inside list */
+		.about-text ul li strong {
+			color: #474747; /* Ensure bold text stands out */
+			font-weight: 600;
+		}
+
+/* --- Call to Action Section Tweaks --- */
+
+/* Ensure the text is properly left-aligned in the wrap */
+.call-to-action-wrap .section-title.text-left h2,
+.call-to-action-wrap .section-title.text-left p {
+	text-align: left !important;
+}
+
+.call-to-action-wrap h4 {
+	color: #474747;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+/* Adjust button and arrow */
+.call-to-action-section .site-btn i {
+	margin-left: 10px;
+	transition: margin 0.3s;
+}
+
+.call-to-action-section .site-btn:hover i {
+	margin-left: 15px;
+}
+
+/* Padding for the right column in CTA section */
+.call-to-action-section .right-col {
+	padding: 0 40px;
+}
+
+/* Responsive adjustments for placeholder blocks on smaller screens */
+@media (max-width: 991px) {
+	.placeholder-block {
+		height: 250px;
+		margin-bottom: 40px;
+	}
+
+	.call-to-action-section .right-col {
+		padding: 50px 15px 0; /* Add padding to top of right column on mobile/tablet */
+	}
+}
+
 /* Contact Form Fixes */
 /*.contact-form-warp {
 	background: #d82a4e;
