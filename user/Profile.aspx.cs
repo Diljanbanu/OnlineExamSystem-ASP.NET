@@ -83,39 +83,7 @@ namespace WebUni_Project.user
 
         protected void btnUpdatePassword_Click(object sender, EventArgs e)
         {
-            //if (Session["UserID"] == null) return;
-            //string userId = Session["UserID"].ToString();
-            //string oldPassword = txtOldPassword.Text;
-            //string newPassword = txtNewPassword.Text;
-            //string confirmPassword = txtConfirmPassword.Text;
-
-            //if (newPassword != confirmPassword)
-            //{
-            //    lblPasswordMessage.Text = "New Password and Confirm Password do not match! 🛑";
-            //    lblPasswordMessage.ForeColor = Color.Red;
-            //    return;
-            //}
-
-
-            //getcon();
-            //da = new SqlDataAdapter("UPDATE User_tbl SET Password = @NewPassword WHERE ID = @UserID AND Password = @OldPassword", con);
-            //ds = new DataSet();
-            //da.Fill(ds);
-            //int rowsAffected = cmd.ExecuteNonQuery();
-
-            //if (rowsAffected > 0)
-            //{
-            //    lblPasswordMessage.Text = "Password updated successfully! ✅";
-            //    lblPasswordMessage.ForeColor = Color.Green;
-            //    txtOldPassword.Text = "";
-            //    txtNewPassword.Text = "";
-            //    txtConfirmPassword.Text = "";
-            //}
-            //else
-            //{
-            //    lblPasswordMessage.Text = "Invalid Old Password or an error occurred. ❌";
-            //    lblPasswordMessage.ForeColor = Color.Red;
-            //}
+         
 
             if (Session["UserID"] == null) return;
 
@@ -168,31 +136,7 @@ namespace WebUni_Project.user
 
         protected void btnSaveProfile_Click(object sender, EventArgs e)
         {
-            //if (Session["UserID"] == null) return;
-            //string userId = Session["UserID"].ToString();
-            //string newFullName = txtEditFullName.Text.Trim();
-            //string newEmail = txtEditEmail.Text.Trim();
-            //string newMobileNo = txtEditMobileNo.Text.Trim();
-
-            //getcon();
-
-            //da = new SqlDataAdapter("UPDATE User_tbl SET FullName = @FullName, Email = @Email, MobileNo = @MobileNo WHERE ID = @UserID", con);
-            //ds = new DataSet();
-            //da.Fill(ds);
-
-            //int rowsAffected = cmd.ExecuteNonQuery();
-
-            //if (rowsAffected > 0)
-            //{
-            //    lblProfileMessage.Text = "Profile updated successfully! ✅";
-            //    lblProfileMessage.ForeColor = Color.Green;
-            //    LoadUserProfileDetails(); // Reload details to refresh the main panel
-            //}
-            //else
-            //{
-            //    lblProfileMessage.Text = "Error updating profile. ❌";
-            //    lblProfileMessage.ForeColor = Color.Red;
-            //}
+           
 
             if (Session["UserID"] == null) return;
             string userId = Session["UserID"].ToString();

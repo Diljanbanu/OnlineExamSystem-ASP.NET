@@ -122,10 +122,9 @@
                         </asp:GridView>
 
                         <%-- ✨ REPORT BUTTON ADDITION START ✨ --%>
-                        <div class="mt-3 text-center">
+                        <%--<div class="mt-3 text-center">
                             <asp:Button ID="btnSubjectReport" runat="server" Text="Generate Subject Report 📊" CssClass="btn btn-success btn-lg" OnClick="btnSubjectReport_Click" />
-                            <%-- Note: You will need to implement the btnSubjectReport_Click event handler in your CodeBehind file (addSubject.aspx.cs) --%>
-                        </div>
+                        </div>--%>
                         <%-- ✨ REPORT BUTTON ADDITION END ✨ --%>
 
                     </div>

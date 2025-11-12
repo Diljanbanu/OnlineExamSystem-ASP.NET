@@ -129,17 +129,14 @@ namespace WebUni_Project.user
 
             string userId = Session["UserId"].ToString();
             string examId = Request.QueryString["examId"];
-            // string subId = ViewState["SubId"].ToString(); // LoadMCQs માંથી મેળવેલ SubId
             string subId = ViewState["SubId"] != null ? ViewState["SubId"].ToString() : string.Empty;
             string correctAnswers = correct.ToString();
 
-            cmd = new SqlCommand("Insert Into ExamAttempt_tbl(UserId,SubId,ExamId,CorrectAnswer)Values('" + userId + "','" + examId + "','" + subId + "','" + correctAnswers + "')", con);
-            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("Insert Into ExamAttempt_tbl(UserId,SubId,ExamId,CorrectAnswer)Values('" + userId + "','" + subId + "','" + examId + "','" + correctAnswers + "')", con); cmd.ExecuteNonQuery();
 
             lblResult.Text = $"Correct: {correct}, Wrong: {wrong}, Score: {score}/{total}";
             btnSubmit.Visible = false;
             ClientScript.RegisterStartupScript(this.GetType(), "stopTimerScript", "clearInterval(timer);", true);
-            // 4. Enable the 'Back to Subjects' button now that the test is complete.
             btnBackSub.Enabled = true;
 
         }
