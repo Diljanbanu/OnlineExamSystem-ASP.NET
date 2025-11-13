@@ -140,6 +140,16 @@
                                         <asp:Label ID="Label12" runat="server" Text='<%# Eval("OptionB") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Option C">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label13" runat="server" Text='<%# Eval("OptionC") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Option D">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label14" runat="server" Text='<%# Eval("OptionD") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Correct Ans">
                                     <ItemTemplate>
                                         <asp:Label ID="Label15" runat="server" Text='<%# Eval("CorrectAns") %>' CssClass="badge bg-success"></asp:Label>

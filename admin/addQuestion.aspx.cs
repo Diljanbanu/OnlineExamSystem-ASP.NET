@@ -118,7 +118,7 @@ namespace WebUni_Project.admin
                 int id = Convert.ToInt32(e.CommandArgument);
                 ViewState["id"] = id;
                 getcon();
-                cmd = new SqlCommand("DELETE FROM add_MCQ_tbl WHERE mcqId='" + ViewState["id"] + "'", con);
+                cmd = new SqlCommand("DELETE FROM add_MCQ_tbl WHERE mcqId=" + ViewState["id"] + "", con);
                 cmd.ExecuteNonQuery();
                 fillgrid();
             }
@@ -130,7 +130,7 @@ namespace WebUni_Project.admin
             if (btnque.Text == "Add Question")
             {
                 getcon();
-                cmd =new SqlCommand("insert into add_MCQ_tbl( SubId,ExamId, Question, OptionA, OptionB, OptionC, OptionD, CorrectAns)values('" + drpsub.SelectedValue + "','" + drpexam.SelectedValue + "','" + txtque.Text + "','" + txta.Text + "','" + txtb.Text + "','" + txtc.Text + "','" + txtd.Text + "','"+drpCorrect.SelectedValue+"')",con);
+                cmd =new SqlCommand("insert into add_MCQ_tbl(SubId,ExamId, Question, OptionA, OptionB, OptionC, OptionD, CorrectAns)VALUES('" + drpsub.SelectedValue + "','" + drpexam.SelectedValue + "','" + txtque.Text + "','" + txta.Text + "','" + txtb.Text + "','" + txtc.Text + "','" + txtd.Text + "','"+drpCorrect.SelectedValue+"')",con);
                 cmd.ExecuteNonQuery();
 
                 clear();
@@ -140,6 +140,8 @@ namespace WebUni_Project.admin
             {
                 getcon();
                 cmd = new SqlCommand("UPDATE add_MCQ_tbl SET Question='" + txtque.Text + "',OptionA='" + txta.Text + "',OptionB='" + txtb.Text + "',OptionC='" + txtc.Text + "',OptionD='" + txtd.Text + "',CorrectAns='" + drpCorrect.SelectedValue + "' WHERE mcqId='" + ViewState["id"] + "'", con);
+                //                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^ Corrected OptionD
+                //cmd = new SqlCommand("UPDATE add_MCQ_tbl SET Question='" + txtque.Text + "',OptionA='" + txta.Text + "',OptionB='" + txtb.Text + "',OptionC='" + txtc.Text + "',OptionC='" + txtd.Text + "',OptionD='" + txtd.Text + "',CorrectAns='" + drpCorrect.SelectedValue + "' WHERE mcqId='" + ViewState["id"] + "'", con);
                 cmd.ExecuteNonQuery();
                 clear();
                 fillgrid();
