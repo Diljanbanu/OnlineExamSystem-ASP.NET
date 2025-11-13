@@ -95,7 +95,6 @@ namespace WebUni_Project.user
 
             getcon();
 
-            // Check old password first
             SqlCommand check = new SqlCommand("SELECT COUNT(*) FROM User_tbl WHERE ID='" + userId + "' AND Password='" + oldPassword + "'", con);
             int count = Convert.ToInt32(check.ExecuteScalar());
 

@@ -141,7 +141,6 @@ namespace WebUni_Project.admin
                 getcon();
                 cmd = new SqlCommand("UPDATE add_MCQ_tbl SET Question='" + txtque.Text + "',OptionA='" + txta.Text + "',OptionB='" + txtb.Text + "',OptionC='" + txtc.Text + "',OptionD='" + txtd.Text + "',CorrectAns='" + drpCorrect.SelectedValue + "' WHERE mcqId='" + ViewState["id"] + "'", con);
                 //                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^ Corrected OptionD
-                //cmd = new SqlCommand("UPDATE add_MCQ_tbl SET Question='" + txtque.Text + "',OptionA='" + txta.Text + "',OptionB='" + txtb.Text + "',OptionC='" + txtc.Text + "',OptionC='" + txtd.Text + "',OptionD='" + txtd.Text + "',CorrectAns='" + drpCorrect.SelectedValue + "' WHERE mcqId='" + ViewState["id"] + "'", con);
                 cmd.ExecuteNonQuery();
                 clear();
                 fillgrid();

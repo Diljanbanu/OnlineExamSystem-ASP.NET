@@ -59,14 +59,7 @@ namespace WebUni_Project.user
                 clear();
                 Response.Redirect("Login.aspx");
             }
-            //else
-            //{
-            //    cmd = new SqlCommand("UPDATE stu_tbl SET Name='" + txtnm.Text + "',Gender='" + rdbgen.Text + "',Email='" + txteml.Text + "',City='" + drpct.SelectedValue + "',Password='" + txtpass.Text + "' WHERE Id='" + ViewState["id"] + "'", con);
-            //    cmd.ExecuteNonQuery();
-            //    fillgrid();
-            //    clear();
-            //    Button1.Text = "Save";
-            //}
+            
         }
     }
 }

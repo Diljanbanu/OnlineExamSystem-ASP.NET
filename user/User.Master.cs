@@ -32,22 +32,7 @@ namespace WebUni_Project.user
 
         protected void Page_Load(object sender, EventArgs e)
 		{
-            //if (lnkUser == null || Label1 == null)
-            //    return;
-
-            //if (Session["UserName"] != null)
-            //{
-            //    lnkUser.Visible = true;
-
-            //    string userName = Session["UserName"].ToString();
-            //    Label1.Text = !string.IsNullOrWhiteSpace(userName)
-            //        ? userName.Trim().Substring(0, 1).ToUpper()
-            //        : "U";
-            //}
-            //else
-            //{
-            //    lnkUser.Visible = false;
-            //}
+           
         }
         
     }
