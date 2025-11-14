@@ -99,7 +99,13 @@ namespace WebUni_Project.user
 
                         DateTime AddedDate = DateTime.Now;
 
-                        cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + AddedDate + "','Pending')", con);
+                        //cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + AddedDate + "','Pending')", con);
+                        //cmd.ExecuteNonQuery();
+
+                        string sqlFormattedDate = AddedDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+                        cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + sqlFormattedDate + "','Pending')", con);
+
                         cmd.ExecuteNonQuery();
 
                     }

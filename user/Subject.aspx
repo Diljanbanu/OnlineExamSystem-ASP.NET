@@ -559,61 +559,53 @@
 <asp:Content ID="Content7" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <footer class="footer-section spad pb-0">
         <div class="footer-top">
-            <div class="footer-warp">
-                <div class="row">
-                    <div class="widget-item">
-                        <h4>Contact Info</h4>
-                        <ul class="contact-list">
-                            <li>1481 Creekside Lane
-                                <br>
-                                Avila Beach, CA 931</li>
-                            <li>+53 345 7953 32453</li>
-                            <li>onlineexam@gmail.com</li>
-                        </ul>
-                    </div>
-                    <div class="widget-item">
-                        <h4>Engeneering</h4>
-                        <ul>
-                            <li><a href="">Applied Studies</a></li>
-                            <li><a href="">Computer Engeneering</a></li>
-                            <li><a href="">Software Engeneering</a></li>
-                            <li><a href="">Informational Engeneering</a></li>
-                            <li><a href="">System Engeneering</a></li>
-                        </ul>
-                    </div>
-                    <div class="widget-item">
-                        <h4>Graphic Design</h4>
-                        <ul>
-                            <li><a href="">Applied Studies</a></li>
-                            <li><a href="">Computer Engeneering</a></li>
-                            <li><a href="">Software Engeneering</a></li>
-                            <li><a href="">Informational Engeneering</a></li>
-                            <li><a href="">System Engeneering</a></li>
-                        </ul>
-                    </div>
-                    <div class="widget-item">
-                        <h4>Development</h4>
-                        <ul>
-                            <li><a href="">Applied Studies</a></li>
-                            <li><a href="">Computer Engeneering</a></li>
-                            <li><a href="">Software Engeneering</a></li>
-                            <li><a href="">Informational Engeneering</a></li>
-                            <li><a href="">System Engeneering</a></li>
-                        </ul>
-                    </div>
-                    <%--<div class="widget-item">
-                        <h4>Newsletter</h4>
-                        <form class="footer-newslatter">
-                            <input type="email" placeholder="E-mail">
-                            <button class="site-btn">
-                                Subscribe
-                            </button>
-                            <p>
-                                *We don’t spam
-                            </p>
-                        </form>
-                    </div>--%>
+            <div class="footer-warp" style="display: flex; justify-content: space-evenly; width: 100%; max-width: 1559px; margin: 0 auto; padding: 0 50px;">
+
+                <div class="widget-item" style="flex: 1;">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-list">
+                        <li>1481 Creekside Lane
+                        <br>
+                            Avila Beach, CA 931</li>
+                        <li>+53 345 7953 32453</li>
+                        <li>onlineexam@gmail.com</li>
+                    </ul>
                 </div>
+
+                <div class="widget-item" style="flex: 1;">
+                    <h4>Engeneering</h4>
+                    <ul>
+                        <li><a href="">Computer Engeneering</a></li>
+                        <li><a href="">Software Engeneering</a></li>
+                        <li><a href="">Informational Engeneering</a></li>
+                        <li><a href="">System Engeneering</a></li>
+                        <li><a href="">Mechanical Engineering</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget-item" style="flex: 1;">
+                    <h4>Graphic Design</h4>
+                    <ul>
+                        <li><a href="">Brand Identity Designs</a></li>
+                        <li><a href="">UI/UX Design</a></li>
+                        <li><a href="">Motion Graphics</a></li>
+                        <li><a href="">Editorial Design</a></li>
+                        <li><a href="">Packaging Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget-item" style="flex: 1;">
+                    <h4>Development</h4>
+                    <ul>
+                        <li><a href="">Web Development</a></li>
+                        <li><a href="">Mobile App Development</a></li>
+                        <li><a href="">Data Science</a></li>
+                        <li><a href="">Cloud Development</a></li>
+                        <li><a href="">DevOps Engineering</a></li>
+                    </ul>
+                </div>
+
+
             </div>
         </div>
         <div class="footer-bottom">
