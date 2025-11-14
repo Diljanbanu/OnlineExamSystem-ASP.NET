@@ -132,12 +132,12 @@
                         <a href="User/register.aspx" class="site-btn header-btn">Register</a>
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="index.aspx">Home</a></li>
-                                <li><a href="about.aspx">About us</a></li>
-                                <li><a href="Subject.aspx">Subjects</a></li>
-                                <li><a href="MyExam.aspx">MyExam</a></li>
-                                <li><a href="contact.aspx">Contact</a></li>
-                                <li><a href="Profile.aspx">Profile</a></li>
+                                 <li><a href="Index.aspx">Home</a></li>
+ <li><a href="About-Us.aspx">About us</a></li>
+ <li><a href="Subject.aspx">Subjects</a></li>
+ <li><a href="MyExam.aspx">MyExam</a></li>
+ <li><a href="Contact.aspx">Contact</a></li>
+ <li><a href="Profile.aspx">Profile</a></li>
 
                             </ul>
                         </nav>

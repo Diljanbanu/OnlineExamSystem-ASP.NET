@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="row align-items-center" style="margin-bottom: 80px;">
+            <%--<div class="row align-items-center" style="margin-bottom: 80px;">
                 <div class="col-lg-6 order-lg-1 order-2">
                     <div class="about-text">
                         <h4>From Frustration to Innovation: The Story Behind Our Platform</h4>
@@ -99,7 +99,7 @@
                         <div class="placeholder-block" style="height: 350px;">Innovation in Assessment</div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="row" style="margin-bottom: 80px;">
                 <div class="col-lg-12">

@@ -439,19 +439,22 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9">
-                    <a href="register.aspx" class="site-btn header-btn">Register</a>
-                    <nav class="main-menu">
-                        <ul>
-                            <li><a href="index.aspx">Home</a></li>
-                            <li><a href="about.aspx">About us</a></li>
-                            <li class="active"><a href="Subject.aspx">Subjects</a></li>
-                            <li><a href="MyExam.aspx">MyExam</a></li>
-                            <li><a href="contact.aspx">Contact</a></li>
-                             <li><a href="Profile.aspx">Profile</a></li>
+     <asp:LinkButton ID="lnkRegister" runat="server" Text="Register" PostBackUrl="register.aspx" CssClass="site-btn header-btn" Visible="true" />
+     <asp:LinkButton ID="lnkUser" runat="server" CssClass="profile-initial-link" Visible="false">
+         <asp:Label ID="lblUser" runat="server" Text="U"></asp:Label>
+     </asp:LinkButton>
+     <nav class="main-menu">
+         <ul>
+             <li><a href="Index.aspx">Home</a></li>
+             <li><a href="About-Us.aspx">About us</a></li>
+             <li><a href="Subject.aspx">Subjects</a></li>
+             <li><a href="MyExam.aspx">MyExam</a></li>
+             <li><a href="Contact.aspx">Contact</a></li>
+             <li><a href="Profile.aspx">Profile</a></li>
 
-                        </ul>
-                    </nav>
-                </div>
+         </ul>
+     </nav>
+ </div>
             </div>
         </div>
     </header>
