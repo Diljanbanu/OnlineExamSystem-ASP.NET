@@ -31,9 +31,9 @@
                 </ul>
             </nav>--%>
             
-               <%-- <div class="login-container">
+               <div class="login-container">
                   
-                    <form>
+                     <%--<form>
                         <div class="mb-3">
                             <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
                             <asp:TextBox ID="txteml" runat="server"></asp:TextBox>
@@ -47,7 +47,7 @@
                         <p class="mt-3 text-center">No account? <a href="register.aspx">Register</a></p>
                     </form>
                 </div>--%>
-        <main class="content flex-fill p-4">
+       <%-- <main class="content flex-fill p-4">
     <h2 style="text-align: center; margin-bottom: 2rem;">Admin Login</h2>
     <div style="display: flex; justify-content: center;">
         <form style="width: 100%; max-width: 400px; padding: 2rem; background-color: #ffffff; border: 1px solid #ced4da; border-radius: 0.5rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);">
@@ -64,9 +64,29 @@
             </div>
         </form>
     </div>
-    <p style="text-align: center; margin-top: 1rem;">No account? <a href="register.aspx" style="color: #0d6efd; text-decoration: none;">Register</a></p>
-</main>
-            </main>
+<%--    <p style="text-align: center; margin-top: 1rem;">No account? <a href="register.aspx" style="color: #0d6efd; text-decoration: none;">Register</a></p>
+
+            </main>--%>
+        <main class="content flex-fill p-4">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Admin Login</h2>
+            <div style="display: flex; justify-content: center;">
+                
+                <div style="width: 100%; max-width: 400px; padding: 2rem; background-color: #ffffff; border: 1px solid #ced4da; border-radius: 0.5rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; flex-direction: column;">
+                            <asp:Label ID="Label1" runat="server" Text="Email" style="margin-bottom: 0.5rem; font-weight: bold;"></asp:Label>
+                            <asp:TextBox ID="txteml" runat="server" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem;"></asp:TextBox>
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <asp:Label ID="Label2" runat="server" Text="Password" style="margin-bottom: 0.5rem; font-weight: bold;"></asp:Label>
+                            <asp:TextBox ID="txtpsw" runat="server" TextMode="Password" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem;"></asp:TextBox>
+                        </div>
+                        <asp:Button ID="btnlog" runat="server" Text="Login" style="width: 100%; padding: 0.75rem; background-color: #0d6efd; color: white; border: none; border-radius: 0.25rem; cursor: pointer;" OnClick="btnlog_Click"></asp:Button>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
         </div>
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">

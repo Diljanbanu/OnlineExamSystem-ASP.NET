@@ -44,10 +44,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-info">Total Subjects</h5>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <asp:Label ID="lblTotalSubjects" runat="server" Text="--" CssClass="display-4 mb-0"></asp:Label>
+                                        <asp:Label ID="lblTotalSubjects" runat="server" Text="6" CssClass="display-4 mb-0"></asp:Label>
                                         <i class="bi bi-book-fill fs-1 text-info"></i>
 
-                                        [Image of a book icon]
+                                        <%--[Image of a book icon]--%>
 
                            
                                     </div>
@@ -61,7 +61,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-warning">Total Exams</h5>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <asp:Label ID="lblTotalExams" runat="server" Text="--" CssClass="display-4 mb-0"></asp:Label>
+                                        <asp:Label ID="lblTotalExams" runat="server" Text="12" CssClass="display-4 mb-0"></asp:Label>
                                         <i class="bi bi-patch-question-fill fs-1 text-warning"></i>
                                     </div>
                                     <small class="text-muted">Scheduled exams</small>
@@ -74,10 +74,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-success">Total Students</h5>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <asp:Label ID="lblTotalStudents" runat="server" Text="--" CssClass="display-4 mb-0"></asp:Label>
+                                        <asp:Label ID="lblTotalStudents" runat="server" Text="8" CssClass="display-4 mb-0"></asp:Label>
                                         <i class="bi bi-people-fill fs-1 text-success"></i>
 
-                                        [Image of a group of people icon]
+                                        <%--[Image of a group of people icon]--%>
 
                            
                                     </div>

@@ -77,45 +77,75 @@ namespace WebUni_Project.user
 
         protected void dlexam_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            //if (e.CommandName == "cmd_add")
+            //{
+            //    getcon();
+            //    da = new SqlDataAdapter("SELECT * FROM User_tbl WHERE Email='" + Session["user"] + "'", con);
+            //    ds = new DataSet();
+            //    da.Fill(ds);
+            //    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //    {
+            //        int userid = Convert.ToInt32(ds.Tables[0].Rows[0]["Id"]);
+            //        int examid = Convert.ToInt32(e.CommandArgument);
+
+            //        da = new SqlDataAdapter("SELECT SubId FROM add_Exam_tbl WHERE ExamId='" + examid + "'", con);
+            //        ds = new DataSet();
+            //        da.Fill(ds);
+
+            //        if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //        {
+            //            string subname = ds.Tables[0].Rows[0]["SubId"].ToString();
+            //            DateTime AddedDate = DateTime.Now;
+            //            string sqlFormattedDate = AddedDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            //            cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + sqlFormattedDate + "','Pending')", con);
+            //            cmd.ExecuteNonQuery();
+            //        }
+
+            //    }
+
+            //}
+            //else if (e.CommandName == "cmd_attemp")
+            //{
+
+            //    int examid = Convert.ToInt32(e.CommandArgument);
+            //    Response.Redirect("MCQ.aspx?examId=" + examid);
+            //}
+
+
             if (e.CommandName == "cmd_add")
             {
-                getcon();
-                da = new SqlDataAdapter("SELECT * FROM User_tbl WHERE Email='" + Session["user"] + "'", con);
-                ds = new DataSet();
-                da.Fill(ds);
-                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                if (Session["user"] != null && Session["user"].ToString() != "")
                 {
-                    int userid = Convert.ToInt32(ds.Tables[0].Rows[0]["Id"]);
-                    int examid = Convert.ToInt32(e.CommandArgument);
-
-                    da = new SqlDataAdapter("SELECT SubId FROM add_Exam_tbl WHERE ExamId='" + examid + "'", con);
+                    getcon();
+                    da = new SqlDataAdapter("SELECT * FROM User_tbl WHERE Email='" + Session["user"] + "'", con);
                     ds = new DataSet();
                     da.Fill(ds);
-
                     if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
-                        string subname = ds.Tables[0].Rows[0]["SubId"].ToString();
+                        int userid = Convert.ToInt32(ds.Tables[0].Rows[0]["Id"]);
+                        int examid = Convert.ToInt32(e.CommandArgument);
 
+                        da = new SqlDataAdapter("SELECT SubId FROM add_Exam_tbl WHERE ExamId='" + examid + "'", con);
+                        ds = new DataSet();
+                        da.Fill(ds);
 
-                        DateTime AddedDate = DateTime.Now;
-
-                        //cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + AddedDate + "','Pending')", con);
-                        //cmd.ExecuteNonQuery();
-
-                        string sqlFormattedDate = AddedDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
-
-                        cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + sqlFormattedDate + "','Pending')", con);
-
-                        cmd.ExecuteNonQuery();
-
+                        if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                        {
+                            string subname = ds.Tables[0].Rows[0]["SubId"].ToString();
+                            DateTime AddedDate = DateTime.Now;
+                            string sqlFormattedDate = AddedDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                            cmd = new SqlCommand("INSERT INTO add_MyExam_tbl(UserId,SubjectName,ExamId,AddedDate,Status)VALUES('" + userid + "','" + subname + "','" + examid + "','" + sqlFormattedDate + "','Pending')", con);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-                   
                 }
-              
+                else
+                {
+                    Response.Redirect("login.aspx");
+                }
             }
             else if (e.CommandName == "cmd_attemp")
             {
-
                 int examid = Convert.ToInt32(e.CommandArgument);
                 Response.Redirect("MCQ.aspx?examId=" + examid);
             }
