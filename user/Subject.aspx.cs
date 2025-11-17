@@ -146,10 +146,17 @@ namespace WebUni_Project.user
             }
             else if (e.CommandName == "cmd_attemp")
             {
+                //int examid = Convert.ToInt32(e.CommandArgument);
+                //Response.Redirect("MCQ.aspx?examId=" + examid);
+
                 int examid = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("MCQ.aspx?examId=" + examid);
+
+                string subjectId = ViewState["SubId"].ToString();
+
+                Response.Redirect("MCQ.aspx?examId=" + examid + "&subId=" + subjectId);
             }
         }
+        
 
         protected void btnBackSub_Click(object sender, EventArgs e)
         {

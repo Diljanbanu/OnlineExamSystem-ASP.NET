@@ -27,14 +27,31 @@ namespace WebUni_Project.admin
         }
 
 
+        //void fillgrid()
+        //{
+        //    getcon();
+        //    da = new SqlDataAdapter("SELECT * FROM ExamAttempt_tbl", con);
+        //    ds = new DataSet();
+        //    da.Fill(ds);
+
+        //    GridView1.DataSource = ds;
+        //    GridView1.DataBind();
+        //}
+
         void fillgrid()
         {
             getcon();
-            da = new SqlDataAdapter("SELECT * FROM ExamAttempt_tbl", con);
+
+            string query = "SELECT ea.Id, ea.UserId, s.SubjectName, ea.ExamId, ea.CorrectAnswer, ea.AttemptDate " +
+              "FROM ExamAttempt_tbl ea " +
+              "INNER JOIN add_Subject_tbl s ON ea.SubID = s.ID " +
+              "ORDER BY ea.AttemptDate DESC";
+
+            da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
 
-            GridView1.DataSource = ds;
+            GridView1.DataSource = ds;
             GridView1.DataBind();
         }
         void select()

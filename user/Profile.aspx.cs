@@ -86,14 +86,8 @@ namespace WebUni_Project.user
 
             getcon();
 
-            // ✨✨✨ અહીં JOIN Query અપડેટ કરી છે ✨✨✨
-            // (ધારીને કે સબ્જેક્ટ ટેબલનું નામ 'Subject_tbl' છે)
-            string query = "SELECT s.SubName, ea.ExamId, ea.CorrectAnswer, ea.AttemptDate " +
-                           "FROM ExamAttempt_tbl ea " +
-                           "INNER JOIN Subject_tbl s ON ea.SubID = s.SubID " +
-                           "WHERE ea.UserID = '" + userId + "' " +
-                           "ORDER BY ea.AttemptDate DESC";
-            da = new SqlDataAdapter(query, con);
+  
+            da = new SqlDataAdapter("SELECT s.SubjectName, ea.ExamId, ea.CorrectAnswer, ea.AttemptDate FROM ExamAttempt_tbl ea INNER JOIN add_Subject_tbl s ON ea.SubID = s.ID WHERE ea.UserID = '"+ userId + "' ORDER BY ea.AttemptDate DESC", con);
 
             ds = new DataSet();
             da.Fill(ds);
@@ -112,7 +106,6 @@ namespace WebUni_Project.user
 
             if (Session["UserID"] != null && Session["UserID"].ToString() != "")
             {
-                // યુઝર લોગ-ઇન છે, તેથી પેજ લોડ કરો
                 if (!IsPostBack)
                 {
                     LoadUserProfileDetails();
@@ -121,7 +114,6 @@ namespace WebUni_Project.user
             }
             else
             {
-                // યુઝર લોગ-ઇન નથી, login.aspx પર મોકલો
                 Response.Redirect("~/user/login.aspx");
             }
         }

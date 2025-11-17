@@ -62,12 +62,10 @@ namespace WebUni_Project.user
                 {
                     string examId = Request.QueryString["examId"];
                     LoadMCQs(examId);
-                    // *** ADD THIS BLOCK ***
                     if (Request.QueryString["subId"] != null)
                     {
                         ViewState["SubId"] = Request.QueryString["subId"];
                     }
-                    // *********************
                 }
                 else
                 {
