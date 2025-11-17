@@ -123,9 +123,13 @@ namespace WebUni_Project.user
 
             int total = correct + wrong;
             int score = correct * 1;
+            if (Session["UserID"] == null)
+            {
+                lblResult.Text = "Error: User session not found. Please log in again.";
+                return;
+            }
 
-
-            string userId = Session["UserId"].ToString();
+            string userId = Session["UserID"].ToString();
             string examId = Request.QueryString["examId"];
             string subId = ViewState["SubId"] != null ? ViewState["SubId"].ToString() : string.Empty;
             string correctAnswers = correct.ToString();

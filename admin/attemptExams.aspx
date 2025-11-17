@@ -50,9 +50,9 @@
                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="SubId">
+                                <asp:TemplateField HeaderText="Subject Name">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("SubId") %>'></asp:Label>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("SubjectName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="ExamId">
